@@ -17,7 +17,7 @@ class GoogleButton extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor = Colors.white,
     this.textColor = const Color(0xff48505E),
-    this.width = 361,
+    this.width = 368,
     this.height = 44,
     this.fontSize = 16.0,
     this.borderColor = const Color(0xffB9BDC7),
@@ -39,6 +39,7 @@ class GoogleButton extends StatelessWidget {
         style: TextStyle(
           color: textColor,
           fontSize: fontSize,
+          fontFamily: 'SoraR'
         ),
       ),
       style: ElevatedButton.styleFrom(
