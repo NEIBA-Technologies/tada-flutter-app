@@ -179,8 +179,7 @@ class _SignUpFormState extends State<SignUpForm> {
               GoogleButton(
                 onPressed: () {
                   // Action pour le bouton
-                },
-                backgroundColor: Colors.white, 
+                }, 
                 textColor: const Color(0xff48505E), 
                 borderColor: const Color(0xffB9BDC7), 
                 borderWidth: 1, 
