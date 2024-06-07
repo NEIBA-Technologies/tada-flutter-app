@@ -125,14 +125,14 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
                         children: [
                           SvgPicture.asset(
                             'asset/images/retour.svg',
-                            height: 24,
-                            width: 24,
-                            color: Colors.blue,
+                            height: 11.67,
+                            width: 11.67,
+                            color: const Color(0xff48505E),
                           ),
                           const SizedBox(width: 4), // Espacement entre l'image et le texte
                           const Text(
                             'Retour à connexion',
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color:  Color(0xff48505E)),
                           ),
                         ],
                       ),

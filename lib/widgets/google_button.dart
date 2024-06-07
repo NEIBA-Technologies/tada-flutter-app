@@ -8,23 +8,29 @@ class GoogleButton extends StatelessWidget {
   final double height;
   final double fontSize;
   final VoidCallback onPressed;
+  final Color borderColor;
+  final double borderWidth;
+  final double borderRadius; 
 
   const GoogleButton({
-    Key? key,
+    super.key,
     required this.onPressed,
-    this.backgroundColor = Colors.red,
-    this.textColor = Colors.white,
-    this.width = double.infinity,
-    this.height = 48.0,
+    this.backgroundColor = Colors.white,
+    this.textColor = const Color(0xff48505E),
+    this.width = 361,
+    this.height = 44,
     this.fontSize = 16.0,
-  }) : super(key: key);
+    this.borderColor = const Color(0xffB9BDC7),
+    this.borderWidth = 1,
+    this.borderRadius = 8.0, 
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: onPressed,
       icon: SvgPicture.asset(
-        'asset/images/google.svg', // chemin vers votre fichier SVG
+        'asset/images/google.svg', 
         height: 24,
         width: 24,
       ),
@@ -38,6 +44,10 @@ class GoogleButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: Size(width, height), // Taille minimale du bouton
         backgroundColor: backgroundColor,
+        side: BorderSide(color: borderColor, width: borderWidth), // Bordure
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius), // Arrondi des bords
+        ),
       ),
     );
   }

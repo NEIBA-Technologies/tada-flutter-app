@@ -178,9 +178,15 @@ class _SignUpFormState extends State<SignUpForm> {
               const SizedBox(height: 10),
               GoogleButton(
                 onPressed: () {
-                  // Action pour le bouton "Continuer avec Google"
+                  // Action pour le bouton
                 },
+                backgroundColor: Colors.white, 
+                textColor: const Color(0xff48505E), 
+                borderColor: const Color(0xffB9BDC7), 
+                borderWidth: 1, 
+                borderRadius: 8, 
               ),
+
               const SizedBox(height: 20),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

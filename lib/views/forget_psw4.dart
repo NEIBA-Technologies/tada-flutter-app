@@ -67,16 +67,16 @@ class ForgetPSW4 extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SvgPicture.asset(
-                      'asset/images/retour.svg', // Assurez-vous que le chemin est correct
-                      height: 24,
-                      width: 24,
-                      color: Colors.blue,
-                    ),
-                    const SizedBox(width: 4), // Espacement entre l'image et le texte
-                    const Text(
-                      'Retour à la connexion',
-                      style: TextStyle(color: Colors.blue),
-                    ),
+                            'asset/images/retour.svg',
+                            height: 11.67,
+                            width: 11.67,
+                            color: const Color(0xff48505E),
+                          ),
+                          const SizedBox(width: 4), // Espacement entre l'image et le texte
+                          const Text(
+                            'Retour à connexion',
+                            style: TextStyle(color:  Color(0xff48505E)),
+                          ),
                   ],
                 ),
               ),
