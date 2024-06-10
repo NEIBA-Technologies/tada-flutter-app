@@ -89,6 +89,10 @@ flutter:
     - asset/images/mail.svg
     - asset/images/greencheck.png
     - asset/images/retour.svg
+    - asset/images/Home_Icon.svg
+    - asset/images/Profil_Icon.svg
+    - asset/images/Tache_Icon.svg
+    - asset/images/Walet_Icon.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
