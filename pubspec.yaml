@@ -93,6 +93,11 @@ flutter:
     - asset/images/Profil_Icon.svg
     - asset/images/Tache_Icon.svg
     - asset/images/Walet_Icon.svg
+    - asset/images/notif_Icon.svg
+    - asset/images/enregistre_Icon.svg
+    - asset/images/crisis_alert.svg
+    - asset/images/cam_Icon.svg
+    - asset/images/book_Icon.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

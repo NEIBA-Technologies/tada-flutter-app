@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart'; // Assurez-vous d'importer flutter_svg
-import 'package:tada/views/forget_psw3.dart';
+import 'package:tada/views/central_page.dart';
+//import 'package:tada/views/forget_psw3.dart';
+//import 'package:tada/views/notification.dart';
 import 'package:tada/widgets/app_button.dart';
 
 class ForgetPSW4 extends StatelessWidget {
@@ -52,7 +54,7 @@ class ForgetPSW4 extends StatelessWidget {
                       onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const ForgetPSW3())
+                          MaterialPageRoute(builder: (context) => const CentralPage())
                         );
                       },
                     ),

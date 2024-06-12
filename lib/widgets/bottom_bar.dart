@@ -7,7 +7,7 @@ class BottomBar extends StatelessWidget {
   final int currentIndex;
 
   const BottomBar({
-    super.key, 
+    super.key,
     required this.items,
     required this.onTap,
     required this.currentIndex,
@@ -25,10 +25,11 @@ class BottomBar extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,  
               children: <Widget>[
                 SvgPicture.asset(
                   item.iconPath,
-                  color: index == currentIndex ? Colors.blue : Colors.grey,
+                  color: index == currentIndex ? const Color(0xffFF5B4A) : const Color(0xff667085),
                   height: 24.0,
                   width: 24.0,
                 ),
@@ -36,7 +37,7 @@ class BottomBar extends StatelessWidget {
                 Text(
                   item.label,
                   style: TextStyle(
-                    color: index == currentIndex ? Colors.blue : Colors.grey,
+                    color: index == currentIndex ? const Color(0xffFF5B4A) : const Color(0xff667085),
                     fontSize: 12.0,
                   ),
                 ),
