@@ -22,8 +22,8 @@ class CustomCard extends StatelessWidget {
     this.bottomText1, // Nullable
     this.bottomText2, // Nullable
     required this.leftBackgroundColor,
-    this.width = 300,
-    this.height = 150,
+    this.width = 361,
+    this.height = 105,
     this.borderRadius = 8.0,
   });
 
@@ -38,7 +38,7 @@ class CustomCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(right: 15.0),
           child: Row(
             children: [
               Container(

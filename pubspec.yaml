@@ -98,6 +98,8 @@ flutter:
     - asset/images/crisis_alert.svg
     - asset/images/cam_Icon.svg
     - asset/images/book_Icon.svg
+    - asset/images/carte.png
+    - asset/images/Loaction.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

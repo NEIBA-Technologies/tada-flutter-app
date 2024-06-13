@@ -3,11 +3,9 @@ import 'package:tada/views/accueil.dart';
 import 'package:tada/views/portefeuil.dart';
 import 'package:tada/views/profil.dart';
 import 'package:tada/views/tache.dart';
-import 'package:tada/widgets/bottom_bar.dart';
-//import 'home_tab.dart';
-//import 'search_tab.dart';
-//import 'notifications_tab.dart';
-//import 'profile_tab.dart';
+//import 'package:tada/widgets/app_button.dart';
+import 'package:tada/widgets/bottom_bar.dart'; 
+
 
 class CentralPage extends StatefulWidget {
   const CentralPage({super.key});
@@ -18,30 +16,60 @@ class CentralPage extends StatefulWidget {
 
 class _CentralPageState extends State<CentralPage> {
   int _currentIndex = 0;
-  final PageController _pageController = PageController();
+  final List<GlobalKey<NavigatorState>> _navigatorKeys = [
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
+  ];
 
   void _onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-    _pageController.jumpToPage(index);
+    if (index == _currentIndex) {
+      _navigatorKeys[index].currentState?.popUntil((route) => route.isFirst);
+    } else {
+      setState(() {
+        _currentIndex = index;
+      });
+    }
+  }
+
+  Widget _buildOffstageNavigator(int index) {
+    return Offstage(
+      offstage: _currentIndex != index,
+      child: Navigator(
+        key: _navigatorKeys[index],
+        onGenerateRoute: (routeSettings) {
+          return MaterialPageRoute(
+            builder: (context) {
+              switch (index) {
+                case 0:
+                  return const Accueil();
+                case 1:
+                  return const Tache();
+                case 2:
+                  return  Portefeuil();
+          
+                case 3:
+                  return const Profil();
+                default:
+                  return const Accueil();
+              }
+            },
+          );
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        children: const <Widget>[
-          Accueil(),
-          Tache(),
-          Portefeuil(),
-          Profil(),
+      body: Stack(
+        children: [
+          _buildOffstageNavigator(0),
+          _buildOffstageNavigator(1),
+          _buildOffstageNavigator(2),
+          _buildOffstageNavigator(3),
         ],
       ),
       bottomNavigationBar: BottomBar(
