@@ -100,6 +100,16 @@ flutter:
     - asset/images/book_Icon.svg
     - asset/images/carte.png
     - asset/images/Loaction.png
+    - asset/images/profil_picture.jpg
+    - asset/images/exit_Icon.svg
+    - asset/images/right_arrow_Icon.svg
+    - asset/images/grid_Icon1.svg
+    - asset/images/grid_Icon2.svg
+    - asset/images/grid_Icon3.svg
+    - asset/images/grid_Icon4.svg
+    - asset/images/grid_Icon5.svg
+    - asset/images/grid_Icon6.svg
+    - asset/images/heart_Icon.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

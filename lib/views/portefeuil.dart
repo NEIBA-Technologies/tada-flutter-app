@@ -61,6 +61,14 @@ class Portefeuil extends StatelessWidget {
       additionalText: 'Description 2',
       additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
     ),
+    Transaction(
+      text1: 'Transaction 2',
+      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
+      text2: '11:00 AM',
+      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
+      additionalText: 'Description 2',
+      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+    ),
     // Ajoutez d'autres transactions ici
   ];
 
@@ -75,6 +83,7 @@ class Portefeuil extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 10.0),
           Container(
             width: width,
             height: height,
@@ -113,9 +122,9 @@ class Portefeuil extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 3),
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
                 ),
               ],
             ),
@@ -157,11 +166,25 @@ class Portefeuil extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16.0),
+          const SizedBox(height: 20.0),
           Container(
             width: 361,
-            color: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(8.0),
+                topRight: Radius.circular(8.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 3.0),
             child: const Align(
               alignment: Alignment.center,
               child: Text(
@@ -173,52 +196,75 @@ class Portefeuil extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 5.0), // Spacing before the list
+          const SizedBox(height: 3.0), // Spacing before the list
           Expanded(
             child: Container(
               width: 361,
-              color: Colors.white, // Ajoutez une couleur de fond blanc
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(8.0),
+                  bottomRight: Radius.circular(8.0),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 1,
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: ListView.builder(
                 itemCount: transactions.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    transactions[index].text1,
-                                    style: transactions[index].text1Style,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        transactions[index].text1,
+                                        style: transactions[index].text1Style,
+                                      ),
+                                      Text(
+                                        transactions[index].text2,
+                                        style: transactions[index].text2Style,
+                                      ),
+                                    ],
                                   ),
+                                  const SizedBox(height: 8.0), // Spacing between rows
                                   Text(
-                                    transactions[index].text2,
-                                    style: transactions[index].text2Style,
+                                    transactions[index].additionalText,
+                                    style: transactions[index].additionalTextStyle,
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 8.0), // Spacing between rows
-                              Text(
-                                transactions[index].additionalText,
-                                style: transactions[index].additionalTextStyle,
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      Divider(
+                        color: Colors.grey[300],
+                        thickness: 1,
+                      ),
+                    ],
                   );
                 },
               ),
             ),
           ),
+          const SizedBox(height: 20.0),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: const CustomCard(
@@ -234,6 +280,7 @@ class Portefeuil extends StatelessWidget {
               borderRadius: 4.0,
             ),
           ),
+          const SizedBox(height: 15.0),
         ],
       ),
     );
