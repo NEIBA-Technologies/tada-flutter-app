@@ -110,6 +110,11 @@ flutter:
     - asset/images/grid_Icon5.svg
     - asset/images/grid_Icon6.svg
     - asset/images/heart_Icon.svg
+    - asset/images/money_Icon.svg
+    - asset/images/horloge_Icon.svg
+    - asset/images/calendar_Icon.svg
+    - asset/images/celphoneIcon.svg
+    - asset/images/cam_grey_Icon.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

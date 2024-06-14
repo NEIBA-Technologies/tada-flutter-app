@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tada/views/carte.dart';
+import 'package:tada/views/mapping_instantane1.dart';
 import 'package:tada/views/notification.dart';
+import 'package:tada/views/visite_de_magasin1.dart';
 import 'package:tada/widgets/app_button.dart';
 import 'package:tada/widgets/custom_card.dart';
 
@@ -14,7 +16,7 @@ class Accueil extends StatelessWidget {
       backgroundColor: const Color(0xffF5F5F5),
       appBar: AppBar(
         title: const Text(
-          'Mission',
+          'Mapping spontané ',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -90,10 +92,10 @@ class Accueil extends StatelessWidget {
               const SizedBox(height: 16.0),
               GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const DetailPage()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MappingInstane1()),
+                  );
                 },
                 child: const CustomCard(
                   title: 'Card 1 Title',
@@ -177,10 +179,10 @@ class Accueil extends StatelessWidget {
               const SizedBox(height: 16.0),
               GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const DetailPage()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const VisiteDeMagasin1()),
+                  );
                 },
                 child: const CustomCard(
                   title: 'Card 5 Title',

@@ -3,9 +3,7 @@ import 'package:tada/views/accueil.dart';
 import 'package:tada/views/portefeuil.dart';
 import 'package:tada/views/profil.dart';
 import 'package:tada/views/tache.dart';
-//import 'package:tada/widgets/app_button.dart';
-import 'package:tada/widgets/bottom_bar.dart'; 
-
+import 'package:tada/widgets/bottom_bar.dart';
 
 class CentralPage extends StatefulWidget {
   const CentralPage({super.key});
@@ -22,6 +20,9 @@ class _CentralPageState extends State<CentralPage> {
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
   ];
+
+  // Liste des indices pour lesquels afficher la BottomBar
+  final List<int> _bottomBarVisibleIndices = [0,1, 2, 3]; // Affiche sur Tache, Portefeuil, Profil
 
   void _onTabTapped(int index) {
     if (index == _currentIndex) {
@@ -47,10 +48,9 @@ class _CentralPageState extends State<CentralPage> {
                 case 1:
                   return const Tache();
                 case 2:
-                  return  Portefeuil();
-          
+                  return Portefeuil();
                 case 3:
-                  return Profil();
+                  return const Profil();
                 default:
                   return const Accueil();
               }
@@ -63,6 +63,8 @@ class _CentralPageState extends State<CentralPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool bottomBarVisible = _bottomBarVisibleIndices.contains(_currentIndex);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -72,16 +74,18 @@ class _CentralPageState extends State<CentralPage> {
           _buildOffstageNavigator(3),
         ],
       ),
-      bottomNavigationBar: BottomBar(
-        items: [
-          BottomBarItem(iconPath: 'asset/images/Home_Icon.svg', label: 'Home'),
-          BottomBarItem(iconPath: 'asset/images/Tache_Icon.svg', label: 'Tâche'),
-          BottomBarItem(iconPath: 'asset/images/Walet_Icon.svg', label: 'Portefeuil'),
-          BottomBarItem(iconPath: 'asset/images/Profil_Icon.svg', label: 'Profile'),
-        ],
-        currentIndex: _currentIndex,
-        onTap: _onTabTapped,
-      ),
+      bottomNavigationBar: bottomBarVisible
+          ? BottomBar(
+              items: [
+                BottomBarItem(iconPath: 'asset/images/Home_Icon.svg', label: 'Home'),
+                BottomBarItem(iconPath: 'asset/images/Tache_Icon.svg', label: 'Tâche'),
+                BottomBarItem(iconPath: 'asset/images/Walet_Icon.svg', label: 'Portefeuil'),
+                BottomBarItem(iconPath: 'asset/images/Profil_Icon.svg', label: 'Profile'),
+              ],
+              currentIndex: _currentIndex,
+              onTap: _onTabTapped,
+            )
+          : null,
     );
   }
 }

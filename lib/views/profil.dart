@@ -75,8 +75,8 @@ class Profil extends StatelessWidget {
                     children: [
                     SvgPicture.asset(
                       'asset/images/heart_Icon.svg', 
-                      width: 23,
-                      height: 23,
+                      width: 24,
+                      height: 24,
                     ),
                     const SizedBox(width: 10.0),
                     const Text(
@@ -118,10 +118,10 @@ class Profil extends StatelessWidget {
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.black, 
                     padding: const EdgeInsets.all(16.0),
-                    backgroundColor: Colors.white,
+                    backgroundColor: const Color(0xffFFCCC7),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      side: BorderSide(color: Colors.grey.withOpacity(0.5)),
+                      //side: BorderSide(color: Colors.grey.withOpacity(0.5)),
                     ),
                   ),
                   child: Row(
