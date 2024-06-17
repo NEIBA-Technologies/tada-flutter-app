@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tada/views/portefeuil/portefeuil_retrait1.dart';
+import 'package:tada/views/portefeuil/portefeuill_ajout_de_compte.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tada/widgets/app_button.dart';
 import 'package:tada/widgets/custom_card.dart';
@@ -229,10 +231,10 @@ class Portefeuil extends StatelessWidget {
                       fontSize: 16,
                       borderRadius: 8,
                       onPressed: () {
-                        //Navigator.push(
-                        //context,
-                        //MaterialPageRoute(builder: (context) => const ForgetPSW2())
-                        //);
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const  PortefeuilRetrai1())
+                        );
                       },
                     ),
                   ),
@@ -337,17 +339,25 @@ class Portefeuil extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20.0),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: const CustomCard(
-                title: 'Ajouter un compte mobile',
-                description: 'Enregistrez un compte pour faire vos retraits d’argents ',
-                leftSvgPath: 'asset/images/smart_phone_Icon.svg',
-                rightSvgPath: null,
-                leftBackgroundColor: Color(0xfffFFfff),
-                width: 361,
-                height: 105,
-                borderRadius: 4.0,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  PortefeuilAjoutCompte()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: const CustomCard(
+                  title: 'Ajouter un compte mobile',
+                  description: 'Enregistrez un compte pour faire vos retraits d’argents ',
+                  leftSvgPath: 'asset/images/smart_phone_Icon.svg',
+                  rightSvgPath: null,
+                  leftBackgroundColor: Color(0xfffFFfff),
+                  width: 361,
+                  height: 105,
+                  borderRadius: 4.0,
+                ),
               ),
             ),
             const SizedBox(height: 15.0),

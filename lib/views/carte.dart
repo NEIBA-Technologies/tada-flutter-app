@@ -67,7 +67,7 @@ class Carte extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('asset/images/carte.png'), // Remplacez par le chemin de votre image de fond
+                image: AssetImage('asset/images/carte.png'), 
                 fit: BoxFit.cover,
               ),
             ),
@@ -76,9 +76,9 @@ class Carte extends StatelessWidget {
             top: 16,
             right: 16,
             child: Image.asset(
-              'asset/images/Loaction.png', // Remplacez par le chemin de votre image de superposition
-              width: 100, // Ajustez la taille selon vos besoins
-              height: 100, // Ajustez la taille selon vos besoins
+              'asset/images/Loaction.png', 
+              width: 100, 
+              height: 100, 
             ),
           ),
         ],

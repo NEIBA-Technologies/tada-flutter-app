@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tada/views/accueil.dart';
-import 'package:tada/views/portefeuil.dart';
+import 'package:tada/views/portefeuil/portefeuil.dart';
 import 'package:tada/views/profil.dart';
 import 'package:tada/views/tache.dart';
 import 'package:tada/widgets/bottom_bar.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tada/views/carte.dart';
-import 'package:tada/views/mapping_instantane1.dart';
+import 'package:tada/views/mapping/mapping_instantane1.dart';
 import 'package:tada/views/notification.dart';
-import 'package:tada/views/visite_de_magasin1.dart';
+import 'package:tada/views/enquet_terrain/enquet_terrain1.dart';
 import 'package:tada/widgets/app_button.dart';
 import 'package:tada/widgets/custom_card.dart';
 

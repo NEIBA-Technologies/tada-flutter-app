@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tada/bloc/hovering_bloc.dart';
-import 'package:tada/bloc/hovering_event.dart';
-import 'package:tada/bloc/hovering_state.dart';
+import 'package:tada/bloc/hovering/hovering_bloc.dart';
+import 'package:tada/bloc/hovering/hovering_event.dart';
+import 'package:tada/bloc/hovering/hovering_state.dart';
 
 
 class ContinuingButton extends StatelessWidget {

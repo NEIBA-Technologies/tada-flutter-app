@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/visite_de_magasin2.dart';
+import 'package:tada/views/enquet_terrain/enquet_terrain2.dart';
 import 'package:tada/widgets/app_button.dart';
 
 class VisiteDeMagasin1 extends StatefulWidget {

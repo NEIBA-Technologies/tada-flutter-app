@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tada/bloc/hovering_bloc.dart';
-import 'package:tada/views/splash_creen_1.dart';
+import 'package:tada/bloc/hovering/hovering_bloc.dart';
+import 'package:tada/views/splashscreen/splash_creen_1.dart';
 
 
 void main() {

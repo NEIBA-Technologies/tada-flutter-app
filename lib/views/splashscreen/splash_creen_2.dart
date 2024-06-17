@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/splash_screen_3.dart';
+import 'package:tada/views/splashscreen/splash_screen_3.dart';
 import 'package:tada/widgets/app_button.dart';
 
 class SplashScreen2 extends StatelessWidget {

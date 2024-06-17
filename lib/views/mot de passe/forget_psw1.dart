@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/forget_psw2.dart';
+import 'package:tada/views/mot%20de%20passe/forget_psw2.dart';
 import 'package:tada/widgets/app_button.dart';
 import 'package:tada/widgets/app_textfield.dart';
 

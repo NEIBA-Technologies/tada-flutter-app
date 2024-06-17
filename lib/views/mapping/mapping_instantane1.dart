@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/mapping_instantane2.dart';
+import 'package:tada/views/mapping/mapping_instantane2.dart';
 import 'package:tada/widgets/app_button.dart';
 
 class MappingInstantane1 extends StatefulWidget {

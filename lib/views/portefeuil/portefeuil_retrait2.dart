@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tada/widgets/app_button.dart';
 
-class SamplePage extends StatelessWidget {
-  const SamplePage({super.key});
+class PortefeuilRetrait2 extends StatelessWidget {
+  const PortefeuilRetrait2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,10 +10,9 @@ class SamplePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Sample Page'),
       ),
-      body: const Stack(
+      body: Stack(
         children: [
-          // Column positioned at the top left
-          Positioned(
+          const Positioned(
             top: 0,
             left: 0,
             child: Padding(
@@ -26,16 +26,16 @@ class SamplePage extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    ' XOF 1500,0',
+                    'XOF 1500,0',
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: "SoraSB",
-                      color: Color(0xffFF5B4A)
+                      color: Color(0xffFF5B4A),
                     ),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Retrait minimum -  XOF 5000 ',
+                    'Retrait minimum - XOF 5000',
                     style: TextStyle(
                       fontSize: 10,
                       fontFamily: "Gilroy",
@@ -45,17 +45,33 @@ class SamplePage extends StatelessWidget {
               ),
             ),
           ),
-          // Text positioned at the center of the screen
-          Center(
+          const Center(
             child: Text(
-              ' XOF 1500,0',
-              style: TextStyle(fontSize: 28, fontFamily: "SoraSb"),
+              'XOF 1500,0',
+              style: TextStyle(fontSize: 28, fontFamily: "SoraSB"),
             ),
+          ),
+          Positioned(
+            bottom: 16.0,
+            left: 16.0,
+            right: 16.0,
+            child: ContinuingButton(
+                      width: 321,
+                      height: 48,
+                      text: 'Envoyer',
+                      fontSize: 16,
+                      borderRadius: 8,
+                      onPressed: () {
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const  PortefeuilRetrait2())
+                        );
+                      },
+                    ),
           ),
         ],
       ),
     );
   }
 }
-
 

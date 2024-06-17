@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tada/views/mapping/mapping_instantane3.dart';
 //import 'package:tada/views/forget_psw2.dart';
-import 'package:tada/views/visite_de_magasin3.dart';
 import 'package:tada/widgets/app_button.dart';
 //import 'package:tada/widgets/app_textfield.dart';
 
-class VisiteDeMagasin2 extends StatefulWidget {
-  const VisiteDeMagasin2({super.key});
+class MappingInstantane2 extends StatefulWidget {
+  const MappingInstantane2({super.key});
 
   @override
-  _VisiteDeMagasin2State createState() => _VisiteDeMagasin2State();
+  _MappingInstantane2State createState() => _MappingInstantane2State();
 }
 
-class _VisiteDeMagasin2State extends State<VisiteDeMagasin2> {
+class _MappingInstantane2State extends State<MappingInstantane2> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _magasinNameController = TextEditingController();
   final TextEditingController _gerantNameController = TextEditingController();
@@ -317,7 +317,7 @@ class _VisiteDeMagasin2State extends State<VisiteDeMagasin2> {
                 onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const VisiteDeMagasin3())
+                    MaterialPageRoute(builder: (context) => const MappingInstantane3())
                   );
                 },
               ),

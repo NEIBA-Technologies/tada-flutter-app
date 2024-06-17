@@ -119,6 +119,8 @@ flutter:
     - asset/images/profil_yellow_Icon.svg
     - asset/images/edit_Icon.svg
     - asset/images/smart_phone_Icon.svg
+    - asset/images/basket_Icon.svg
+    - asset/images/red_check_Icon.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
