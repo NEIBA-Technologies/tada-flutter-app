@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Importation pour charger des images SVG
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tada/views/a_propos_page.dart';
+import 'package:tada/views/communaute.dart';
+import 'package:tada/views/compte_modif_profile.dart';
+import 'package:tada/views/compte_modif_psw.dart';
+import 'package:tada/views/support_et_contacts1.dart';
 
 class Profil extends StatelessWidget {
   final Color backgroundColor;
@@ -20,14 +25,14 @@ class Profil extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffF5F5F5),
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(250.0), // Hauteur personnalisée de l'AppBar
+        preferredSize: const Size.fromHeight(250.0), 
         child: AppBar(
           title: const Text('Portefeuille'),
           flexibleSpace: const Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 40.0), // Espace supplémentaire sous le titre
+              SizedBox(height: 40.0), 
               CircleAvatar(
                 radius: 40.0,
                 backgroundImage: AssetImage('asset/images/profil_picture.jpg'), // Remplacez par votre image
@@ -38,7 +43,7 @@ class Profil extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black, 
+                  color: Colors.black,
                 ),
               ),
               SizedBox(height: 5.0),
@@ -46,7 +51,7 @@ class Profil extends StatelessWidget {
                 'Texte supplémentaire',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black, 
+                  color: Colors.black,
                 ),
               ),
               SizedBox(height: 20.0),
@@ -69,12 +74,12 @@ class Profil extends StatelessWidget {
                   borderRadius: BorderRadius.circular(borderRadius),
                 ),
                 padding: const EdgeInsets.all(16.0),
-                child:  Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
+                  children: [
                     SvgPicture.asset(
-                      'asset/images/heart_Icon.svg', 
+                      'asset/images/heart_Icon.svg',
                       width: 24,
                       height: 24,
                     ),
@@ -86,11 +91,10 @@ class Profil extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 20.0),
                   ],
                 ),
               ),
-              const SizedBox(height: 20.0), // Espacement entre le container et la grille
+              const SizedBox(height: 20.0), 
               GridView.count(
                 shrinkWrap: true,
                 crossAxisCount: 2,
@@ -99,15 +103,15 @@ class Profil extends StatelessWidget {
                 mainAxisSpacing: 30.0,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 children: [
-                  buildGridItem('asset/images/grid_Icon1.svg', 'Contactez le service client'),
-                  buildGridItem('asset/images/grid_Icon2.svg', 'Item 2'),
-                  buildGridItem('asset/images/grid_Icon3.svg', 'Item 3'),
-                  buildGridItem('asset/images/grid_Icon4.svg', 'Item 4'),
-                  buildGridItem('asset/images/grid_Icon5.svg', 'Item 5'),
-                  buildGridItem('asset/images/grid_Icon6.svg', 'Item 6'),
+                  buildGridItem(context, 'asset/images/grid_Icon1.svg', 'Contactez le service client', const ServiceClientPage()),
+                  buildGridItem(context, 'asset/images/grid_Icon2.svg', 'Item 2', const CompteModifProfile()),
+                  buildGridItem(context, 'asset/images/grid_Icon3.svg', 'Item 3', const SupportContacts1()),
+                  buildGridItem(context, 'asset/images/grid_Icon4.svg', 'Item 4', const ModifPSW()),
+                  buildGridItem(context, 'asset/images/grid_Icon5.svg', 'Item 5', const APropos()),
+                  buildGridItem(context, 'asset/images/grid_Icon6.svg', 'Item 6', const Communaute()),
                 ],
               ),
-              const SizedBox(height: 20.0), // Espacement avant le dernier bouton
+              const SizedBox(height: 20.0), 
               SizedBox(
                 width: 361,
                 height: 55,
@@ -116,7 +120,7 @@ class Profil extends StatelessWidget {
                     // Action du bouton
                   },
                   style: TextButton.styleFrom(
-                    foregroundColor: Colors.black, 
+                    foregroundColor: Colors.black,
                     padding: const EdgeInsets.all(16.0),
                     backgroundColor: const Color(0xffFFCCC7),
                     shape: RoundedRectangleBorder(
@@ -127,11 +131,11 @@ class Profil extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset(
-                        'asset/images/exit_Icon.svg', // Chemin de votre image SVG
+                        'asset/images/exit_Icon.svg', 
                         width: 24,
                         height: 24,
                       ),
-                      const SizedBox(width: 10.0), // Espace entre l'image SVG et le texte
+                      const SizedBox(width: 10.0), 
                       const Expanded(
                         child: Align(
                           alignment: Alignment.centerLeft,
@@ -145,7 +149,7 @@ class Profil extends StatelessWidget {
                         ),
                       ),
                       SvgPicture.asset(
-                        'asset/images/right_arrow_Icon.svg', // Chemin de votre image
+                        'asset/images/right_arrow_Icon.svg', 
                         width: 24,
                         height: 24,
                       ),
@@ -161,39 +165,65 @@ class Profil extends StatelessWidget {
     );
   }
 
-  Widget buildGridItem(String iconPath, String text) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SvgPicture.asset(
-            iconPath, // Chemin de l'icône SVG
-            width: 24,
-            height: 24,
-          ),
-          const SizedBox(height: 10.0), // Espace entre l'icône et le texte
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+  Widget buildGridItem(BuildContext context, String iconPath, String text, Widget page) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => page),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 4,
+              offset: const Offset(0, 2),
             ),
-          ),
-        ],
+          ],
+        ),
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SvgPicture.asset(
+              iconPath, // Chemin de l'icône SVG
+              width: 24,
+              height: 24,
+            ),
+            const SizedBox(height: 10.0), // Espace entre l'icône et le texte
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+// Exemple de classes de pages pour chaque élément de la grille
+class ServiceClientPage extends StatelessWidget {
+  const ServiceClientPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Service Client'),
+      ),
+      body: const Center(
+        child: Text('Page Service Client'),
+      ),
+    );
+  }
+}
+

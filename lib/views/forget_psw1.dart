@@ -57,33 +57,33 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        title: const Text(
+          'Mot de passe oublié',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                      'asset/images/key.svg', 
-                      height: 40,
-                      width: 40,
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Mot de passe oublié ?',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                    ),
-                    const Text(
-                      'Nous vous enverrons des instructions de réinitialisation par mail.',
-                      style: TextStyle(color: Colors.black54, fontSize: 14),
-                    ),
-                  ],
-                ),
+              SvgPicture.asset(
+                'asset/images/key.svg', 
+                height: 40,
+                width: 40,
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                'Mot de passe oublié ?',
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
+              const Text(
+                'Nous vous enverrons des instructions de réinitialisation par mail.',
+                style: TextStyle(color: Colors.black54, fontSize: 14),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
               _buildTextField(
@@ -99,43 +99,37 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
                 },
               ),
               const SizedBox(height: 20),
-              Center(
-                child: Column(
+              ContinuingButton(
+                width: 361,
+                height: 48,
+                text: 'Envoyer',
+                fontSize: 16,
+                borderRadius: 8,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ForgetPSW2())
+                  );
+                },
+              ),
+              const SizedBox(height: 10),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Retour à la page de connexion
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    ContinuingButton(
-                      width: 361,
-                      height: 48,
-                      text: 'Envoyer',
-                      fontSize: 16,
-                      borderRadius: 8,
-                      onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const ForgetPSW2())
-                        );
-                      },
+                    SvgPicture.asset(
+                      'asset/images/retour.svg',
+                      height: 11.67,
+                      width: 11.67,
+                      color: const Color(0xff48505E),
                     ),
-                    const SizedBox(height: 10),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop(); // Retour à la page de connexion
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SvgPicture.asset(
-                            'asset/images/retour.svg',
-                            height: 11.67,
-                            width: 11.67,
-                            color: const Color(0xff48505E),
-                          ),
-                          const SizedBox(width: 4), // Espacement entre l'image et le texte
-                          const Text(
-                            'Retour à connexion',
-                            style: TextStyle(color:  Color(0xff48505E)),
-                          ),
-                        ],
-                      ),
+                    const SizedBox(width: 4), // Espacement entre l'image et le texte
+                    const Text(
+                      'Retour à connexion',
+                      style: TextStyle(color:  Color(0xff48505E)),
                     ),
                   ],
                 ),

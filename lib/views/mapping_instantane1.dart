@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/visite_de_magasin2.dart';
+import 'package:tada/views/mapping_instantane2.dart';
 import 'package:tada/widgets/app_button.dart';
 
-class MappingInstane1 extends StatefulWidget {
-  const MappingInstane1({super.key});
+class MappingInstantane1 extends StatefulWidget {
+  const MappingInstantane1({super.key});
 
   @override
-  _MappingInstane1State createState() => _MappingInstane1State();
+  _MappingInstantane1State createState() => _MappingInstantane1State();
 }
 
-class _MappingInstane1State extends State<MappingInstane1> {
+class _MappingInstantane1State extends State<MappingInstantane1> {
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +102,7 @@ class _MappingInstane1State extends State<MappingInstane1> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const VisiteDeMagasin2())
+                        MaterialPageRoute(builder: (context) => const MappingInstantane2())
                       );
                     },
                   ),

@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 class NotificationsPage extends StatelessWidget {
   final List<List<TextStyle>> textStyles = [
     [
-      const TextStyle(color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),
-      const TextStyle(color: Colors.blue, fontSize: 14, fontStyle: FontStyle.italic),
-      const TextStyle(color: Colors.green, fontSize: 12),
+      const TextStyle(color: Color(0xff282828), fontSize: 16, fontFamily: "SoraSB"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
     ],
     [
-      const TextStyle(color: Colors.orange, fontSize: 18, fontWeight: FontWeight.w600),
-      const TextStyle(color: Colors.purple, fontSize: 16),
-      const TextStyle(color: Colors.teal, fontSize: 14),
+      const TextStyle(color: Color(0xff282828), fontSize: 16, fontFamily: "SoraSB"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
     ],
     [
-      const TextStyle(color: Colors.black, fontSize: 14),
-      const TextStyle(color: Colors.grey, fontSize: 12),
-      const TextStyle(color: Colors.indigo, fontSize: 16, fontWeight: FontWeight.bold),
+      const TextStyle(color: Color(0xff282828), fontSize: 16, fontFamily: "SoraSB"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
     ],
     [
-      const TextStyle(color: Colors.black, fontSize: 14),
-      const TextStyle(color: Colors.grey, fontSize: 12),
-      const TextStyle(color: Colors.indigo, fontSize: 16, fontWeight: FontWeight.bold),
+      const TextStyle(color: Color(0xff282828), fontSize: 16, fontFamily: "SoraSB"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
+      const TextStyle(color: Color(0xff667085), fontSize: 14, fontFamily: "Gilroy"),
     ],
   ];
 
@@ -37,31 +37,37 @@ class NotificationsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notifications'),
+        title: const Text(
+          'Notifications',
+          style: TextStyle(
+            fontSize: 20,
+            fontFamily: "SoraSB"
+          )
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
             onPressed: () {
-              Navigator.pop(context); // Ferme cette page et retourne à la page précédente
+              Navigator.pop(context); 
             },
           ),
         ],
       ),
       body: ListView.separated(
         padding: const EdgeInsets.symmetric(vertical: 16.0),
-        itemCount: texts.length, // Nombre de lignes à afficher
+        itemCount: texts.length, 
         separatorBuilder: (context, index) =>
-            const Divider(height: 1, color: Colors.grey), // Séparateur horizontal
+            const Divider(height: 1, color: Colors.grey), 
         itemBuilder: (context, index) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(width: 16), // Espacement à gauche
+              const SizedBox(width: 16), 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: List.generate(texts[index].length, (textIndex) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0), // Espacement entre les textes
+                    padding: const EdgeInsets.symmetric(vertical: 5.0), 
                     child: Text(
                       texts[index][textIndex],
                       style: textStyles[index][textIndex],

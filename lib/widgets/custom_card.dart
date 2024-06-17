@@ -38,7 +38,7 @@ class CustomCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(right: 15.0),
+          padding: const EdgeInsets.only(right: 5.0),
           child: Row(
             children: [
               Container(
@@ -65,22 +65,26 @@ class CustomCard extends StatelessWidget {
                         Text(
                           title,
                           style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontFamily: "SoraSB",
                           ),
+                        
                         ),
                         if (rightSvgPath != null)
                           SvgPicture.asset(
                             rightSvgPath!,
-                            height: 15,
-                            width: 11.67,
+                            height: 20,
+                            width: 20,
                           ),
                       ],
                     ),
                     const SizedBox(height: 8.0),
                     Text(
                       description,
-                      style: const TextStyle(fontSize: 14),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontFamily: "Gilroy",
+                        fontWeight: FontWeight.w400),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
@@ -88,11 +92,23 @@ class CustomCard extends StatelessWidget {
                     Row(
                       children: [
                         if (bottomText1 != null) ...[
-                          Text(bottomText1!),
+                          Text(
+                            bottomText1!,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontFamily: "SoraSB"
+                            ),
+                          ),
                           const SizedBox(width: 8.0),
                         ],
                         if (bottomText2 != null) ...[
-                          Text(bottomText2!),
+                          Text(
+                            bottomText2!,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              fontFamily: "Gilroy",
+                            ),
+                          ),
                         ],
                       ],
                     ),

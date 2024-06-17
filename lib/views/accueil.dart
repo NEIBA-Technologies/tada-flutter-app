@@ -16,39 +16,28 @@ class Accueil extends StatelessWidget {
       backgroundColor: const Color(0xffF5F5F5),
       appBar: AppBar(
         title: const Text(
-          'Mapping spontané ',
+          'Missions ',
           style: TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.bold,
+            fontFamily: "SoraSB",
           ),
         ),
         actions: [
           ContinuingButton(
-            width: 78,
+            width: 84,
             height: 28,
             text: 'Carte',
-            fontSize: 10,
+            fontSize: 12,
             borderRadius: 31,
             onPressed: () {
               Navigator.push(
                 context,
-                PageRouteBuilder(
-                  pageBuilder: (_, __, ___) => const Carte(),
-                  transitionsBuilder: (_, animation, __, child) {
-                    return SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(1.0, 0.0),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    );
-                  },
-                ),
+                MaterialPageRoute(builder: (context) => const Carte())
               );
             },
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -69,8 +58,8 @@ class Accueil extends StatelessWidget {
               },
               child: SvgPicture.asset(
                 'asset/images/notif_Icon.svg',
-                height: 17.48,
-                width: 20.0,
+                height: 24,
+                width: 24,
               ),
             ),
           ),
@@ -85,8 +74,11 @@ class Accueil extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 margin: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: const Text(
-                  'Home Page',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  'Missions continues',
+                  style: TextStyle(
+                    fontSize: 16, 
+                    fontFamily: "SoraSB"
+                    ),
                 ),
               ),
               const SizedBox(height: 16.0),
@@ -94,16 +86,16 @@ class Accueil extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MappingInstane1()),
+                    MaterialPageRoute(builder: (context) => const MappingInstantane1()),
                   );
                 },
                 child: const CustomCard(
-                  title: 'Card 1 Title',
-                  description: 'Card 1 Description',
+                  title: 'Mapping spontané',
+                  description: 'Enregistrez les points clés dans votre entourage.',
                   leftSvgPath: 'asset/images/cam_Icon.svg',
                   rightSvgPath: null,
-                  bottomText1: '10 000fr',
-                  bottomText2: '2h ago',
+                  bottomText1: '20,00 XOF',
+                  bottomText2: '',
                   leftBackgroundColor: Color(0xfffFF6E6),
                   width: 361,
                   height: 105,
@@ -119,10 +111,11 @@ class Accueil extends StatelessWidget {
                   // );
                 },
                 child: const CustomCard(
-                  title: 'Card 2 Title',
-                  description: 'Card 2 Description',
-                  leftSvgPath: 'asset/images/cam_Icon.svg',
+                  title: 'Tâche d’information',
+                  description: 'Epinglé pour avoir toujours de meilleurs informations sur vous.',
+                  leftSvgPath: 'asset/images/profil_yellow_Icon.svg', 
                   rightSvgPath: null,
+                  bottomText1: '500,00 XOF',
                   leftBackgroundColor: Color(0xfffFF6E6),
                   width: 361,
                   height: 105,
@@ -138,9 +131,10 @@ class Accueil extends StatelessWidget {
                   // );
                 },
                 child: const CustomCard(
-                  title: 'Card 3 Title',
-                  description: 'Card 3 Description',
+                  title: 'Guide des meilleurs partiques',
+                  description: 'Epinglé pour avoir toujours de meilleurs informations sur vous',
                   leftSvgPath: 'asset/images/book_Icon.svg',
+                  bottomText1: 'Non payé',
                   rightSvgPath: null,
                   leftBackgroundColor: Color(0xfffFF6E6),
                   width: 361,
@@ -154,47 +148,31 @@ class Accueil extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: const Text(
                   'Missions disponibles',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontFamily: "SoraSB"),
                 ),
               ),
               const SizedBox(height: 16.0),
               GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const DetailPage()),
-                  // );
-                },
-                child: const CustomCard(
-                  title: 'Géolocalisation des POS',
-                  description: 'Card 4 Description',
-                  leftSvgPath: 'asset/images/crisis_alert.svg',
-                  rightSvgPath: 'asset/images/enregistre_Icon.svg',
-                  leftBackgroundColor: Color(0xffFFEFED),
-                  width: 361,
-                  height: 105,
-                  borderRadius: 4.0,
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
+                Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const VisiteDeMagasin1()),
                   );
                 },
                 child: const CustomCard(
-                  title: 'Card 5 Title',
-                  description: 'Card 5 Description',
+                  title: 'Enquête terrain',
+                  description: 'Se rendre dans un magasin pour collecter des données',
                   leftSvgPath: 'asset/images/crisis_alert.svg',
                   rightSvgPath: 'asset/images/enregistre_Icon.svg',
+                  bottomText2: '20 à 30 min 1 jour restant',
+                  bottomText1: '1000,00 XOF',
                   leftBackgroundColor: Color(0xffFFEFED),
                   width: 361,
                   height: 105,
                   borderRadius: 4.0,
                 ),
               ),
+              const SizedBox(height: 16.0),
             ],
           ),
         ),

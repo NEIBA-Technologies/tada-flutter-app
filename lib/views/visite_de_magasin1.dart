@@ -17,7 +17,7 @@ class _VisiteDeMagasin1State extends State<VisiteDeMagasin1> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Mission',
+          'Enquête terrain',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

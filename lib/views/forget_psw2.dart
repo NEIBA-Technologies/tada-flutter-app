@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Assurez-vous d'importer flutter_svg
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tada/views/forget_psw3.dart';
 import 'package:tada/widgets/app_button.dart';
 
 class ForgetPSW2 extends StatelessWidget {
-  const ForgetPSW2({super.key});
+  const ForgetPSW2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ForgetPSW2 extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: SvgPicture.asset(
-            'asset/images/retour.svg', // Assurez-vous que le chemin est correct
+            'asset/images/retour.svg',
             height: 24,
             width: 24,
             color: Colors.black,
@@ -24,31 +24,27 @@ class ForgetPSW2 extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Column(
-                children: [
-                  SvgPicture.asset(
-                    'asset/images/mail.svg', 
-                    width: 40,
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    'Consultez vos mails',
-                    style: TextStyle(color: Colors.black, fontSize: 18),
-                  ),
-                  const Text(
-                    'Nous avons envoyé un lien de réinitialisation du mot de passe à name@yourmail.com',
-                    style: TextStyle(color: Colors.black54, fontSize: 14),
-                  ),
-                ],
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'asset/images/mail.svg',
+                width: 80,
               ),
-            ),
-            const SizedBox(height: 20),
-            Center(
-              child: ContinuingButton(
+              const SizedBox(height: 10),
+              const Text(
+                'Consultez vos mails',
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Nous avons envoyé un lien de réinitialisation du mot de passe à name@yourmail.com',
+                style: TextStyle(color: Colors.black54, fontSize: 14),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 20),
+              ContinuingButton(
                 width: 361,
                 height: 48,
                 text: 'Ouvrir vos mails',
@@ -57,54 +53,51 @@ class ForgetPSW2 extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ForgetPSW3())
+                    MaterialPageRoute(builder: (context) => const ForgetPSW3()),
                   );
                 },
               ),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Vous n’avez pas reçu de mail?',
-                  style: TextStyle(color: Colors.black),
-                ),
-                //const SizedBox(width: 5), // Espacement entre les textes
-                TextButton(
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Vous n’avez pas reçu de mail?',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  TextButton(
                     onPressed: () {},
                     child: const Text(
                       'Cliquez pour renvoyer',
                       style: TextStyle(color: Colors.red),
                     ),
                   ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Center(
-              child: TextButton(
+                ],
+              ),
+              const SizedBox(height: 20),
+              TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(); // Retour à la page de connexion
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                  SvgPicture.asset(
-                            'asset/images/retour.svg',
-                            height: 11.67,
-                            width: 11.67,
-                            color: const Color(0xff48505E),
-                          ),
-                          const SizedBox(width: 4), // Espacement entre l'image et le texte
-                          const Text(
-                            'Retour à connexion',
-                            style: TextStyle(color:  Color(0xff48505E)),
-                          ),
+                    SvgPicture.asset(
+                      'asset/images/retour.svg',
+                      height: 11.67,
+                      width: 11.67,
+                      color: const Color(0xff48505E),
+                    ),
+                    const SizedBox(width: 4), // Espacement entre l'image et le texte
+                    const Text(
+                      'Retour à connexion',
+                      style: TextStyle(color: Color(0xff48505E)),
+                    ),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

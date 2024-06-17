@@ -115,6 +115,10 @@ flutter:
     - asset/images/calendar_Icon.svg
     - asset/images/celphoneIcon.svg
     - asset/images/cam_grey_Icon.svg
+    - asset/images/cible_Icon.svg
+    - asset/images/profil_yellow_Icon.svg
+    - asset/images/edit_Icon.svg
+    - asset/images/smart_phone_Icon.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
