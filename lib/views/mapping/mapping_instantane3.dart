@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/enquet_terrain/enquet_terrain3.dart';
 import 'package:tada/widgets/app_button.dart';
 
 class MappingInstantane3 extends StatefulWidget {
@@ -274,7 +273,7 @@ class _MappingInstantane3State extends State<MappingInstantane3> {
                   return null;
                 },
                 hintText: 'Entrez le contact du gérant',
-                svgImagePath: 'asset/images/cible_Icon.svg',
+                svgImagePath: 'asset/images/icon/cible_Icon.svg',
                 isRightIcon: true,
               ),
               const SizedBox(height: 5),
@@ -323,10 +322,10 @@ class _MappingInstantane3State extends State<MappingInstantane3> {
                       borderRadius: 8,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const VisiteDeMagasin3())
-                          );
+                          //Navigator.push(
+                            //context,
+                            //MaterialPageRoute(builder: (context) => const VisiteDeMagasin3())
+                          //);
                         }
                       },
                     ),

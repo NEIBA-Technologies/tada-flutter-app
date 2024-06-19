@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tada/views/portefeuil/portefeuil_retrait1.dart';
-import 'package:tada/views/portefeuil/portefeuill_ajout_de_compte.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tada/views/portefeuil/portefeuil_ajout_de_compte.dart';
 import 'package:tada/widgets/app_button.dart';
 import 'package:tada/widgets/custom_card.dart';
 
@@ -42,106 +42,90 @@ class Portefeuil extends StatelessWidget {
     this.borderRadius = 8.0,
     this.container2BackgroundColor = Colors.white,
     this.container2Width = 361,
-    this.container2Height = 157.0,
+    this.container2Height = 160.0,
   });
 
   // Liste de transactions
   final List<Transaction> transactions = [
     Transaction(
-      text1: 'Transaction 1',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),
-      text2: '10:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 1',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Enquête cliblées',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '+1500 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xff039855)),
+      additionalText: 'Mission payé . 21/05/2024 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Retrait d’argent',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '-5000 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xffFF5B4A)),
+      additionalText: 'Retrait validé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Enquête cliblées',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '+1500 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xff039855)),
+      additionalText: 'Mission payé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Enquête cliblées',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '+1500 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xff039855)),
+      additionalText: 'Mission payé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Retrait d’argent',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '-5000 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xffFF5B4A)),
+      additionalText: 'Retrait validé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Enquête cliblées',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '+1500 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xff039855)),
+      additionalText: 'Mission payé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Retrait d’argent',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '-5000 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xffFF5B4A)),
+      additionalText: 'Retrait validé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Enquête cliblées',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '+1500 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xff039855)),
+      additionalText: 'Mission payé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Retrait d’argent',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '-5000 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xffFF5B4A)),
+      additionalText: 'Retrait validé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
-    ),
-    Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
-    ),
-    Transaction(
-      text1: 'Transaction 2',
-      text1Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-      text2: '11:00 AM',
-      text2Style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black),
-      additionalText: 'Description 2',
-      additionalTextStyle: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey),
+      text1: 'Enquête cliblées',
+      text1Style: const TextStyle(fontSize: 14, fontFamily: "SoraSB", color: Color(0xff282828)),
+      text2: '+1500 XOF',
+      text2Style: const TextStyle(fontSize: 12, fontFamily: "SoraR", color: Color(0xff039855)),
+      additionalText: 'Mission payé . 07:19',
+      additionalTextStyle: const TextStyle(fontSize: 12, fontFamily: "Gilroy", color: Color(0xff989FAD)),
     ),
     // Ajoutez d'autres transactions ici
   ];
@@ -174,20 +158,20 @@ class Portefeuil extends StatelessWidget {
                     'Argent encaissé',
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.normal,
+                      fontFamily: "Gilroy",
                     ),
                   ),
                   Text(
                     'XOF 15.000',
                     style: TextStyle(
                       fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                      fontFamily: "SoraSB",
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 16.0), // Spacing between the two containers
+            const SizedBox(height: 16.0), 
             Container(
               width: container2Width,
               height: container2Height,
@@ -197,44 +181,57 @@ class Portefeuil extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 2), 
                   ),
                 ],
               ),
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 3.0),
+                            child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Solde XOF 1500,0',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Solde XOF 1500,0',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontFamily: "SoraSB",
+                        ),
+                      ),
+                      // Ajout de l'image SVG à droite du texte
+                      SvgPicture.asset(
+                        'asset/images/icon/Logomark.svg',
+                        width: 16, 
+                        height: 24, 
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 8.0), // Space between row and text
+                  const SizedBox(height: 8.0), 
                   const Text(
                     'Encore XOF 3500 avant de retirer',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
+                      fontFamily: "SoraR"
                     ),
                   ),
-                  const Spacer(),
+                const SizedBox(height: 20.0),
                   Align(
                     alignment: Alignment.center,
                     child: ContinuingButton(
                       width: 321,
                       height: 48,
-                      text: 'Envoyer',
+                      text: 'Retirer son argent',
                       fontSize: 16,
                       borderRadius: 8,
                       onPressed: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const  PortefeuilRetrai1())
+                          context,
+                          MaterialPageRoute(builder: (context) => const PortefeuilRetrai1()),
                         );
+                        const SizedBox(height: 20.0);
                       },
                     ),
                   ),
@@ -265,13 +262,13 @@ class Portefeuil extends StatelessWidget {
                 child: Text(
                   'Transactions',
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    fontFamily: "SoraSB",
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 3.0), // Spacing before the list
+            const SizedBox(height: 3.0), 
             Container(
               width: 361,
               height: 500, 
@@ -297,7 +294,7 @@ class Portefeuil extends StatelessWidget {
                   return Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
+                        padding: const EdgeInsets.only(top: 5, bottom: 10),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -318,7 +315,7 @@ class Portefeuil extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(height: 8.0), // Spacing between rows
+                                  const SizedBox(height: 8.0), 
                                   Text(
                                     transactions[index].additionalText,
                                     style: transactions[index].additionalTextStyle,
@@ -343,7 +340,7 @@ class Portefeuil extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  PortefeuilAjoutCompte()),
+                  MaterialPageRoute(builder: (context) => const PortefeuilAjoutCompte()),
                 );
               },
               child: Container(
@@ -351,7 +348,7 @@ class Portefeuil extends StatelessWidget {
                 child: const CustomCard(
                   title: 'Ajouter un compte mobile',
                   description: 'Enregistrez un compte pour faire vos retraits d’argents ',
-                  leftSvgPath: 'asset/images/smart_phone_Icon.svg',
+                  leftSvgPath: 'asset/images/icon/smart_phone_Icon.svg',
                   rightSvgPath: null,
                   leftBackgroundColor: Color(0xfffFFfff),
                   width: 361,
@@ -367,3 +364,4 @@ class Portefeuil extends StatelessWidget {
     );
   }
 }
+

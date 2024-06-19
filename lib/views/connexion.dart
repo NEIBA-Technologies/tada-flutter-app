@@ -72,7 +72,7 @@ class _SignInFormState extends State<SignInForm> {
                 child: Column(
                   children: [
                     SvgPicture.asset(
-                      'asset/images/Logomark.svg', // chemin vers votre fichier SVG
+                      'asset/images/icon/Logomark.svg', // chemin vers votre fichier SVG
                       height: 40,
                       width: 40,
                     ),

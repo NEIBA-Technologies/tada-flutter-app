@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/a_propos_page.dart';
-import 'package:tada/views/communaute.dart';
-import 'package:tada/views/compte_modif_profile.dart';
-import 'package:tada/views/compte_modif_psw.dart';
-import 'package:tada/views/support_et_contacts1.dart';
+import 'package:tada/views/profile/a_propos_page.dart';
+import 'package:tada/views/profile/communaute.dart';
+import 'package:tada/views/profile/compte_modif_profile.dart';
+import 'package:tada/views/profile/compte_modif_psw.dart';
+import 'package:tada/views/profile/support_et_contacts1.dart';
 
 class Profil extends StatelessWidget {
   final Color backgroundColor;
@@ -35,22 +35,23 @@ class Profil extends StatelessWidget {
               SizedBox(height: 40.0), 
               CircleAvatar(
                 radius: 40.0,
-                backgroundImage: AssetImage('asset/images/profil_picture.jpg'), // Remplacez par votre image
+                backgroundImage: AssetImage('asset/images/image/profil_picture.jpg'), // Remplacez par votre image
               ),
               SizedBox(height: 10.0),
               Text(
-                'Nom de l\'utilisateur',
+                'Dan Alban',
                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  fontFamily: "SoraSB",
                   color: Colors.black,
                 ),
               ),
               SizedBox(height: 5.0),
               Text(
-                'Texte supplémentaire',
+                'nompseudo@gmail.com',
                 style: TextStyle(
                   fontSize: 14,
+                  fontFamily: "Gilroy",
                   color: Colors.black,
                 ),
               ),
@@ -79,16 +80,16 @@ class Profil extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      'asset/images/heart_Icon.svg',
+                      'asset/images/icon/heart_Icon.svg',
                       width: 24,
                       height: 24,
                     ),
                     const SizedBox(width: 10.0),
                     const Text(
-                      'XOF 15.000',
+                      'Invitez des amis',
                       style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontFamily: "Gilroy",
                       ),
                     ),
                   ],
@@ -103,12 +104,12 @@ class Profil extends StatelessWidget {
                 mainAxisSpacing: 30.0,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 children: [
-                  buildGridItem(context, 'asset/images/grid_Icon1.svg', 'Contactez le service client', const ServiceClientPage()),
-                  buildGridItem(context, 'asset/images/grid_Icon2.svg', 'Item 2', const CompteModifProfile()),
-                  buildGridItem(context, 'asset/images/grid_Icon3.svg', 'Item 3', const SupportContacts1()),
-                  buildGridItem(context, 'asset/images/grid_Icon4.svg', 'Item 4', const ModifPSW()),
-                  buildGridItem(context, 'asset/images/grid_Icon5.svg', 'Item 5', const APropos()),
-                  buildGridItem(context, 'asset/images/grid_Icon6.svg', 'Item 6', const Communaute()),
+                  buildGridItem(context, 'asset/images/icon/grid_Icon1.svg', 'Contactez le service client', const ServiceClientPage()),
+                  buildGridItem(context, 'asset/images/icon/grid_Icon2.svg', 'Modifier le profil', const CompteModifProfile()),
+                  buildGridItem(context, 'asset/images/icon/grid_Icon3.svg', 'Support & Contact', const SupportContacts1()),
+                  buildGridItem(context, 'asset/images/icon/grid_Icon4.svg', 'Modifier le mot de passe', const ModifPSW()),
+                  buildGridItem(context, 'asset/images/icon/grid_Icon5.svg', 'À propos', const APropos()),
+                  buildGridItem(context, 'asset/images/icon/grid_Icon6.svg', 'Rejoindre la communauté', const Communaute()),
                 ],
               ),
               const SizedBox(height: 20.0), 
@@ -131,7 +132,7 @@ class Profil extends StatelessWidget {
                   child: Row(
                     children: [
                       SvgPicture.asset(
-                        'asset/images/exit_Icon.svg', 
+                        'asset/images/icon/exit_Icon.svg', 
                         width: 24,
                         height: 24,
                       ),
@@ -140,16 +141,16 @@ class Profil extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Texte 1',
+                            'Déconnexion',
                             style: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: "SoraSB",
                             ),
                           ),
                         ),
                       ),
                       SvgPicture.asset(
-                        'asset/images/right_arrow_Icon.svg', 
+                        'asset/images/icon/right_arrow_Icon.svg', 
                         width: 24,
                         height: 24,
                       ),
@@ -191,16 +192,16 @@ class Profil extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SvgPicture.asset(
-              iconPath, // Chemin de l'icône SVG
+              iconPath, 
               width: 24,
               height: 24,
             ),
-            const SizedBox(height: 10.0), // Espace entre l'icône et le texte
+            const SizedBox(height: 11.0), 
             Text(
               text,
               style: const TextStyle(
                 fontSize: 16,
-                fontWeight: FontWeight.bold,
+                fontFamily: "Gilroy",
               ),
             ),
           ],
@@ -210,7 +211,6 @@ class Profil extends StatelessWidget {
   }
 }
 
-// Exemple de classes de pages pour chaque élément de la grille
 class ServiceClientPage extends StatelessWidget {
   const ServiceClientPage({super.key});
 

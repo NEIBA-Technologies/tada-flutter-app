@@ -40,7 +40,7 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
         ),
         CustomTextField(
           obscureText: obscureText,
-          width: 361,
+          width: MediaQuery.of(context).size.width * 0.95,
           height: 44,
         ),
       ],
@@ -49,6 +49,9 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -71,9 +74,9 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                'asset/images/key.svg', 
-                height: 40,
-                width: 40,
+                'asset/images/icon/key.svg', 
+                height: 24,
+                width: 24,
               ),
               const SizedBox(height: 10),
               const Text(
@@ -100,28 +103,30 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
               ),
               const SizedBox(height: 20),
               ContinuingButton(
-                width: 361,
+                width: screenWidth * 0.95,
                 height: 48,
                 text: 'Envoyer',
                 fontSize: 16,
                 borderRadius: 8,
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ForgetPSW2())
-                  );
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ForgetPSW2()),
+                    );
+                  }
                 },
               ),
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Retour à la page de connexion
+                  Navigator.of(context).pop(); 
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SvgPicture.asset(
-                      'asset/images/retour.svg',
+                      'asset/images/icon/retour.svg',
                       height: 11.67,
                       width: 11.67,
                       color: const Color(0xff48505E),
@@ -129,7 +134,7 @@ class _ForgetPSW1State extends State<ForgetPSW1> {
                     const SizedBox(width: 4), // Espacement entre l'image et le texte
                     const Text(
                       'Retour à connexion',
-                      style: TextStyle(color:  Color(0xff48505E)),
+                      style: TextStyle(color: Color(0xff48505E)),
                     ),
                   ],
                 ),

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/enquet_terrain/enquet_terrain2.dart';
+import 'package:tada/views/tache_d_information/tache_info2.dart';
 import 'package:tada/widgets/app_button.dart';
 
-class EnquetTerrain1 extends StatefulWidget {
-  const EnquetTerrain1({super.key});
+class TacheInfo1 extends StatefulWidget {
+  const TacheInfo1({super.key});
 
   @override
-  _EnquetTerrain1State createState() => _EnquetTerrain1State();
+  _TacheInfo1State createState() => _TacheInfo1State();
 }
 
-class _EnquetTerrain1State extends State<EnquetTerrain1> {
+class _TacheInfo1State extends State<TacheInfo1> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Enquête terrain',
+          'Mission',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -30,9 +30,9 @@ class _EnquetTerrain1State extends State<EnquetTerrain1> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0), // Height of the Divider
+          preferredSize: const Size.fromHeight(1.0), 
           child: Container(
-            color: Colors.grey, // Color of the Divider
+            color: Colors.grey, 
             height: 1.0,
           ),
         ),
@@ -51,7 +51,7 @@ class _EnquetTerrain1State extends State<EnquetTerrain1> {
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(16),
                   image: const DecorationImage(
-                    image: AssetImage('asset/images/image/profil_picture.jpg'),
+                    image: AssetImage('asset/images/image/man.jpeg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -102,7 +102,7 @@ class _EnquetTerrain1State extends State<EnquetTerrain1> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const EnquetTerrain2())
+                        MaterialPageRoute(builder: (context) => const TacheInfo2())
                       );
                     },
                   ),
@@ -136,7 +136,7 @@ class _EnquetTerrain1State extends State<EnquetTerrain1> {
               svgImagePath,
               height: 24,
               width: 24,
-              color: Colors.black, // Optionnel : changer la couleur de l'icône
+              color: Colors.black, 
             ),
             const SizedBox(width: 8),
             Text(answer),

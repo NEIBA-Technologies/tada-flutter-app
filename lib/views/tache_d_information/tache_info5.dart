@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/enquet_terrain/enquet_terrain4.dart';
+import 'package:tada/views/tache_d_information/tache_info6.dart';
 import 'package:tada/widgets/app_button.dart';
 
-class EnquetTerrain3 extends StatefulWidget {
-  const EnquetTerrain3({super.key});
+class TacheInfo5 extends StatefulWidget {
+  const TacheInfo5({super.key});
 
   @override
-  _EnquetTerrain3State createState() => _EnquetTerrain3State();
+  _TacheInfo5State createState() => _TacheInfo5State();
 }
 
-class _EnquetTerrain3State extends State<EnquetTerrain3> {
+class _TacheInfo5State extends State<TacheInfo5> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _equipementController = TextEditingController();
-  final TextEditingController _ouiNonController = TextEditingController();
-  final TextEditingController _quantiteStockController = TextEditingController();
-  final TextEditingController _prixVenteController = TextEditingController();
-  final TextEditingController _prixAchatController = TextEditingController();
-  final TextEditingController _photoController = TextEditingController();
-  final TextEditingController _photoEntrerController = TextEditingController();
-
-  final List<String> _equipementOptions = ['Option 1', 'Option 2', 'Option 3'];
-  final List<String> _ouiNonOptions = ['Oui', 'Non'];
+  final TextEditingController _paysInspirationController = TextEditingController();
+  final TextEditingController _ordinateurController = TextEditingController();
+  final TextEditingController _platPrefereController = TextEditingController();
+  
+  String? _voyageValue;
+  String? _reseauxSociauxValue;
+  
+  final List<String> _voyageOptions = ['Oui', 'Non'];
+  final List<String> _reseauxSociauxOptions = ['Facebook', 'Instagram', 'Twitter', 'LinkedIn', 'Autre'];
 
   Widget _buildTextField({
     required String label,
@@ -144,9 +143,9 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildDropdownField(
-                label: 'Équipement & Installation',
-                value: _equipementController.text.isEmpty ? null : _equipementController.text,
-                options: _equipementOptions,
+                label: 'As-tu voyagé dans d\'autres pays?',
+                value: _voyageValue,
+                options: _voyageOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Veuillez sélectionner une option';
@@ -155,102 +154,70 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                 },
                 onChanged: (value) {
                   setState(() {
-                    _equipementController.text = value ?? '';
-                  });
-                },
-                hintText: 'Sélectionnez une option',
-              ),
-              const SizedBox(height: 10),
-              _buildDropdownField(
-                label: 'Optionnel Oui/Non',
-                value: _ouiNonController.text.isEmpty ? null : _ouiNonController.text,
-                options: _ouiNonOptions,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner une option';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  setState(() {
-                    _ouiNonController.text = value ?? '';
+                    _voyageValue = value;
                   });
                 },
                 hintText: 'Sélectionnez Oui ou Non',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Quantité de Stock',
-                controller: _quantiteStockController,
-                keyboardType: TextInputType.number,
+                label: 'Si oui, lesquels?',
+                controller: _paysInspirationController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer la quantité de stock';
+                  if (_voyageValue == 'Oui' && (value == null || value.isEmpty)) {
+                    return 'Veuillez entrer les pays visités';
                   }
                   return null;
                 },
-                hintText: 'Entrez la quantité de stock',
+                hintText: 'Entrez les pays visités',
+              ),
+              const SizedBox(height: 10),
+              _buildDropdownField(
+                label: 'Es-tu actif sur les réseaux sociaux? si oui lesquels',
+                value: _reseauxSociauxValue,
+                options: _reseauxSociauxOptions,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner une option';
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  setState(() {
+                    _reseauxSociauxValue = value;
+                  });
+                },
+                hintText: 'Sélectionnez vos réseaux sociaux',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo du Code Barre',
-                controller:_photoEntrerController,
-                keyboardType: TextInputType.number,
+                label: 'As-tu un ordinateur? Si oui quel marque?',
+                controller: _ordinateurController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
+                  if (_reseauxSociauxValue == 'Oui' && (value == null || value.isEmpty)) {
+                    return 'Veuillez entrer les réseaux sociaux utilisés';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix de vente',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
+                hintText: 'Entrez les réseaux sociaux utilisés',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo du Produit sur les Étages',
-                controller: _photoController,
-                keyboardType: TextInputType.number,
+                label: 'Quel est ton plat préféré?',
+                controller: _platPrefereController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
+                    return 'Veuillez entrer votre plat préféré';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix d\'achat',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix de Vente',
-                controller: _prixVenteController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix de vente',
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix d\'Achat',
-                controller: _prixAchatController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix d\'achat',
+                hintText: 'Entrez votre plat préféré',
               ),
               const SizedBox(height: 20),
               Center(
@@ -266,7 +233,7 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const EnquetTerrain4()),
+                            MaterialPageRoute(builder: (context) => const TacheInfo6()),
                           );
                         }
                       },

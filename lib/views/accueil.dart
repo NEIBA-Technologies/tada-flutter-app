@@ -4,6 +4,7 @@ import 'package:tada/views/carte.dart';
 import 'package:tada/views/mapping/mapping_instantane1.dart';
 import 'package:tada/views/notification.dart';
 import 'package:tada/views/enquet_terrain/enquet_terrain1.dart';
+import 'package:tada/views/tache_d_information/tache_info1.dart';
 import 'package:tada/widgets/app_button.dart';
 import 'package:tada/widgets/custom_card.dart';
 
@@ -57,7 +58,7 @@ class Accueil extends StatelessWidget {
                 );
               },
               child: SvgPicture.asset(
-                'asset/images/notif_Icon.svg',
+                'asset/images/icon/notif_Icon.svg',
                 height: 24,
                 width: 24,
               ),
@@ -92,7 +93,7 @@ class Accueil extends StatelessWidget {
                 child: const CustomCard(
                   title: 'Mapping spontané',
                   description: 'Enregistrez les points clés dans votre entourage.',
-                  leftSvgPath: 'asset/images/cam_Icon.svg',
+                  leftSvgPath: 'asset/images/icon/cam_Icon.svg',
                   rightSvgPath: null,
                   bottomText1: '20,00 XOF',
                   bottomText2: '',
@@ -113,7 +114,7 @@ class Accueil extends StatelessWidget {
                 child: const CustomCard(
                   title: 'Tâche d’information',
                   description: 'Epinglé pour avoir toujours de meilleurs informations sur vous.',
-                  leftSvgPath: 'asset/images/profil_yellow_Icon.svg', 
+                  leftSvgPath: 'asset/images/icon/profil_yellow_Icon.svg', 
                   rightSvgPath: null,
                   bottomText1: '500,00 XOF',
                   leftBackgroundColor: Color(0xfffFF6E6),
@@ -125,15 +126,15 @@ class Accueil extends StatelessWidget {
               const SizedBox(height: 16.0),
               GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const DetailPage()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TacheInfo1()),
+                  );
                 },
                 child: const CustomCard(
                   title: 'Guide des meilleurs partiques',
                   description: 'Epinglé pour avoir toujours de meilleurs informations sur vous',
-                  leftSvgPath: 'asset/images/book_Icon.svg',
+                  leftSvgPath: 'asset/images/icon/book_Icon.svg',
                   bottomText1: 'Non payé',
                   rightSvgPath: null,
                   leftBackgroundColor: Color(0xfffFF6E6),
@@ -156,14 +157,14 @@ class Accueil extends StatelessWidget {
                 onTap: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const VisiteDeMagasin1()),
+                    MaterialPageRoute(builder: (context) => const EnquetTerrain1()),
                   );
                 },
                 child: const CustomCard(
                   title: 'Enquête terrain',
                   description: 'Se rendre dans un magasin pour collecter des données',
-                  leftSvgPath: 'asset/images/crisis_alert.svg',
-                  rightSvgPath: 'asset/images/enregistre_Icon.svg',
+                  leftSvgPath: 'asset/images/icon/crisis_alert.svg',
+                  rightSvgPath: 'asset/images/icon/enregistre_Icon.svg',
                   bottomText2: '20 à 30 min 1 jour restant',
                   bottomText1: '1000,00 XOF',
                   leftBackgroundColor: Color(0xffFFEFED),

@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/enquet_terrain/enquet_terrain4.dart';
 import 'package:tada/widgets/app_button.dart';
 
-class EnquetTerrain3 extends StatefulWidget {
-  const EnquetTerrain3({super.key});
+class EnquetTerrain4 extends StatefulWidget {
+  const EnquetTerrain4({super.key});
 
   @override
-  _EnquetTerrain3State createState() => _EnquetTerrain3State();
+  _EnquetTerrain4State createState() => _EnquetTerrain4State();
 }
 
-class _EnquetTerrain3State extends State<EnquetTerrain3> {
+class _EnquetTerrain4State extends State<EnquetTerrain4> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _equipementController = TextEditingController();
-  final TextEditingController _ouiNonController = TextEditingController();
-  final TextEditingController _quantiteStockController = TextEditingController();
-  final TextEditingController _prixVenteController = TextEditingController();
-  final TextEditingController _prixAchatController = TextEditingController();
-  final TextEditingController _photoController = TextEditingController();
-  final TextEditingController _photoEntrerController = TextEditingController();
+  final TextEditingController _frequenceRenouvellementController = TextEditingController();
+  final TextEditingController _sourceApprovisionnementController = TextEditingController();
+  final TextEditingController _omoDisponibleController = TextEditingController();
+  final TextEditingController _texte1Controller = TextEditingController();
+  final TextEditingController _texte2Controller = TextEditingController();
+  final TextEditingController _texte3Controller = TextEditingController();
+  final TextEditingController _texte4Controller = TextEditingController();
 
-  final List<String> _equipementOptions = ['Option 1', 'Option 2', 'Option 3'];
-  final List<String> _ouiNonOptions = ['Oui', 'Non'];
+  final List<String> _frequenceRenouvellementOptions = ['Option 1', 'Option 2', 'Option 3'];
+  final List<String> _sourceApprovisionnementOptions = ['Option 1', 'Option 2', 'Option 3'];
+  final List<String> _omoDisponibleOptions = ['Oui', 'Non'];
 
   Widget _buildTextField({
     required String label,
@@ -144,9 +144,11 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildDropdownField(
-                label: 'Équipement & Installation',
-                value: _equipementController.text.isEmpty ? null : _equipementController.text,
-                options: _equipementOptions,
+                label: 'Fréquence de Renouvellement de Stock',
+                value: _frequenceRenouvellementController.text.isEmpty
+                    ? null
+                    : _frequenceRenouvellementController.text,
+                options: _frequenceRenouvellementOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Veuillez sélectionner une option';
@@ -155,16 +157,18 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                 },
                 onChanged: (value) {
                   setState(() {
-                    _equipementController.text = value ?? '';
+                    _frequenceRenouvellementController.text = value ?? '';
                   });
                 },
                 hintText: 'Sélectionnez une option',
               ),
               const SizedBox(height: 10),
               _buildDropdownField(
-                label: 'Optionnel Oui/Non',
-                value: _ouiNonController.text.isEmpty ? null : _ouiNonController.text,
-                options: _ouiNonOptions,
+                label: 'Source d\'Approvisionnement',
+                value: _sourceApprovisionnementController.text.isEmpty
+                    ? null
+                    : _sourceApprovisionnementController.text,
+                options: _sourceApprovisionnementOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Veuillez sélectionner une option';
@@ -173,84 +177,86 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                 },
                 onChanged: (value) {
                   setState(() {
-                    _ouiNonController.text = value ?? '';
+                    _sourceApprovisionnementController.text = value ?? '';
+                  });
+                },
+                hintText: 'Sélectionnez une option',
+              ),
+              const SizedBox(height: 10),
+              _buildDropdownField(
+                label: 'Omo est-il Disponible Ici?',
+                value: _omoDisponibleController.text.isEmpty
+                    ? null
+                    : _omoDisponibleController.text,
+                options: _omoDisponibleOptions,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner une option';
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  setState(() {
+                    _omoDisponibleController.text = value ?? '';
                   });
                 },
                 hintText: 'Sélectionnez Oui ou Non',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Quantité de Stock',
-                controller: _quantiteStockController,
-                keyboardType: TextInputType.number,
+                label: 'Texte 1',
+                controller: _texte1Controller,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer la quantité de stock';
+                    return 'Veuillez entrer un texte';
                   }
                   return null;
                 },
-                hintText: 'Entrez la quantité de stock',
+                hintText: 'Entrez le texte 1',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo du Code Barre',
-                controller:_photoEntrerController,
-                keyboardType: TextInputType.number,
+                label: 'Texte 2',
+                controller: _texte2Controller,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
+                    return 'Veuillez entrer un texte';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix de vente',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
+                hintText: 'Entrez le texte 2',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo du Produit sur les Étages',
-                controller: _photoController,
-                keyboardType: TextInputType.number,
+                label: 'Texte 3',
+                controller: _texte3Controller,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
+                    return 'Veuillez entrer un texte';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix d\'achat',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
+                hintText: 'Entrez le texte 3',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Prix de Vente',
-                controller: _prixVenteController,
-                keyboardType: TextInputType.number,
+                label: 'Texte 4',
+                controller: _texte4Controller,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
+                    return 'Veuillez entrer un texte';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix de vente',
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix d\'Achat',
-                controller: _prixAchatController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix d\'achat',
+                hintText: 'Entrez le texte 4',
               ),
               const SizedBox(height: 20),
               Center(
@@ -264,10 +270,10 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                       borderRadius: 8,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const EnquetTerrain4()),
-                          );
+                          //Navigator.push(
+                            //context,
+                            //MaterialPageRoute(builder: (context) => const EnquetTerrain4()),
+                          //);
                         }
                       },
                     ),

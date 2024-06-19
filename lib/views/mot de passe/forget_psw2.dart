@@ -11,16 +11,7 @@ class ForgetPSW2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: SvgPicture.asset(
-            'asset/images/retour.svg',
-            height: 24,
-            width: 24,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        elevation:0,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -29,8 +20,9 @@ class ForgetPSW2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                'asset/images/mail.svg',
-                width: 80,
+                'asset/images/icon/mail.svg',
+                width: 24,
+                height: 24,
               ),
               const SizedBox(height: 10),
               const Text(
@@ -77,13 +69,13 @@ class ForgetPSW2 extends StatelessWidget {
               const SizedBox(height: 20),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Retour à la page de connexion
+                  Navigator.of(context).pop(); 
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SvgPicture.asset(
-                      'asset/images/retour.svg',
+                      'asset/images/icon/retour.svg',
                       height: 11.67,
                       width: 11.67,
                       color: const Color(0xff48505E),

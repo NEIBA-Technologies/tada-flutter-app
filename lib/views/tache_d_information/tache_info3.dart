@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/enquet_terrain/enquet_terrain4.dart';
+import 'package:tada/views/tache_d_information/tache_info4.dart';
 import 'package:tada/widgets/app_button.dart';
 
-class EnquetTerrain3 extends StatefulWidget {
-  const EnquetTerrain3({super.key});
+class TacheInfo3 extends StatefulWidget {
+  const TacheInfo3({super.key});
 
   @override
-  _EnquetTerrain3State createState() => _EnquetTerrain3State();
+  _TacheInfo3State createState() => _TacheInfo3State();
 }
 
-class _EnquetTerrain3State extends State<EnquetTerrain3> {
+class _TacheInfo3State extends State<TacheInfo3> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _equipementController = TextEditingController();
-  final TextEditingController _ouiNonController = TextEditingController();
-  final TextEditingController _quantiteStockController = TextEditingController();
-  final TextEditingController _prixVenteController = TextEditingController();
-  final TextEditingController _prixAchatController = TextEditingController();
-  final TextEditingController _photoController = TextEditingController();
-  final TextEditingController _photoEntrerController = TextEditingController();
-
-  final List<String> _equipementOptions = ['Option 1', 'Option 2', 'Option 3'];
-  final List<String> _ouiNonOptions = ['Oui', 'Non'];
+  final TextEditingController _nomCompletController = TextEditingController();
+  final TextEditingController _etudesSecondairesController = TextEditingController();
+  final TextEditingController _experienceProController = TextEditingController();
+  
+  String? _etudesSuperieuresValue;
+  String? _domaineEtudesValue;
+  
+  final List<String> _etudesSuperieuresOptions = ['Oui', 'Non'];
+  final List<String> _domaineEtudesOptions = ['Sciences', 'Lettres', 'Commerce', 'Autre'];
 
   Widget _buildTextField({
     required String label,
@@ -143,28 +142,56 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildDropdownField(
-                label: 'Équipement & Installation',
-                value: _equipementController.text.isEmpty ? null : _equipementController.text,
-                options: _equipementOptions,
+              _buildTextField(
+                label: 'Nom Complet',
+                controller: _nomCompletController,
+                keyboardType: TextInputType.text,
+                obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner une option';
+                    return 'Veuillez entrer votre nom complet';
+                  }
+                  return null;
+                },
+                hintText: 'Entrez votre nom complet',
+              ),
+              const SizedBox(height: 10),
+              _buildDropdownField(
+                label: 'As-tu fait des études supérieures?',
+                value: _etudesSuperieuresValue,
+                options: _etudesSuperieuresOptions,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez répondre à cette question';
                   }
                   return null;
                 },
                 onChanged: (value) {
                   setState(() {
-                    _equipementController.text = value ?? '';
+                    _etudesSuperieuresValue = value;
                   });
                 },
                 hintText: 'Sélectionnez une option',
               ),
               const SizedBox(height: 10),
+              _buildTextField(
+                label: 'Où as-tu fait tes études secondaires?',
+                controller: _etudesSecondairesController,
+                keyboardType: TextInputType.text,
+                obscureText: false,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer le lieu de vos études secondaires';
+                  }
+                  return null;
+                },
+                hintText: 'Entrez le lieu de vos études secondaires',
+              ),
+              const SizedBox(height: 10),
               _buildDropdownField(
-                label: 'Optionnel Oui/Non',
-                value: _ouiNonController.text.isEmpty ? null : _ouiNonController.text,
-                options: _ouiNonOptions,
+                label: 'Si oui, dans quel domaine?',
+                value: _domaineEtudesValue,
+                options: _domaineEtudesOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Veuillez sélectionner une option';
@@ -173,84 +200,24 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                 },
                 onChanged: (value) {
                   setState(() {
-                    _ouiNonController.text = value ?? '';
+                    _domaineEtudesValue = value;
                   });
                 },
-                hintText: 'Sélectionnez Oui ou Non',
+                hintText: 'Sélectionnez un domaine',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Quantité de Stock',
-                controller: _quantiteStockController,
+                label: 'Combien d\'années d\'expérience professionnelles as-tu?',
+                controller: _experienceProController,
                 keyboardType: TextInputType.number,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer la quantité de stock';
+                    return 'Veuillez entrer vos années d\'expérience';
                   }
                   return null;
                 },
-                hintText: 'Entrez la quantité de stock',
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Photo du Code Barre',
-                controller:_photoEntrerController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix de vente',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Photo du Produit sur les Étages',
-                controller: _photoController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix d\'achat',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix de Vente',
-                controller: _prixVenteController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix de vente',
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix d\'Achat',
-                controller: _prixAchatController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix d\'achat',
+                hintText: 'Entrez vos années d\'expérience',
               ),
               const SizedBox(height: 20),
               Center(
@@ -266,7 +233,7 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const EnquetTerrain4()),
+                            MaterialPageRoute(builder: (context) => const TacheInfo4()),
                           );
                         }
                       },

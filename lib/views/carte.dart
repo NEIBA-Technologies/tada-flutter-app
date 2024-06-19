@@ -54,7 +54,7 @@ class Carte extends StatelessWidget {
                 );
               },
               child: SvgPicture.asset(
-                'asset/images/notif_Icon.svg',
+                'asset/images/icon/notif_Icon.svg',
                 height: 24,
                 width: 24,
               ),
@@ -67,7 +67,7 @@ class Carte extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('asset/images/carte.png'), 
+                image: AssetImage('asset/images/image/carte.png'), 
                 fit: BoxFit.cover,
               ),
             ),
@@ -76,7 +76,7 @@ class Carte extends StatelessWidget {
             top: 16,
             right: 16,
             child: Image.asset(
-              'asset/images/Loaction.png', 
+              'asset/images/image/Loaction.png', 
               width: 100, 
               height: 100, 
             ),

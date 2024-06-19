@@ -51,10 +51,6 @@ class _ForgetPSW3State extends State<ForgetPSW3> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -65,9 +61,9 @@ class _ForgetPSW3State extends State<ForgetPSW3> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SvgPicture.asset(
-                  'asset/images/key.svg',
-                  height: 80,
-                  width: 80,
+                  'asset/images/icon/key.svg',
+                  height: 24,
+                  width: 24,
                 ),
                 const SizedBox(height: 10),
                 const Text(
@@ -128,7 +124,7 @@ class _ForgetPSW3State extends State<ForgetPSW3> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SvgPicture.asset(
-                        'asset/images/retour.svg',
+                        'asset/images/icon/retour.svg',
                         height: 11.67,
                         width: 11.67,
                         color: const Color(0xff48505E),

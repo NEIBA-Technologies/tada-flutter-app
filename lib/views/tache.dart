@@ -51,8 +51,8 @@ class Tache extends StatelessWidget {
                       child: const CustomCard(
                         title: 'Card 1 Title',
                         description: 'Card 1 Description',
-                        leftSvgPath: 'asset/images/crisis_alert.svg',
-                        rightSvgPath: 'asset/images/enregistre_Icon.svg',
+                        leftSvgPath: 'asset/images/icon/crisis_alert.svg',
+                        rightSvgPath: 'asset/images/icon/enregistre_Icon.svg',
                         leftBackgroundColor: Color(0xffFFEFED),
                         width: 361,
                         height: 105,
@@ -70,8 +70,8 @@ class Tache extends StatelessWidget {
                       child: const CustomCard(
                         title: 'Card 2 Title',
                         description: 'Card 2 Description',
-                        leftSvgPath: 'asset/images/crisis_alert.svg',
-                        rightSvgPath: 'asset/images/enregistre_Icon.svg',
+                        leftSvgPath: 'asset/images/icon/crisis_alert.svg',
+                        rightSvgPath: 'asset/images/icon/enregistre_Icon.svg',
                         leftBackgroundColor: Color(0xffFFEFED),
                         width: 361,
                         height: 105,
@@ -95,7 +95,7 @@ class Tache extends StatelessWidget {
                   child: const CustomCard(
                     title: 'Card 3 Title',
                     description: 'Card 3 Description',
-                    leftSvgPath: 'asset/images/crisis_alert.svg',
+                    leftSvgPath: 'asset/images/icon/crisis_alert.svg',
                     rightSvgPath: null,
                     leftBackgroundColor: Color(0xffFFEFED),
                     width: 361,
@@ -118,7 +118,7 @@ class Tache extends StatelessWidget {
                   child: const CustomCard(
                     title: 'Card 4 Title',
                     description: 'Card 4 Description',
-                    leftSvgPath: 'asset/images/crisis_alert.svg',
+                    leftSvgPath: 'asset/images/icon/crisis_alert.svg',
                     rightSvgPath: null,
                     leftBackgroundColor: Color(0xffFFEFED),
                     width: 361,
@@ -141,7 +141,7 @@ class Tache extends StatelessWidget {
                   child: const CustomCard(
                     title: 'Card 5 Title',
                     description: 'Card 5 Description',
-                    leftSvgPath: 'asset/images/crisis_alert.svg',
+                    leftSvgPath: 'asset/images/icon/crisis_alert.svg',
                     rightSvgPath: null,
                     leftBackgroundColor: Color(0xffFFEFED),
                     width: 361,

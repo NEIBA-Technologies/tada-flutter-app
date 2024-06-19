@@ -28,8 +28,9 @@ class ForgetPSW4 extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(
-                    'asset/images/greencheck.png', 
-                    width: 40,
+                    'asset/images/image/greencheck.png', 
+                    width: 45,
+                    height: 45,
                   ),
                   const SizedBox(height: 10),
                   const Text(
@@ -69,7 +70,7 @@ class ForgetPSW4 extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SvgPicture.asset(
-                            'asset/images/retour.svg',
+                            'asset/images/icon/retour.svg',
                             height: 11.67,
                             width: 11.67,
                             color: const Color(0xff48505E),

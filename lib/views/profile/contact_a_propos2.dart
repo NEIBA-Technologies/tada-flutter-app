@@ -28,8 +28,8 @@ class ContactAPropos2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'Welcome to the Support & Contact Page',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
+                'Conditions d’utilisation Tada',
+                style: TextStyle(fontSize: 20, fontFamily: "SoraSB", color: Colors.black),
               ),
             ],
           ),

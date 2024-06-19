@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tada/views/inscription.dart';
-//import 'package:tada/views/splash_creen_2.dart';
 import 'package:tada/widgets/app_button.dart';
 
 class SplashScreen3 extends StatelessWidget {
@@ -9,41 +8,43 @@ class SplashScreen3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
       ),
-
       body: Container(
-        color: Colors.white, 
+        color: Colors.white,
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, 
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               color: const Color(0xffB0E3D5),
-              width: 361,
-              height: 360,
+              width: screenWidth * 0.95,
+              height: screenHeight * 0.4,
               alignment: Alignment.center,
               child: SvgPicture.asset(
-                'asset/images/pana3.svg', 
-                width: 303,
-                height: 295.78,
+                'asset/images/icon/pana3.svg',
+                width: screenWidth * 0.8,
+                height: screenHeight * 0.35,
               ),
             ),
-            const SizedBox(height: 70),
+            const SizedBox(height: 20),
             const Text(
               'Gagne de l’argent !',
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: 20,
-                fontFamily: 'SoraSB'
+                fontFamily: 'SoraSB',
               ),
             ),
             const SizedBox(height: 15),
             const Text(
-              'Crée ta  boutique en un clic Crée ta  boutique en un clic Crée ta  boutique en un clic',
+              'Crée ta boutique en un clic Crée ta boutique en un clic Crée ta boutique en un clic',
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: 16,
@@ -51,23 +52,24 @@ class SplashScreen3 extends StatelessWidget {
                 fontFamily: 'Gilroy',
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
+            const Spacer(),
             Center(
               child: ContinuingButton(
-                width: 361,
+                width: screenWidth * 0.95,
                 height: 48,
                 text: 'Continuer',
                 fontSize: 16,
                 borderRadius: 8,
                 onPressed: () {
-                Navigator.push(
+                  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SignUpForm())
+                    MaterialPageRoute(builder: (context) => const SignUpForm()),
                   );
                 },
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -75,7 +77,7 @@ class SplashScreen3 extends StatelessWidget {
                   width: 10,
                   height: 10,
                   decoration: const BoxDecoration(
-                    color:Color(0xffF0F1F3), 
+                    color: Color(0xffF0F1F3),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -99,6 +101,7 @@ class SplashScreen3 extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

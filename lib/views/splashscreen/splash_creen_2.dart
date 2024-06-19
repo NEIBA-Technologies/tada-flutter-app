@@ -8,11 +8,14 @@ class SplashScreen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 13.0), 
+            padding: const EdgeInsets.only(right: 13.0),
             child: TextButton(
               onPressed: () {
                 // Action pour le bouton "Sauter"
@@ -31,36 +34,35 @@ class SplashScreen2 extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
       ),
-
       body: Container(
-        color: Colors.white, 
+        color: Colors.white,
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, 
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               color: const Color(0xffB7D1FF),
-              width: 361,
-              height: 360,
+              width: screenWidth * 0.95, // Adjust width according to screen size
+              height: screenHeight * 0.4, // Adjust height according to screen size
               alignment: Alignment.center,
               child: SvgPicture.asset(
-                'asset/images/pana2.svg', 
-                width: 303,
-                height: 295.78,
+                'asset/images/icon/pana2.svg',
+                width: screenWidth * 0.8,
+                height: screenHeight * 0.35,
               ),
             ),
-            const SizedBox(height: 70),
+            const SizedBox(height: 20),
             const Text(
               'Donne ton avis sur l’application.',
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: 20,
-                fontFamily: 'SoraSB'
+                fontFamily: 'SoraSB',
               ),
             ),
             const SizedBox(height: 15),
             const Text(
-              'Crée ta  boutique en un clic Crée ta  boutique en un clic Crée ta  boutique en un clic',
+              'Crée ta boutique en un clic Crée ta boutique en un clic Crée ta boutique en un clic',
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: 16,
@@ -68,10 +70,11 @@ class SplashScreen2 extends StatelessWidget {
                 fontFamily: 'Gilroy',
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
+            const Spacer(), // Pushes the content to the bottom
             Center(
               child: ContinuingButton(
-                width: 361,
+                width: screenWidth * 0.95,
                 height: 48,
                 text: 'Continuer',
                 fontSize: 16,
@@ -79,12 +82,12 @@ class SplashScreen2 extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SplashScreen3())
+                    MaterialPageRoute(builder: (context) => const SplashScreen3()),
                   );
                 },
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -92,7 +95,7 @@ class SplashScreen2 extends StatelessWidget {
                   width: 10,
                   height: 10,
                   decoration: const BoxDecoration(
-                    color:Color(0xffF0F1F3),
+                    color: Color(0xffF0F1F3),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -116,6 +119,7 @@ class SplashScreen2 extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tada/views/profile/contact_a_propos2.dart';
+import 'package:tada/views/profile/contact_a_propos3.dart';
 
-
-class Communaute extends StatelessWidget {
-  const Communaute({super.key});
+class APropos extends StatelessWidget {
+  const APropos({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Rejoindre la communauté'),
+        title: const Text('Support & contact'),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
             onPressed: () {
-              Navigator.pop(context); // Close this page and return to the previous page
+              Navigator.pop(context); 
             },
           ),
         ],
@@ -25,22 +26,22 @@ class Communaute extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                //Navigator.push(
-                  //context,
-                  //MaterialPageRoute(builder: (context) => const SupportContact2()),
-                //);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ContactAPropos3()),
+                );
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Text 1',
-                    style: TextStyle(fontSize: 18),
+                    'Conditions d’utilisation',
+                    style: TextStyle(fontSize: 14, fontFamily: "Gilroy"),
                   ),
                   SvgPicture.asset(
-                    'asset/images/right_arrow_Icon.svg', 
-                    height: 24.0,
-                    width: 24.0,
+                    'asset/images/icon/right_arrow_Icon.svg', 
+                    height: 12.0,
+                    width: 6.0,
                   ),
                 ],
               ),
@@ -48,22 +49,22 @@ class Communaute extends StatelessWidget {
             const Divider(height: 20, thickness: 1), 
             GestureDetector(
               onTap: () {
-                //Navigator.push(
-                  //context,
-                  //MaterialPageRoute(builder: (context) => const SupportContact1()),
-                //);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ContactAPropos2()),
+                );
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Text 2',
-                    style: TextStyle(fontSize: 18),
+                    'Politique de confidentialité',
+                    style: TextStyle(fontSize: 14, fontFamily: "Gilroy"),
                   ),
                   SvgPicture.asset(
-                    'asset/images/right_arrow_Icon.svg', 
-                    height: 24.0,
-                    width: 24.0,
+                    'asset/images/icon/right_arrow_Icon.svg', 
+                    height: 12.0,
+                    width: 6.0,
                   ),
                 ],
               ),

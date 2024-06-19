@@ -5,14 +5,14 @@ import 'package:tada/views/enquet_terrain/enquet_terrain3.dart';
 import 'package:tada/widgets/app_button.dart';
 //import 'package:tada/widgets/app_textfield.dart';
 
-class VisiteDeMagasin2 extends StatefulWidget {
-  const VisiteDeMagasin2({super.key});
+class EnquetTerrain2 extends StatefulWidget {
+  const EnquetTerrain2({super.key});
 
   @override
-  _VisiteDeMagasin2State createState() => _VisiteDeMagasin2State();
+  _EnquetTerrain2State createState() => _EnquetTerrain2State();
 }
 
-class _VisiteDeMagasin2State extends State<VisiteDeMagasin2> {
+class _EnquetTerrain2State extends State<EnquetTerrain2> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _magasinNameController = TextEditingController();
   final TextEditingController _gerantNameController = TextEditingController();
@@ -174,7 +174,7 @@ class _VisiteDeMagasin2State extends State<VisiteDeMagasin2> {
                 child: Column(
                   children: [
                     SvgPicture.asset(
-                      'asset/images/key.svg',
+                      'asset/images/icon/key.svg',
                       height: 40,
                       width: 40,
                     ),
@@ -231,7 +231,7 @@ class _VisiteDeMagasin2State extends State<VisiteDeMagasin2> {
                   return null;
                 },
                 hintText: 'Entrez le contact du gérant',
-                svgImagePath: 'asset/images/celphoneIcon.svg',
+                svgImagePath: 'asset/images/icon/celphoneIcon.svg',
                 isLeftIcon: true,
               ),
               const SizedBox(height: 10),
@@ -265,7 +265,7 @@ class _VisiteDeMagasin2State extends State<VisiteDeMagasin2> {
                   return null;
                 },
                 hintText: 'Ajoutez une photo de l’entrée',
-                svgImagePath: 'asset/images/cam_grey_Icon.svg',
+                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
                 isRightIcon: true,
               ),
               const SizedBox(height: 10),
@@ -317,7 +317,7 @@ class _VisiteDeMagasin2State extends State<VisiteDeMagasin2> {
                 onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const VisiteDeMagasin3())
+                    MaterialPageRoute(builder: (context) => const EnquetTerrain3())
                   );
                 },
               ),

@@ -30,7 +30,7 @@ class GoogleButton extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: onPressed,
       icon: SvgPicture.asset(
-        'asset/images/google.svg', 
+        'asset/images/icon/google.svg', 
         height: 24,
         width: 24,
       ),

@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/enquet_terrain/enquet_terrain4.dart';
+import 'package:tada/views/tache_d_information/tache_info7.dart';
 import 'package:tada/widgets/app_button.dart';
 
-class EnquetTerrain3 extends StatefulWidget {
-  const EnquetTerrain3({super.key});
+class TacheInfo6 extends StatefulWidget {
+  const TacheInfo6({super.key});
 
   @override
-  _EnquetTerrain3State createState() => _EnquetTerrain3State();
+  _TacheInfo6State createState() => _TacheInfo6State();
 }
 
-class _EnquetTerrain3State extends State<EnquetTerrain3> {
+class _TacheInfo6State extends State<TacheInfo6> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _equipementController = TextEditingController();
-  final TextEditingController _ouiNonController = TextEditingController();
-  final TextEditingController _quantiteStockController = TextEditingController();
-  final TextEditingController _prixVenteController = TextEditingController();
-  final TextEditingController _prixAchatController = TextEditingController();
-  final TextEditingController _photoController = TextEditingController();
-  final TextEditingController _photoEntrerController = TextEditingController();
-
-  final List<String> _equipementOptions = ['Option 1', 'Option 2', 'Option 3'];
-  final List<String> _ouiNonOptions = ['Oui', 'Non'];
+  final TextEditingController _boissonPrefereeController = TextEditingController();
+  final TextEditingController _banqueCompteController = TextEditingController();
+  final TextEditingController _typeCompteController = TextEditingController();
+  final TextEditingController _typeAssuranceController = TextEditingController();
+  final TextEditingController _societeAssuranceController = TextEditingController();
+  
+  String? _compteBancaireValue;
+  String? _assuranceValue;
+  
+  final List<String> _compteBancaireOptions = ['Oui', 'Non'];
+  final List<String> _assuranceOptions = ['Oui', 'Non'];
 
   Widget _buildTextField({
     required String label,
@@ -143,28 +144,24 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildDropdownField(
-                label: 'Équipement & Installation',
-                value: _equipementController.text.isEmpty ? null : _equipementController.text,
-                options: _equipementOptions,
+              _buildTextField(
+                label: 'Quelle est ta boisson préférée?',
+                controller: _boissonPrefereeController,
+                keyboardType: TextInputType.text,
+                obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner une option';
+                    return 'Veuillez entrer votre boisson préférée';
                   }
                   return null;
                 },
-                onChanged: (value) {
-                  setState(() {
-                    _equipementController.text = value ?? '';
-                  });
-                },
-                hintText: 'Sélectionnez une option',
+                hintText: 'Entrez votre boisson préférée',
               ),
               const SizedBox(height: 10),
               _buildDropdownField(
-                label: 'Optionnel Oui/Non',
-                value: _ouiNonController.text.isEmpty ? null : _ouiNonController.text,
-                options: _ouiNonOptions,
+                label: 'As-tu un compte bancaire?',
+                value: _compteBancaireValue,
+                options: _compteBancaireOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Veuillez sélectionner une option';
@@ -173,84 +170,84 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                 },
                 onChanged: (value) {
                   setState(() {
-                    _ouiNonController.text = value ?? '';
+                    _compteBancaireValue = value;
                   });
                 },
                 hintText: 'Sélectionnez Oui ou Non',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Quantité de Stock',
-                controller: _quantiteStockController,
-                keyboardType: TextInputType.number,
+                label: 'Dans quelles banques as-tu un compte?',
+                controller: _banqueCompteController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer la quantité de stock';
+                  if (_compteBancaireValue == 'Oui' && (value == null || value.isEmpty)) {
+                    return 'Veuillez entrer les banques où vous avez un compte';
                   }
                   return null;
                 },
-                hintText: 'Entrez la quantité de stock',
+                hintText: 'Entrez les banques où vous avez un compte',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo du Code Barre',
-                controller:_photoEntrerController,
-                keyboardType: TextInputType.number,
+                label: 'Quel type de compte disposes-tu?',
+                controller: _typeCompteController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
+                  if (_compteBancaireValue == 'Oui' && (value == null || value.isEmpty)) {
+                    return 'Veuillez entrer le type de compte';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix de vente',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
+                hintText: 'Entrez le type de compte',
+              ),
+              const SizedBox(height: 10),
+              _buildDropdownField(
+                label: 'As-tu souscris à une assurance?',
+                value: _assuranceValue,
+                options: _assuranceOptions,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner une option';
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  setState(() {
+                    _assuranceValue = value;
+                  });
+                },
+                hintText: 'Sélectionnez Oui ou Non',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo du Produit sur les Étages',
-                controller: _photoController,
-                keyboardType: TextInputType.number,
+                label: 'Quel type d’assurance?',
+                controller: _typeAssuranceController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
+                  if (_assuranceValue == 'Oui' && (value == null || value.isEmpty)) {
+                    return 'Veuillez entrer le type d’assurance';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix d\'achat',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
+                hintText: 'Entrez le type d’assurance',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Prix de Vente',
-                controller: _prixVenteController,
-                keyboardType: TextInputType.number,
+                label: 'Avec quelle société d’assurance es-tu?',
+                controller: _societeAssuranceController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
+                  if (_assuranceValue == 'Oui' && (value == null || value.isEmpty)) {
+                    return 'Veuillez entrer la société d’assurance';
                   }
                   return null;
                 },
-                hintText: 'Entrez le prix de vente',
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix d\'Achat',
-                controller: _prixAchatController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix d\'achat',
+                hintText: 'Entrez la société d’assurance',
               ),
               const SizedBox(height: 20),
               Center(
@@ -266,7 +263,7 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const EnquetTerrain4()),
+                            MaterialPageRoute(builder: (context) => const TacheInfo7()),
                           );
                         }
                       },

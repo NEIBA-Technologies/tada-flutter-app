@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tada/views/accueil.dart';
 import 'package:tada/views/portefeuil/portefeuil.dart';
-import 'package:tada/views/profil.dart';
+import 'package:tada/views/profile/profil.dart';
 import 'package:tada/views/tache.dart';
 import 'package:tada/widgets/bottom_bar.dart';
 
@@ -77,10 +77,10 @@ class _CentralPageState extends State<CentralPage> {
       bottomNavigationBar: bottomBarVisible
           ? BottomBar(
               items: [
-                BottomBarItem(iconPath: 'asset/images/Home_Icon.svg', label: 'Home'),
-                BottomBarItem(iconPath: 'asset/images/Tache_Icon.svg', label: 'Tâche'),
-                BottomBarItem(iconPath: 'asset/images/Walet_Icon.svg', label: 'Portefeuil'),
-                BottomBarItem(iconPath: 'asset/images/Profil_Icon.svg', label: 'Profile'),
+                BottomBarItem(iconPath: 'asset/images/icon/Home_Icon.svg', label: 'Home'),
+                BottomBarItem(iconPath: 'asset/images/icon/Tache_Icon.svg', label: 'Tâche'),
+                BottomBarItem(iconPath: 'asset/images/icon/Walet_Icon.svg', label: 'Portefeuil'),
+                BottomBarItem(iconPath: 'asset/images/icon/Profil_Icon.svg', label: 'Profile'),
               ],
               currentIndex: _currentIndex,
               onTap: _onTabTapped,

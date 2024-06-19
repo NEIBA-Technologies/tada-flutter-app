@@ -28,7 +28,7 @@ class PortefeuilRetrai1 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SvgPicture.asset(
-                    'asset/images/smart_phone_Icon.svg',
+                    'asset/images/icon/smart_phone_Icon.svg',
                     width: 32,
                     height: 32,
                   ),
@@ -43,7 +43,7 @@ class PortefeuilRetrai1 extends StatelessWidget {
                     height: 5,
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                        colors: [Colors.red, Colors.grey],
+                        colors: [Color(0xffFF5B4A), Color(0xffD0D3D9)],
                         stops: [0.5, 0.5],
                       ),
                       borderRadius: BorderRadius.circular(2.5),
@@ -114,8 +114,9 @@ class RowItem extends StatelessWidget {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             decoration: BoxDecoration(
+              color: Colors.white,
               border: Border.all(
-                color: isActive ? Colors.red : Colors.transparent,
+                color: isActive ? Color(0xffFF5B4A) : Colors.transparent,
                 width: 2.0,
               ),
               borderRadius: BorderRadius.circular(4.0),
@@ -124,15 +125,16 @@ class RowItem extends StatelessWidget {
                   color: Colors.black.withOpacity(0.2),
                   spreadRadius: 2,
                   blurRadius: 3,
-                  offset: const Offset(0, 2), 
+                  offset: const Offset(0, 2),
                 ),
               ],
             ),
+            margin: const EdgeInsets.symmetric(vertical: 5),
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
                 SvgPicture.asset(
-                  'asset/images/basket_Icon.svg',
+                  'asset/images/icon/basket_Icon.svg',
                   width: 20,
                   height: 20,
                 ),
@@ -163,7 +165,7 @@ class RowItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: SvgPicture.asset(
-                      'asset/images/red_check_Icon.svg',
+                      'asset/images/icon/red_check_Icon.svg',
                       width: 10,
                       height: 10,
                     ),

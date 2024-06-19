@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tada/views/profile/support_et_contacts2.dart';
 
 class SupportContacts1 extends StatefulWidget {
   const SupportContacts1({super.key});
@@ -31,12 +32,14 @@ class _SupportContacts1State extends State<SupportContacts1> {
               height: 55,
               child: TextButton(
                 onPressed: () {
-                  // Action du bouton
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  const SupportContacts2()),);
                 },
                 style: TextButton.styleFrom(
                   foregroundColor: Colors.black,
                   padding: const EdgeInsets.all(16.0),
-                  backgroundColor: const Color(0xffFFCCC7),
+                  backgroundColor:  Colors.white,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                   ),
@@ -47,16 +50,16 @@ class _SupportContacts1State extends State<SupportContacts1> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Texte 1',
+                          'Signaler un problème au service client',
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontFamily: "Gilroy",
                           ),
                         ),
                       ),
                     ),
                     SvgPicture.asset(
-                      'asset/images/right_arrow_Icon.svg',
+                      'asset/images/icon/right_arrow_Icon.svg',
                       width: 6,
                       height: 12,
                     ),
@@ -81,21 +84,23 @@ class _SupportContacts1State extends State<SupportContacts1> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Titre',
+              'Introduction à Tada',
               style: TextStyle(
                 fontSize: 16,
-                fontWeight: FontWeight.bold,
+                fontFamily: "SoraSB",
               ),
             ),
           ],
         ),
       ),
       children: [
-        _buildTextRow('Description 1'),
+        _buildTextRow('Quelles sont les méthodes de paiement disponible'),
         const Divider(),
-        _buildTextRow('Description 2'),
+        _buildTextRow('Quelles sont les méthodes de paiement disponible'),
         const Divider(),
-        _buildTextRow('Description 3'),
+        _buildTextRow('Quelles sont les méthodes de paiement disponible'),
+        const Divider(),
+        _buildTextRow('Quelles sont les méthodes de paiement disponible'),
       ],
     );
   }
@@ -111,7 +116,8 @@ class _SupportContacts1State extends State<SupportContacts1> {
           text,
           style: const TextStyle(
             color: Colors.black,
-            fontSize: 16,
+            fontSize: 12,
+            fontFamily: "Gilroy"
           ),
         ),
       ),

@@ -17,10 +17,10 @@ class _MappingInstantane1State extends State<MappingInstantane1> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Mission',
+          'Mapping spontané ',
           style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+            fontSize: 14,
+            fontFamily: "SoraSB",
           ),
         ),
         backgroundColor: Colors.white,
@@ -30,9 +30,9 @@ class _MappingInstantane1State extends State<MappingInstantane1> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0), // Height of the Divider
+          preferredSize: const Size.fromHeight(1.0), 
           child: Container(
-            color: Colors.grey, // Color of the Divider
+            color: Colors.grey, 
             height: 1.0,
           ),
         ),
@@ -51,7 +51,7 @@ class _MappingInstantane1State extends State<MappingInstantane1> {
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(16),
                   image: const DecorationImage(
-                    image: AssetImage('asset/images/profil_picture.jpg'),
+                    image: AssetImage('asset/images/image/woman.jpeg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -62,30 +62,30 @@ class _MappingInstantane1State extends State<MappingInstantane1> {
               'Merci de participer à cette mission de visite de magasin. Votre contribution est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients. Veuillez répondre aux questions suivantes avec soin et précision.',
               style: TextStyle(
                 fontSize: 16,
+                fontFamily: "Gilroy",
                 color: Colors.black,
               ),
             ),
             const SizedBox(height: 20),
-            // Structure de colonnes et de lignes avec image SVG et texte
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildRow(
-                  question: 'Première question :',
-                  answer: 'Votre réponse 1',
-                  svgImagePath: 'asset/images/horloge_Icon.svg',
+                  question: 'Temps estimé :',
+                  answer: '5min',
+                  svgImagePath: 'asset/images/icon/horloge_Icon.svg',
                 ),
                 const SizedBox(height: 10),
                 _buildRow(
-                  question: 'Deuxième question :',
-                  answer: 'Votre réponse 2',
-                  svgImagePath: 'asset/images/calendar_Icon.svg',
+                  question: 'Jours restants :',
+                  answer: '3 jours',
+                  svgImagePath: 'asset/images/icon/calendar_Icon.svg',
                 ),
                 const SizedBox(height: 10),
                 _buildRow(
-                  question: 'Troisième question :',
-                  answer: 'Votre réponse 3',
-                  svgImagePath: 'asset/images/money_Icon.svg',
+                  question: 'Gain :',
+                  answer: '20,00 XOF',
+                  svgImagePath: 'asset/images/icon/money_Icon.svg',
                 ),
               ],
             ),
@@ -126,7 +126,7 @@ class _MappingInstantane1State extends State<MappingInstantane1> {
       children: [
         Text(
           question,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: "Gilroy"),
         ),
         const SizedBox(width: 8),
         Row(
@@ -134,12 +134,18 @@ class _MappingInstantane1State extends State<MappingInstantane1> {
           children: [
             SvgPicture.asset(
               svgImagePath,
-              height: 24,
-              width: 24,
-              color: Colors.black, // Optionnel : changer la couleur de l'icône
+              height: 20,
+              width: 20,
+              color: Colors.black, 
             ),
             const SizedBox(width: 8),
-            Text(answer),
+            Text(
+              answer,
+              style: const TextStyle(
+                fontFamily: "Gilroy",
+                fontSize: 14
+              ),
+              ),
           ],
         ),
       ],

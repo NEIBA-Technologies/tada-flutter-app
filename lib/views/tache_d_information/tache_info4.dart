@@ -1,44 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/mapping/mapping_instantane3.dart';
-//import 'package:tada/views/forget_psw2.dart';
+import 'package:tada/views/tache_d_information/tache_info5.dart';
 import 'package:tada/widgets/app_button.dart';
-//import 'package:tada/widgets/app_textfield.dart';
 
-class MappingInstantane2 extends StatefulWidget {
-  const MappingInstantane2({super.key});
+class TacheInfo4 extends StatefulWidget {
+  const TacheInfo4({super.key});
 
   @override
-  _MappingInstantane2State createState() => _MappingInstantane2State();
+  _TacheInfo4State createState() => _TacheInfo4State();
 }
 
-class _MappingInstantane2State extends State<MappingInstantane2> {
+class _TacheInfo4State extends State<TacheInfo4> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _magasinNameController = TextEditingController();
-  final TextEditingController _gerantNameController = TextEditingController();
-  final TextEditingController _gerantContactController = TextEditingController();
-  final TextEditingController _photoEntreeController = TextEditingController();
-  String? _selectedTypeMagasinOption;
-  String? _selectedPaymentMethodOption;
-  String? _selectedProductOption;
-
-  final List<String> _typeMagasinOptions = [
-    'Supermarché',
-    'Épicerie',
-    'Pharmacie',
-  ];
-
-  final List<String> _paymentMethodOptions = [
-    'Carte de crédit',
-    'Espèces',
-    'Mobile Money',
-  ];
-
-  final List<String> _productOptions = [
-    'Produits alimentaires',
-    'Produits ménagers',
-    'Produits de beauté',
-  ];
+  final TextEditingController _posteActuelController = TextEditingController();
+  
+  String? _secteurTravailValue;
+  String? _situationMatrimonialeValue;
+  String? _enfantsValue;
+  String? _sportValue;
+  String? _croyanceValue;
+  
+  final List<String> _secteurTravailOptions = ['Finance', 'Technologie', 'Santé', 'Éducation', 'Autre'];
+  final List<String> _situationMatrimonialeOptions = ['Célibataire', 'Marié(e)', 'Divorcé(e)', 'Veuf/Veuve'];
+  final List<String> _enfantsOptions = ['Aucun', '1', '2', '3', 'Plus de 3'];
+  final List<String> _sportOptions = ['Oui', 'Non'];
+  final List<String> _croyanceOptions = ['Oui', 'Non'];
 
   Widget _buildTextField({
     required String label,
@@ -48,7 +34,6 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
     required String? Function(String?) validator,
     required String hintText,
     String? svgImagePath,
-    bool isLeftIcon = false,
     bool isRightIcon = false,
   }) {
     return Column(
@@ -57,11 +42,7 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
         const SizedBox(height: 10),
         Text(
           label,
-          style: const TextStyle(
-            color: Colors.black,
-            fontFamily: "SoraSB",
-            fontSize: 14,
-          ),
+          style: const TextStyle(color: Colors.black),
         ),
         const SizedBox(height: 10),
         Container(
@@ -73,15 +54,6 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
           ),
           child: Row(
             children: [
-              if (svgImagePath != null && isLeftIcon)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: SvgPicture.asset(
-                    svgImagePath,
-                    height: 24,
-                    width: 24,
-                  ),
-                ),
               Expanded(
                 child: TextFormField(
                   controller: controller,
@@ -89,10 +61,6 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
                   keyboardType: keyboardType,
                   decoration: InputDecoration(
                     hintText: hintText,
-                    hintStyle: const TextStyle(
-                      fontFamily: "Gilroy",
-                      fontSize: 14,
-                    ),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                   ),
@@ -104,8 +72,8 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: SvgPicture.asset(
                     svgImagePath,
-                    height: 18.61,
-                    width: 18.61,
+                    height: 24,
+                    width: 24,
                   ),
                 ),
             ],
@@ -129,11 +97,7 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
         const SizedBox(height: 10),
         Text(
           label,
-          style: const TextStyle(
-            color: Colors.black,
-            fontFamily: "SoraSB",
-            fontSize: 14,
-            ),
+          style: const TextStyle(color: Colors.black),
         ),
         const SizedBox(height: 10),
         Container(
@@ -155,10 +119,6 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
             validator: validator,
             decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: const TextStyle(
-                fontFamily: "Gilroy",
-                fontSize: 14,
-              ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
               border: InputBorder.none,
             ),
@@ -172,25 +132,11 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Mapping spontané ',
-          style: TextStyle(
-            fontSize: 14,
-            fontFamily: "SoraSB",
-          ),
-        ),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0), 
-          child: Container(
-            color: Colors.grey, 
-            height: 1.0,
-          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -200,141 +146,128 @@ class _MappingInstantane2State extends State<MappingInstantane2> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
-                child: Column(
-                ),
-              ),
-              const SizedBox(height: 20),
-              _buildTextField(
-                label: 'Nom du magasin',
-                controller: _magasinNameController,
-                keyboardType: TextInputType.name,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le nom du magasin';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le nom du magasin',
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Nom du gérant',
-                controller: _gerantNameController,
-                keyboardType: TextInputType.name,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le nom du gérant';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le nom du gérant',
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Contact du gérant',
-                controller: _gerantContactController,
-                keyboardType: TextInputType.phone,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le contact du gérant';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le contact du gérant',
-                svgImagePath: 'asset/images/icon/celphoneIcon.svg',
-                isLeftIcon: true,
-              ),
-              const SizedBox(height: 10),
               _buildDropdownField(
-                label: 'Type de magasin',
-                value: _selectedTypeMagasinOption,
-                options: _typeMagasinOptions,
+                label: 'Dans quel secteur travailles-tu?',
+                value: _secteurTravailValue,
+                options: _secteurTravailOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner un type de magasin';
+                    return 'Veuillez sélectionner une option';
                   }
                   return null;
                 },
                 onChanged: (value) {
                   setState(() {
-                    _selectedTypeMagasinOption = value;
+                    _secteurTravailValue = value;
                   });
                 },
-                hintText: 'Sélectionnez le type de magasin',
+                hintText: 'Sélectionnez votre secteur de travail',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo de l’entrée',
-                controller: _photoEntreeController,
+                label: 'Quel est ton poste actuel?',
+                controller: _posteActuelController,
                 keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez ajouter une photo de l’entrée';
+                    return 'Veuillez entrer votre poste actuel';
                   }
                   return null;
                 },
-                hintText: 'Ajoutez une photo de l’entrée',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
+                hintText: 'Entrez votre poste actuel',
               ),
               const SizedBox(height: 10),
               _buildDropdownField(
-                label: 'Méthodes de paiement disponibles',
-                value: _selectedPaymentMethodOption,
-                options: _paymentMethodOptions,
+                label: 'Quelle est ta situation matrimoniale?',
+                value: _situationMatrimonialeValue,
+                options: _situationMatrimonialeOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner une méthode de paiement';
+                    return 'Veuillez sélectionner une option';
                   }
                   return null;
                 },
                 onChanged: (value) {
                   setState(() {
-                    _selectedPaymentMethodOption = value;
+                    _situationMatrimonialeValue = value;
                   });
                 },
-                hintText: 'Sélectionnez les méthodes de paiement disponibles',
+                hintText: 'Sélectionnez votre situation matrimoniale',
               ),
               const SizedBox(height: 10),
               _buildDropdownField(
-                label: 'Produits en vente',
-                value: _selectedProductOption,
-                options: _productOptions,
+                label: 'As-tu des enfants? Si oui, combien?',
+                value: _enfantsValue,
+                options: _enfantsOptions,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner un produit';
+                    return 'Veuillez sélectionner une option';
                   }
                   return null;
                 },
                 onChanged: (value) {
                   setState(() {
-                    _selectedProductOption = value;
+                    _enfantsValue = value;
                   });
                 },
-                hintText: 'Sélectionnez les produits en vente',
+                hintText: 'Sélectionnez le nombre d\'enfants',
+              ),
+              const SizedBox(height: 10),
+              _buildDropdownField(
+                label: 'Pratiques-tu un sport ou une activité physique régulière?',
+                value: _sportValue,
+                options: _sportOptions,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner une option';
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  setState(() {
+                    _sportValue = value;
+                  });
+                },
+                hintText: 'Sélectionnez Oui ou Non',
+              ),
+              const SizedBox(height: 10),
+              _buildDropdownField(
+                label: 'As-tu des croyances religieuses ou spirituelles?',
+                value: _croyanceValue,
+                options: _croyanceOptions,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez sélectionner une option';
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  setState(() {
+                    _croyanceValue = value;
+                  });
+                },
+                hintText: 'Sélectionnez Oui ou Non',
               ),
               const SizedBox(height: 20),
               Center(
                 child: Column(
                   children: [
                     ContinuingButton(
-                width: 361,
-                height: 48,
-                text: 'Continuer',
-                fontSize: 16,
-                borderRadius: 8,
-                onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MappingInstantane3())
-                  );
-                },
-              ),
+                      width: 361,
+                      height: 48,
+                      text: 'Continuer',
+                      fontSize: 16,
+                      borderRadius: 8,
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const TacheInfo5()),
+                          );
+                        }
+                      },
+                    ),
                     const SizedBox(height: 10),
                   ],
                 ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tada/views/connexion.dart';
 import 'package:tada/widgets/app_button.dart';
-
 
 class ModifPSW extends StatefulWidget {
   const ModifPSW({super.key});
@@ -16,29 +14,26 @@ class _ModifPSWState extends State<ModifPSW> {
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-  @override
-  void dispose() {
-    _oldPasswordController.dispose();
-    _newPasswordController.dispose();
-    _confirmPasswordController.dispose();
-    super.dispose();
-  }
-
-  Widget _buildPasswordField({
-    required String hintText,
+  Widget _buildTextField({
+    required String hint,
     required TextEditingController controller,
+    required bool obscureText,
     required String? Function(String?) validator,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 30),
-        CustomTextField(
+        const SizedBox(height: 10),
+        TextFormField(
           controller: controller,
-          obscureText: true,
-          hintText: hintText,
-          width: 361,
-          height: 44,
+          obscureText: obscureText,
+          decoration: InputDecoration(
+            hintText: hint,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          ),
           validator: validator,
         ),
       ],
@@ -64,9 +59,10 @@ class _ModifPSWState extends State<ModifPSW> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              _buildPasswordField(
-                hintText: 'Ancien mot de passe',
+              _buildTextField(
+                hint: 'Ancien mot de passe',
                 controller: _oldPasswordController,
+                obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Veuillez entrer votre ancien mot de passe';
@@ -74,9 +70,11 @@ class _ModifPSWState extends State<ModifPSW> {
                   return null;
                 },
               ),
-              _buildPasswordField(
-                hintText: 'Nouveau mot de passe',
+              const SizedBox(height: 20),
+              _buildTextField(
+                hint: 'Nouveau mot de passe',
                 controller: _newPasswordController,
+                obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Veuillez entrer votre nouveau mot de passe';
@@ -84,14 +82,15 @@ class _ModifPSWState extends State<ModifPSW> {
                   return null;
                 },
               ),
-              _buildPasswordField(
-                hintText: 'Confirmez le mot de passe',
+              const SizedBox(height: 20),
+              _buildTextField(
+                hint: 'Confirmer le mot de passe',
                 controller: _confirmPasswordController,
+                obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez confirmer votre mot de passe';
-                  }
-                  if (value != _newPasswordController.text) {
+                    return 'Veuillez confirmer votre nouveau mot de passe';
+                  } else if (value != _newPasswordController.text) {
                     return 'Les mots de passe ne correspondent pas';
                   }
                   return null;
@@ -106,59 +105,16 @@ class _ModifPSWState extends State<ModifPSW> {
                   fontSize: 16,
                   borderRadius: 8,
                   onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const SignInForm()),
-                      );
+                    if (_formKey.currentState!.validate()) {
+                      // Action à effectuer lorsqu'on appuie sur Continuer
                     }
                   },
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-
-class CustomTextField extends StatelessWidget {
-  final TextEditingController controller;
-  final bool obscureText;
-  final String hintText;
-  final double width;
-  final double height;
-  final String? Function(String?)? validator;
-
-  const CustomTextField({
-    super.key,
-    required this.controller,
-    required this.obscureText,
-    required this.hintText,
-    required this.width,
-    required this.height,
-    this.validator,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: TextFormField(
-        controller: controller,
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          hintText: hintText,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-        ),
-        validator: validator,
       ),
     );
   }

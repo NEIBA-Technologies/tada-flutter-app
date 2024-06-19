@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tada/views/enquet_terrain/enquet_terrain4.dart';
+import 'package:tada/views/tache_d_information/tache_info3.dart';
 import 'package:tada/widgets/app_button.dart';
 
-class EnquetTerrain3 extends StatefulWidget {
-  const EnquetTerrain3({super.key});
+class TacheInfo2 extends StatefulWidget {
+  const TacheInfo2({super.key});
 
   @override
-  _EnquetTerrain3State createState() => _EnquetTerrain3State();
+  _TacheInfo2State createState() => _TacheInfo2State();
 }
 
-class _EnquetTerrain3State extends State<EnquetTerrain3> {
+class _TacheInfo2State extends State<TacheInfo2> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _equipementController = TextEditingController();
-  final TextEditingController _ouiNonController = TextEditingController();
-  final TextEditingController _quantiteStockController = TextEditingController();
-  final TextEditingController _prixVenteController = TextEditingController();
-  final TextEditingController _prixAchatController = TextEditingController();
+  final TextEditingController _nomCompletController = TextEditingController();
   final TextEditingController _photoController = TextEditingController();
-  final TextEditingController _photoEntrerController = TextEditingController();
+  String? _selectedPaysOrigine;
+  String? _selectedLieuHabitation;
+  String? _selectedProfession;
+  String? _selectedOption;
 
-  final List<String> _equipementOptions = ['Option 1', 'Option 2', 'Option 3'];
-  final List<String> _ouiNonOptions = ['Oui', 'Non'];
+  final List<String> _paysOrigineOptions = ['France', 'États-Unis', 'Canada', 'Autre'];
+  final List<String> _lieuHabitationOptions = ['Paris', 'New York', 'Toronto', 'Autre'];
+  final List<String> _professionOptions = ['Ingénieur', 'Médecin', 'Enseignant', 'Autre'];
 
   Widget _buildTextField({
     required String label,
@@ -125,6 +125,28 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
     );
   }
 
+  Widget _buildRadioButton({
+    required String label,
+    required String value,
+    required String? groupValue,
+    required void Function(String?) onChanged,
+  }) {
+    return Row(
+      children: [
+        Radio<String>(
+          value: value,
+          groupValue: groupValue,
+          onChanged: onChanged,
+          activeColor: Colors.black,
+        ),
+        Text(
+          label,
+          style: const TextStyle(color: Colors.black),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,114 +165,101 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildDropdownField(
-                label: 'Équipement & Installation',
-                value: _equipementController.text.isEmpty ? null : _equipementController.text,
-                options: _equipementOptions,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner une option';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  setState(() {
-                    _equipementController.text = value ?? '';
-                  });
-                },
-                hintText: 'Sélectionnez une option',
-              ),
-              const SizedBox(height: 10),
-              _buildDropdownField(
-                label: 'Optionnel Oui/Non',
-                value: _ouiNonController.text.isEmpty ? null : _ouiNonController.text,
-                options: _ouiNonOptions,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez sélectionner une option';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  setState(() {
-                    _ouiNonController.text = value ?? '';
-                  });
-                },
-                hintText: 'Sélectionnez Oui ou Non',
-              ),
-              const SizedBox(height: 10),
               _buildTextField(
-                label: 'Quantité de Stock',
-                controller: _quantiteStockController,
-                keyboardType: TextInputType.number,
+                label: 'Nom Complet',
+                controller: _nomCompletController,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer la quantité de stock';
+                    return 'Veuillez entrer votre nom complet';
                   }
                   return null;
                 },
-                hintText: 'Entrez la quantité de stock',
+                hintText: 'Entrez votre nom complet',
               ),
               const SizedBox(height: 10),
               _buildTextField(
-                label: 'Photo du Code Barre',
-                controller:_photoEntrerController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
-                  }
-                  return null;
-                },
-                hintText: 'Entrez le prix de vente',
-                svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
-                isRightIcon: true,
-              ),
-              const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Photo du Produit sur les Étages',
+                label: 'Photo',
                 controller: _photoController,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 obscureText: false,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
-                  }
                   return null;
                 },
-                hintText: 'Entrez le prix d\'achat',
+                hintText: 'Prenez une photo',
                 svgImagePath: 'asset/images/icon/cam_grey_Icon.svg',
                 isRightIcon: true,
               ),
               const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix de Vente',
-                controller: _prixVenteController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
+              _buildDropdownField(
+                label: 'Votre Pays d\'Origine (Optionnel)',
+                value: _selectedPaysOrigine,
+                options: _paysOrigineOptions,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix de vente';
-                  }
                   return null;
                 },
-                hintText: 'Entrez le prix de vente',
+                onChanged: (value) {
+                  setState(() {
+                    _selectedPaysOrigine = value;
+                  });
+                },
+                hintText: 'Sélectionnez votre pays d\'origine',
               ),
               const SizedBox(height: 10),
-              _buildTextField(
-                label: 'Prix d\'Achat',
-                controller: _prixAchatController,
-                keyboardType: TextInputType.number,
-                obscureText: false,
+              _buildDropdownField(
+                label: 'Lieu d\'Habitation (Optionnel)',
+                value: _selectedLieuHabitation,
+                options: _lieuHabitationOptions,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer le prix d\'achat';
-                  }
                   return null;
                 },
-                hintText: 'Entrez le prix d\'achat',
+                onChanged: (value) {
+                  setState(() {
+                    _selectedLieuHabitation = value;
+                  });
+                },
+                hintText: 'Sélectionnez votre lieu d\'habitation',
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  _buildRadioButton(
+                    label: 'Oui',
+                    value: 'Oui',
+                    groupValue: _selectedOption,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedOption = value;
+                      });
+                    },
+                  ),
+                  _buildRadioButton(
+                    label: 'Non',
+                    value: 'Non',
+                    groupValue: _selectedOption,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedOption = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              _buildDropdownField(
+                label: 'Quelle est votre profession? (Optionnel)',
+                value: _selectedProfession,
+                options: _professionOptions,
+                validator: (value) {
+                  return null;
+                },
+                onChanged: (value) {
+                  setState(() {
+                    _selectedProfession = value;
+                  });
+                },
+                hintText: 'Sélectionnez votre profession',
               ),
               const SizedBox(height: 20),
               Center(
@@ -266,7 +275,7 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const EnquetTerrain4()),
+                            MaterialPageRoute(builder: (context) => TacheInfo3()),
                           );
                         }
                       },
