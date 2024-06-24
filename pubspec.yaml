@@ -19,14 +19,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.4 <4.0.0'
+  sdk: '>=3.3.3 <4.0.0'
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
@@ -34,38 +28,24 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
+  simple_grid: ^0.1.4
   flutter_svg: ^2.0.10+1
-  flutter_bloc: ^8.1.5
-  equatable: ^2.0.5
-  bloc: ^8.1.4
-  meta: ^1.11.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_bloc: ^8.1.6
+  dio: ^5.4.3+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
-
-flutter_native_splash:
-  color: "#ffffff"
-  image: "asset/images/Group 33936.svg"
-
-
-  
-  
-  
-  
-  
-  
-  
-
-    
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+  flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -80,53 +60,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - asset/images/icon/pana.svg
-    - asset/images/icon/pana2.svg
-    - asset/images/icon/pana3.svg
-    - asset/images/icon/Logomark.svg
-    - asset/images/icon/google.svg
-    - asset/images/icon/key.svg
-    - asset/images/icon/mail.svg
-    - asset/images/icon/retour.svg
-    - asset/images/icon/Home_Icon.svg
-    - asset/images/icon/Profil_Icon.svg
-    - asset/images/icon/Tache_Icon.svg
-    - asset/images/icon/Walet_Icon.svg
-    - asset/images/icon/notif_Icon.svg
-    - asset/images/icon/enregistre_Icon.svg
-    - asset/images/icon/crisis_alert.svg
-    - asset/images/icon/cam_Icon.svg
-    - asset/images/icon/book_Icon.svg
-    - asset/images/icon/exit_Icon.svg
-    - asset/images/icon/right_arrow_Icon.svg
-    - asset/images/icon/grid_Icon1.svg
-    - asset/images/icon/grid_Icon2.svg
-    - asset/images/icon/grid_Icon3.svg
-    - asset/images/icon/grid_Icon4.svg
-    - asset/images/icon/grid_Icon5.svg
-    - asset/images/icon/grid_Icon6.svg
-    - asset/images/icon/heart_Icon.svg
-    - asset/images/icon/money_Icon.svg
-    - asset/images/icon/horloge_Icon.svg
-    - asset/images/icon/calendar_Icon.svg
-    - asset/images/icon/celphoneIcon.svg
-    - asset/images/icon/cam_grey_Icon.svg
-    - asset/images/icon/cible_Icon.svg
-    - asset/images/icon/profil_yellow_Icon.svg
-    - asset/images/icon/edit_Icon.svg
-    - asset/images/icon/smart_phone_Icon.svg
-    - asset/images/icon/basket_Icon.svg
-    - asset/images/icon/red_check_Icon.svg
-    - asset/images/icon/Right.svg
-    - asset/images/image/carte.png
-    - asset/images/image/greencheck.png
-    - asset/images/image/Loaction.png
-    - asset/images/image/man.jpeg
-    - asset/images/image/woman.jpeg
-    - asset/images/image/Dan.jpeg
-    - asset/images/image/personne.jpeg
-    - asset/images/image/profil_picture.jpg
-  #   - images/a_dot_ham.jpeg
+    - assets/
+    - assets/font/
+    - assets/svg/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -139,19 +76,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Gilroy
-      fonts:
-        - asset: asset/font/Gilroy-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-    - family: SoraSB
-      fonts:
-        - asset: asset/font/Sora-SemiBold.ttf
-        
-    - family: SoraR
-      fonts:
-        - asset: asset/font/Sora-Regular.ttf
+  #  fonts:
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

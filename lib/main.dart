@@ -1,24 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tada/bloc/hovering/hovering_bloc.dart';
-import 'package:tada/views/splashscreen/splash_creen_1.dart';
 
-
-void main() {
-  runApp(const MyApp());
+import 'application.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await start();
+  runApp(const Application());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HoveringBloc(),
-      child: const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen1(),
-    ),
-      );
-  }
+Future start() async {
+  // await AppInit.init();
 }
