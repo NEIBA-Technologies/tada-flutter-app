@@ -4,12 +4,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'components/animated_routes/blur_page_route.dart';
+import 'core/repositories/app_repository.dart';
 import 'core/router_generator.dart';
 import 'state_manager/cubits/theme_cubit.dart';
 
-class Application extends StatelessWidget {
+class Application extends StatefulWidget {
   const Application({super.key});
 
+  @override
+  State<Application> createState() => _ApplicationState();
+}
+
+class _ApplicationState extends State<Application> {
+  late bool hasAlreadyOnboarding;
+
+   @override
+  void initState() {
+    super.initState();
+    AppRepository().hasAlreadyOnboarding().then((value) {
+      setState(() {
+        hasAlreadyOnboarding = value;
+      });
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -24,7 +42,10 @@ class Application extends StatelessWidget {
             title: 'Tada',
             debugShowCheckedModeBanner: false,
             theme: theme,
-            initialRoute: RouterGenerator.indexRoute,
+            // initialRoute: RouterGenerator.indexRoute,
+            initialRoute: hasAlreadyOnboarding
+            ? RouterGenerator.signUpRoute
+            : RouterGenerator.onboardingRoute,
             onUnknownRoute: (settings) {
               return BlurredRouter(
                   builder: ((context) => const Scaffold(

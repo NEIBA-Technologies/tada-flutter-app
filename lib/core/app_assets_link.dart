@@ -5,4 +5,7 @@ class AppAssetLink {
   static String walletSvg = "assets/svg/wallet.svg";
   static String userSvg = "assets/svg/user.svg";
   static String homeSvg = "assets/svg/home.svg";
+  static String earnMoney = "assets/images/Frame_2092.png";
+  static String giveOpinion = "assets/images/Illustration_notice.png";
+  static String openAccount = "assets/images/Illustration.png";
 }

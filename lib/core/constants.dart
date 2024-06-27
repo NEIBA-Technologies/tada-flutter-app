@@ -70,6 +70,9 @@ MaterialColor greyColor = MaterialColor(0xFF48505E, color2);
 double padding = 10;
 double radius = 12;
 const String boxSettings = 'settings';
+const String storageTokenSuffix = "jwtToken";
+const String storageKey = "mobileAgbofyVendorV2Application_";
+const String storageOnboardingRead = "OnboardingRead";
 
 List<BoxShadow> boxShadowSM = [
   const BoxShadow(
