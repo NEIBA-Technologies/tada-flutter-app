@@ -30,7 +30,7 @@ class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
       children: [
         Helpers.getSvg(
           widget.iconPath,
-          color: widget.selected ? primaryColor : greenColor,
+          color: widget.selected ? primaryColor : greyColor,
           height: 25,
         ),
         SpaceHeightCustom(),
@@ -40,7 +40,7 @@ class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
             maxLines: 1,
             overflow: TextOverflow.fade,
             style: context.textTheme.labelSmall!.copyWith(
-                color: widget.selected ? primaryColor : greenColor, fontSize: 11),
+                color: widget.selected ? primaryColor : greyColor, fontSize: 11),
           ),
         ),
       ],

@@ -7,7 +7,7 @@ enum SizeButton {
   sm,
 }
 
-enum StyleButton { GREEN, DARK }
+enum StyleButton { ORANGE, DARK }
 
 class StyleButtonColor {
   Color buttomColor = Colors.black;
@@ -22,7 +22,7 @@ class AppButtonWidget extends StatelessWidget {
     required this.press,
     required this.label,
     this.sizeButton = SizeButton.sm,
-    this.styleButton = StyleButton.DARK,
+    this.styleButton = StyleButton.ORANGE,
   });
 
   final Function()? press;
@@ -43,10 +43,10 @@ class AppButtonWidget extends StatelessWidget {
 
   StyleButtonColor get styleButtonColor {
     switch (styleButton) {
-      case StyleButton.GREEN:
+      case StyleButton.ORANGE:
         return StyleButtonColor(
-          buttomColor: greenColor.shade100,
-          labelColor: greenColor,
+          buttomColor: primaryColor,
+          labelColor: Colors.white,
         );
       case StyleButton.DARK:
         return StyleButtonColor(

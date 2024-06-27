@@ -28,14 +28,14 @@ class ThemeCubit extends Cubit<ThemeData> {
     useMaterial3: true,
     scaffoldBackgroundColor: const Color.fromRGBO(233, 238, 234, 1),
     primaryColor: primaryColor,
-    fontFamily: "SpaceGrotesk",
+    fontFamily: "Sora",
     appBarTheme: AppBarTheme(
-      elevation: 0,
+      elevation: 3,
       shadowColor: Colors.black38,
-      surfaceTintColor: const Color.fromRGBO(233, 238, 234, 1),
-      backgroundColor: const Color.fromRGBO(233, 238, 234, 1),
+      surfaceTintColor: Colors.white,
+      backgroundColor: Colors.white,
       systemOverlayStyle: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
+        statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.light
       ),
@@ -88,12 +88,7 @@ class ThemeCubit extends Cubit<ThemeData> {
         fontSize: 14,
         fontWeight: FontWeight.w400,
       ),
-      floatingLabelStyle: TextStyle(color: greenColor, fontSize: 14),
-      labelStyle: TextStyle(
-        color: greenColor,
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-      ),
+
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(color: Colors.black45, width: 1),
@@ -110,11 +105,11 @@ class ThemeCubit extends Cubit<ThemeData> {
         borderSide: const BorderSide(color: Colors.black45, width: 1),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: greenColor, width: 2),
+        borderSide: BorderSide(color: Colors.red, width: 2),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: greenColor, width: 2),
+        borderSide: BorderSide(color:  Colors.red, width: 2),
       ),
     ),
   );

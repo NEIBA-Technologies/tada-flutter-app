@@ -21,10 +21,10 @@ class Application extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
           return MaterialApp(
-            title: 'Une messe',
+            title: 'Tada',
             debugShowCheckedModeBanner: false,
             theme: theme,
-            initialRoute: RouterGenerator.splashScreen,
+            initialRoute: RouterGenerator.indexRoute,
             onUnknownRoute: (settings) {
               return BlurredRouter(
                   builder: ((context) => const Scaffold(

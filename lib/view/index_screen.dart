@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tada/components/params/RouterArguments.dart';
+import 'package:tada/core/app_assets_link.dart';
 import 'package:tada/core/extensions.dart';
-import 'package:tada/view/fragments/setting_fragment.dart';
-import 'package:tada/view/fragments/shopping_fragment.dart';
 
 import '../components/bottomnavigationwidget.dart';
 import '../core/constants.dart';
 import '../core/shared/modals.dart';
-import 'fragments/demande_fragment.dart';
+import 'fragments/account_fragment.dart';
+import 'fragments/buisness_fragment.dart';
 import 'fragments/home_fragment.dart';
+import 'fragments/task_fragment.dart';
 
 class IndexScreen extends StatefulWidget {
   final RouterArguments? arguments;
@@ -57,7 +58,7 @@ class _IndexScreen extends State<IndexScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ...ButtomNavigationList.asMap().entries.map((entry) {
+                ...fragmentList.asMap().entries.map((entry) {
                   final index = entry.key;
                   final item = entry.value;
                   return Expanded(
@@ -87,11 +88,28 @@ class _IndexScreen extends State<IndexScreen> {
 }
 
 final List<Map<String, dynamic>> fragmentList = [
-  {'target': FragmentTarget.HOME, 'fragment': const HomeFragment()},
-  {'target': FragmentTarget.REQUEST, 'fragment': const DemandeFragment()},
   {
-    'target': FragmentTarget.SHOPPING_CART,
-    'fragment': const ShoppingFragment()
+    'iconPath': AppAssetLink.homeSvg,
+    'target': FragmentTarget.HOME,
+    'fragment': const HomeFragment(),
+    'label': "Accueil"
   },
-  {'target': FragmentTarget.SETTING, 'fragment': const SettingFragment()},
+  {
+    'iconPath': AppAssetLink.taskSvg,
+    'target': FragmentTarget.TASK,
+    'fragment': const TaskFragment(),
+    'label': "Tâches"
+  },
+  {
+    'iconPath': AppAssetLink.walletSvg,
+    'target': FragmentTarget.BUSINESS,
+    'fragment': const BusinessFragment(),
+    'label': "Portefeuille"
+  },
+  {
+    'iconPath': AppAssetLink.userSvg,
+    'target': FragmentTarget.ACCOUNT,
+    'fragment': const AccountFragment(),
+    'label': "Compte"
+  },
 ];

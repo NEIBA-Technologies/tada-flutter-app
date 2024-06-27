@@ -1,4 +1,4 @@
-package met io.tada.app
+package io.tada.app
 
 import io.flutter.embedding.android.FlutterActivity
 

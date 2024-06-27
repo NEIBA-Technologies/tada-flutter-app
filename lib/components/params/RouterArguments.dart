@@ -1,8 +1,8 @@
 enum FragmentTarget {
   HOME,
-  REQUEST,
-  SHOPPING_CART,
-  SETTING,
+  TASK,
+  BUSINESS,
+  ACCOUNT,
 }
 
 class RouterArguments {
