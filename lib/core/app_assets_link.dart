@@ -15,4 +15,9 @@ class AppAssetLink {
   static String giveOpinion = "assets/images/Illustration_notice.png";
   static String openAccount = "assets/images/Illustration.png";
 
+  static String camera = "assets/svg/camera-02.svg";
+  static String bookopen = "assets/svg/book-open-01.svg";
+  static String alert = "assets/svg/crisis_alert.svg";
+  static String user = "assets/svg/user-02.svg";
+
 }

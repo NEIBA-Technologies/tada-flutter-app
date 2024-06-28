@@ -9,6 +9,7 @@ class Helpers {
     double? width,
     double? height,
     BoxFit? fit,
+    
   }) {
     return Image.asset(
       assetLink,

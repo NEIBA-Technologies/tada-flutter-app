@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'app_assets_link.dart';
+import 'models/assignment.dart';
+
 // 0xFFFF5B4A  #FF5B4A;
 Map<int, Color> color0 = {
   50: const Color.fromRGBO(255, 91, 74, .1),
@@ -67,7 +70,7 @@ double padding = 10;
 double radius = 12;
 const String boxSettings = 'settings';
 const String storageTokenSuffix = "jwtToken";
-const String storageKey = "mobileAgbofyVendorV2Application_";
+const String storageKey = "mobileTadaV1Application_";
 const String storageOnboardingRead = "OnboardingRead";
 const String fontPrimary = "Sora";
 const String fontSecondary = "Gilroy";
@@ -83,4 +86,39 @@ List<BoxShadow> boxShadowSM = [
     spreadRadius: 1,
     blurRadius: 5,
   )
+];
+
+final List<Assignment> assignmentContinues = [
+  Assignment.fromMap({
+    "title": "Mapping spontané",
+    "icon": AppAssetLink.camera,
+    "detail": "Enregistrez les points clés dans votre entourage. ",
+    "price": 20,
+  }),
+  Assignment.fromMap({
+    "title": "Tâche d’information",
+    "icon": AppAssetLink.user,
+    "detail": "Epinglé pour avoir toujours de meilleurs informations sur vous. ",
+    "price": 5000,
+  }),
+  Assignment.fromMap({
+    "title": "Guide des meilleurs partiques",
+    "icon": AppAssetLink.bookopen,
+    "detail": "Epinglé pour avoir toujours de meilleurs informations sur vous",
+   
+  }),
+  
+];
+
+final List<Assignment> assignmentAvailable = [
+  Assignment.fromMap({
+    "title": "Enquête terrain",
+    "icon": AppAssetLink.alert,
+    "detail": "Se rendre dans un magasin pour collecter des données. ",
+    "price": 2000,
+    "duration": "20 à 30 min",
+    "time":"1 jour restant",
+    "favoris": true,
+  }),
+  
 ];
