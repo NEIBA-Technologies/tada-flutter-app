@@ -58,10 +58,14 @@ class RouterGenerator {
         page = const ResetPasswordStepOne();
         break;
       case investigationRoute:
-        page =  InvinstigationScreen(data:  setting.arguments as Assignment,);
+        page = InvinstigationScreen(
+          data: setting.arguments as Assignment,
+        );
         break;
       case detailAssignmentRoute:
-        page =  DetailAssignmentScreen(data:  setting.arguments as Assignment,);
+        page = DetailAssignmentScreen(
+          data: setting.arguments as Assignment,
+        );
         break;
 
       case resetPasswordStepTwoRoute:

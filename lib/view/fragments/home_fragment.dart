@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tada/components/layouts/scaffold_page.dart';
+import 'package:tada/core/extensions.dart';
 
 import '../../components/assignment_item_widget.dart';
 import '../../components/others_widget/chip_widget.dart';
@@ -18,7 +19,6 @@ class HomeFragment extends StatefulWidget {
 class _HomeFragmentState extends State<HomeFragment> {
   @override
   Widget build(BuildContext context) {
-
     return ScaffoldPage(
       titlePage: 'Missions',
       actions: [
@@ -27,45 +27,39 @@ class _HomeFragmentState extends State<HomeFragment> {
           onPressed: () {},
         ),
         IconButton(
-          onPressed: () {
-            
-          },
+          onPressed: () {},
           icon: Helpers.getSvg(AppAssetLink.notifSvg),
         )
-        // Chipwidget(
-        //   label: "Carte",
-        //   onPressed: () {},
-        //   enabled: false,
-        // ),
       ],
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: padding),
-        child:  Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-         children: [
-          const SpaceHeightCustom(),
-         Text('Missions continues'),
-          const SpaceHeightCustom(),
-          
-          ...assignmentContinues.map((e){
-            return GestureDetector(
-              child: AssignmentItemWidget(
-                color: Colors.amber,
-                data: e, ),
-            );
-          }),
-           const SpaceHeightCustom(),
-         Text('Missions disponibles'),
-          const SpaceHeightCustom(),
-
-           ...assignmentAvailable.map((e){
-            return GestureDetector(
-              child: AssignmentItemWidget(
-                color: primaryColor,
-                data: e, ),
-            );
-          }),
-         ],
+          children: [
+            const SpaceHeightCustom(breakPoint: BreakPoint.sm),
+            Text(
+              'Missions continues',
+              style: context.textTheme.labelLarge,
+            ),
+            const SpaceHeightCustom(),
+            ...assignmentContinues.map((e) {
+              return AssignmentItemWidget(
+                color: yellowAccentColor,
+                data: e,
+              );
+            }),
+            const SpaceHeightCustom(),
+            Text('Missions disponibles'),
+            const SpaceHeightCustom(),
+            ...assignmentAvailable.map((e) {
+              return GestureDetector(
+                child: AssignmentItemWidget(
+                  color: primaryColor,
+                  data: e,
+                ),
+              );
+            }),
+          ],
         ),
       ),
     );

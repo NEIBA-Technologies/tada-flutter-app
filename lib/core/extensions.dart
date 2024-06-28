@@ -32,7 +32,7 @@ extension CurrencyFormater on String {
     if (isEmpty || toLowerCase() == "null") return "";
 
     return NumberFormat.currency(
-            locale: locale, decimalDigits: decimalDigits, symbol: "XOF")
+            locale: locale, decimalDigits: decimalDigits, symbol: "XOF",)
         .format(double.parse(this));
   }
 }

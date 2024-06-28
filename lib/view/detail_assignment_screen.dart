@@ -6,7 +6,6 @@ import '../components/others_widget/app_buttom_widget.dart';
 import '../components/others_widget/space_height_custom.dart';
 import '../core/app_assets_link.dart';
 import '../core/models/assignment.dart';
-import '../core/router_generator.dart';
 import '../core/utils/helpers.dart';
 
 class DetailAssignmentScreen extends StatefulWidget {
@@ -31,8 +30,8 @@ class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
             SizedBox(
               // height: size.height * 0.5,
               child: Center(
-                child: Helpers.getImage(widget.data!.picture,
-                    fit: BoxFit.contain),
+                child:
+                    Helpers.getImage(widget.data!.picture, fit: BoxFit.contain),
               ),
             ),
             const SpaceHeightCustom(),
@@ -106,9 +105,9 @@ class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
       ),
       bottomsheet: AppButtonWidget(
           onPressed: () {
-            if(widget.data?.route != null)
-            Navigator.pushNamed(
-                context, widget.data!.route!,  arguments: widget.data);
+            if (widget.data?.route != null)
+              Navigator.pushNamed(context, widget.data!.route!,
+                  arguments: widget.data);
           },
           label: "Commencer"),
     );
