@@ -21,11 +21,7 @@ class _ApplicationState extends State<Application> {
    @override
   void initState() {
     super.initState();
-    AppRepository().hasAlreadyOnboarding().then((value) {
-      setState(() {
-        hasAlreadyOnboarding = value;
-      });
-    });
+
   }
   
   @override
@@ -42,10 +38,10 @@ class _ApplicationState extends State<Application> {
             title: 'Tada',
             debugShowCheckedModeBanner: false,
             theme: theme,
-            // initialRoute: RouterGenerator.indexRoute,
-            initialRoute: hasAlreadyOnboarding
-            ? RouterGenerator.signUpRoute
-            : RouterGenerator.onboardingRoute,
+            initialRoute: RouterGenerator.signInRoute,
+            // initialRoute: hasAlreadyOnboarding
+            // ? RouterGenerator.signUpRoute
+            // : RouterGenerator.onboardingRoute,
             onUnknownRoute: (settings) {
               return BlurredRouter(
                   builder: ((context) => const Scaffold(

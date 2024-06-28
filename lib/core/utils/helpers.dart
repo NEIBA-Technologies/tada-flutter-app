@@ -32,10 +32,9 @@ class Helpers {
   }) {
     return SvgPicture.asset(
       assetLink,
-      color: color,
       width: width,
       height: height ?? width,
-      fit: fit ?? BoxFit.cover,
+      fit: fit ?? BoxFit.contain,
       placeholderBuilder: (context) {
         return SvgPicture.asset(
           AppAssetLink.logoSvg,

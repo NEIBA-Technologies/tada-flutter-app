@@ -4,7 +4,7 @@ import 'package:tada/components/params/RouterArguments.dart';
 import 'package:tada/core/app_assets_link.dart';
 import 'package:tada/core/extensions.dart';
 
-import '../components/bottomnavigationwidget.dart';
+import '../components/bottom_navigation_widget.dart';
 import '../core/constants.dart';
 import '../core/shared/modals.dart';
 import 'fragments/account_fragment.dart';

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tada/core/app_assets_link.dart';
-
 
 // 0xFFFF5B4A  #FF5B4A;
 Map<int, Color> color0 = {
@@ -41,7 +39,7 @@ Map<int, Color> swatchColor = {
   600: const Color.fromRGBO(40, 40, 40, .7),
   700: const Color.fromRGBO(40, 40, 40, .8),
   800: const Color.fromRGBO(40, 40, 40, .9),
-  900: const Color.fromRGBO(40, 40, 40,  1),
+  900: const Color.fromRGBO(40, 40, 40, 1),
 };
 
 // 0xFF48505E #48505E
@@ -55,17 +53,15 @@ Map<int, Color> color2 = {
   600: const Color.fromRGBO(72, 80, 94, .7),
   700: const Color.fromRGBO(72, 80, 94, .8),
   800: const Color.fromRGBO(72, 80, 94, .9),
-  900: const Color.fromRGBO(72, 80, 94,  1),
+  900: const Color.fromRGBO(72, 80, 94, 1),
 };
-
-
 
 Color primaryColorLight = const Color.fromRGBO(255, 91, 74, 1);
 
 MaterialColor primaryColor = MaterialColor(0xFFFF5B4A, color0);
 MaterialColor yellowColor = MaterialColor(0xFFFFE2B0, color1);
-MaterialColor blackColor = MaterialColor(0xFF282828, swatchColor);
 MaterialColor greyColor = MaterialColor(0xFF48505E, color2);
+MaterialColor blackColor = MaterialColor(0xFF282828, swatchColor);
 
 double padding = 10;
 double radius = 12;
@@ -73,6 +69,8 @@ const String boxSettings = 'settings';
 const String storageTokenSuffix = "jwtToken";
 const String storageKey = "mobileAgbofyVendorV2Application_";
 const String storageOnboardingRead = "OnboardingRead";
+const String fontPrimary = "Sora";
+const String fontSecondary = "Gilroy";
 
 List<BoxShadow> boxShadowSM = [
   const BoxShadow(
@@ -86,6 +84,3 @@ List<BoxShadow> boxShadowSM = [
     blurRadius: 5,
   )
 ];
-
-
-

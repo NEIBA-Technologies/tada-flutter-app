@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../core/app_assets_link.dart';
-import '../core/constants.dart';
-import '../core/extensions.dart';
+import '../core/repositories/app_repository.dart';
 import '../core/router_generator.dart';
 import '../core/utils/helpers.dart';
 
@@ -18,8 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushNamedAndRemoveUntil(
-          context, RouterGenerator.indexRoute, (route) => false);
+      startSession();
     });
     super.initState();
   }
@@ -48,5 +46,12 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> startSession() async {
+    String route = RouterGenerator.indexRoute;
+    bool value = await AppRepository().hasAlreadyOnboarding();
+    route = value ? RouterGenerator.signUpRoute : RouterGenerator.onboardingRoute;
+    Navigator.pushNamedAndRemoveUntil(context, route, (route) => false);
   }
 }

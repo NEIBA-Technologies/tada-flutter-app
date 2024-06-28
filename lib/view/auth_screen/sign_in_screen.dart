@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tada/core/extensions.dart';
 
+import '../../components/app_buttom_widget.dart';
+import '../../components/app_form_field.dart';
+import '../../components/google_button.dart';
+import '../../components/hero_logo.dart';
+import '../../components/space_height_custom.dart';
+import '../../core/constants.dart';
+import '../../core/router_generator.dart';
 import '../../old_doc/lib/widgets/app_textfield.dart';
-
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -51,137 +57,128 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                      'asset/images/icon/Logomark.svg', // chemin vers votre fichier SVG
-                      height: 40,
-                      width: 40,
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Fait plus d’argent avec Tada  !',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                    ),
-                    const Text(
-                      'Entre tes informations personnelles ',
-                      style: TextStyle(color: Colors.black54, fontSize: 14),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              _buildTextField(
-                label: 'Adresse mail',
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer votre adresse mail';
-                  }
-                  return null;
-                },
-              ),
-              _buildTextField(
-                label: 'Mot de passe',
-                controller: _passwordController,
-                keyboardType: TextInputType.visiblePassword,
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Veuillez entrer votre mot de passe';
-                  }
-                  return null;
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Center(
+                    child: Column(
+                      children: [
+                        const HeroLogo(),
+                        const SpaceHeightCustom(breakPoint: BreakPoint.sm),
+                        Text(
+                          'Fait plus d’argent avec Tada !',
+                          style: context.textTheme.titleLarge,
+                        ),
+                        const SpaceHeightCustom(),
+                        Text(
+                          'Entre tes informations personnelles',
+                          style: context.textTheme.titleMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SpaceHeightCustom(
+                    breakPoint: BreakPoint.md,
+                  ),
+                  AppFormField(
+                    label: 'Adresse mail',
+                    controller: _emailController,
+                    keyboard: TextInputType.emailAddress,
+                  ),
+                  const SpaceHeightCustom(breakPoint: BreakPoint.sm),
+                  AppFormField(
+                    label: 'Mot de passe ',
+                    controller: _passwordController,
+                    isObscure: true,
+                  ),
+                  const SpaceHeightCustom(),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Checkbox(
+                      CheckboxMenuButton(
                         value: _rememberMe,
                         onChanged: (bool? value) {
                           setState(() {
                             _rememberMe = value ?? false;
                           });
                         },
-                        checkColor: Colors.white, // Couleur de la coche
-                        activeColor: Colors.red, // Couleur du fond lorsque coché
+                        style: ButtonStyle(
+                          padding:
+                              const WidgetStatePropertyAll(EdgeInsets.zero),
+                          overlayColor:
+                              const WidgetStatePropertyAll(Colors.transparent),
+                          textStyle: WidgetStatePropertyAll(
+                            context.textTheme.labelSmall!.copyWith(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        child: const Text('Se souvenir de moi'),
                       ),
-
-                      const Text('Se souvenir de moi'),
+                      Flexible(
+                        child: TextButton(
+                          onPressed: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => const ForgetPSW1())
+                            // );
+                          },
+                          child: Text('Mot de passe oublié ?',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.textTheme.labelSmall!.copyWith(
+                                color: primaryColor,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                              )),
+                        ),
+                      ),
                     ],
                   ),
-                  TextButton(
-                    onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => const ForgetPSW1())
-                      // );
-                    },
-                    child: const Text(
-                      'Mot de passe oublié ?',
-                      style: TextStyle(color: Colors.red),
+                  const SpaceHeightCustom(breakPoint: BreakPoint.md),
+                  AppButtonWidget(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, RouterGenerator.signUpRoute);
+                      },
+                      label: "Commencer"),
+                  const SpaceHeightCustom(),
+                  GoogleButton(onPressed: () {}),
+                  const SpaceHeightCustom(breakPoint: BreakPoint.md),
+                  Container(
+                    alignment: Alignment.center,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, RouterGenerator.signUpRoute);
+                      },
+                      child: RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: 'Vous n’avez pas de compte ? ',
+                              style: context.textTheme.titleSmall,
+                            ),
+                            TextSpan(
+                              text: 'Inscription',
+                              style: context.textTheme.titleSmall!
+                                  .copyWith(color: primaryColor),
+                            ),
+                          ])),
                     ),
-                  ),
+                  )
                 ],
               ),
-              const SizedBox(height: 20),
-            //   Center(
-            //   child: ContinuingButton(
-            //     width: 361,
-            //     height: 48,
-            //     text: 'Continuer',
-            //     fontSize: 16,
-            //     borderRadius: 8,
-            //     onPressed: () {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(builder: (context) => const SignInForm())
-            //       );
-            //     },
-            //   ),
-            // ),
-              const SizedBox(height: 10),
-              // GoogleButton(
-              //   onPressed: () {
-              //     // Action pour le bouton "Continuer avec Google"
-              //   },
-              // ),
-              const SizedBox(height: 20),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    'Vous n’avez pas de compte ?',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  Spacer(), // Pour séparer les deux textes
-                  Text(
-                    'Inscription',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ],
-              ),
-            ],
+            ),
           ),
         ),
       ),

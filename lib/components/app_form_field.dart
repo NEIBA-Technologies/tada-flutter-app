@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:tada/core/constants.dart';
+import 'package:tada/core/extensions.dart';
 
 import 'space_height_custom.dart';
 //import 'package:tada/core/constants.dart';
 
 // ignore: must_be_immutable
-class Formfield extends StatelessWidget {
-  Formfield({
+class AppFormField extends StatelessWidget {
+  AppFormField({
     super.key,
     required this.label,
     this.keyboard,
     this.controller,
-    this.press,
+    this.onTap,
     this.isObscure = false,
   });
 
@@ -18,7 +20,7 @@ class Formfield extends StatelessWidget {
   TextInputType? keyboard;
   TextEditingController? controller;
   bool isObscure;
-  final Function()? press;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -27,28 +29,19 @@ class Formfield extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(color: Colors.black54),
+          style: context.textTheme.labelSmall,
         ),
-         SpaceHeightCustom(),
+        const SpaceHeightCustom(),
         TextFormField(
           obscureText: isObscure,
           controller: controller,
-          onTap: press,
+          onTap: onTap,
           keyboardType: keyboard,
-          style: const TextStyle(
+          style:   TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
-            color: Colors.black,
+            color: blackColor,
           ),
-           decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: const BorderSide(
-                    color: Color(0xffB9BDC7),
-                    width: 0.0,
-                  ),
-                ),
-              ),
         ),
       ],
     );

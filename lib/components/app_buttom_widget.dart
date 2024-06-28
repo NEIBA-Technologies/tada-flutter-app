@@ -19,13 +19,13 @@ class StyleButtonColor {
 class AppButtonWidget extends StatelessWidget {
   const AppButtonWidget({
     super.key,
-    required this.press,
+    required this.onPressed,
     required this.label,
     this.sizeButton = SizeButton.sm,
     this.styleButton = StyleButton.ORANGE,
   });
 
-  final Function()? press;
+  final Function()? onPressed;
   final String label;
   final SizeButton sizeButton;
   final StyleButton styleButton;
@@ -35,7 +35,7 @@ class AppButtonWidget extends StatelessWidget {
       case SizeButton.xs:
         return padding;
       case SizeButton.sm:
-        return padding * 1.6;
+        return padding * 1.2;
       default:
         return padding;
     }
@@ -58,22 +58,17 @@ class AppButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: sizePadding),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(radius * 2)),
-          color: styleButtonColor.buttomColor,
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: styleButtonColor.labelColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+    return MaterialButton(
+      onPressed: onPressed,
+      elevation: .7,
+      color: styleButtonColor.buttomColor,
+      padding: EdgeInsets.all(sizePadding),
+      textColor: styleButtonColor.labelColor,
+      minWidth: double.infinity,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      child: Text(
+        label,
+        style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
       ),
     );
   }
