@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'components/animated_routes/blur_page_route.dart';
-import 'core/repositories/app_repository.dart';
 import 'core/router_generator.dart';
 import 'state_manager/cubits/theme_cubit.dart';
 
@@ -18,12 +17,11 @@ class Application extends StatefulWidget {
 class _ApplicationState extends State<Application> {
   late bool hasAlreadyOnboarding;
 
-   @override
+  @override
   void initState() {
     super.initState();
-
   }
-  
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -38,7 +36,7 @@ class _ApplicationState extends State<Application> {
             title: 'Tada',
             debugShowCheckedModeBanner: false,
             theme: theme,
-            initialRoute: RouterGenerator.signInRoute,
+            initialRoute: RouterGenerator.splashScreen,
             // initialRoute: hasAlreadyOnboarding
             // ? RouterGenerator.signUpRoute
             // : RouterGenerator.onboardingRoute,

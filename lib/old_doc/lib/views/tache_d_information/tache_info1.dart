@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'tache_info2.dart';
 
 class TacheInfo1 extends StatefulWidget {
   const TacheInfo1({super.key});

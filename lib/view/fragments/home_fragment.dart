@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tada/components/layouts/scaffold_page.dart';
 
+import '../../components/others_widget/chip_widget.dart';
 import '../../core/app_assets_link.dart';
 import '../../core/constants.dart';
 import '../../core/utils/helpers.dart';
@@ -14,32 +16,30 @@ class HomeFragment extends StatefulWidget {
 class _HomeFragmentState extends State<HomeFragment> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      appBar: AppBar(
-        scrolledUnderElevation: 15,
-        title: const Row(
-          children: [
-            Flexible(
-              child: Text(
-                'Missions',
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.start,
-                maxLines: 1,
-              ),
-            ),
-            SizedBox(width: 5),
-
-          ],
+    return ScaffoldPage(
+      titlePage: 'Missions',
+      actions: [
+        Chipwidget(
+          label: "Carte",
+          onPressed: () {},
         ),
-
-      ),
+        IconButton(
+          onPressed: () {},
+          icon: Helpers.getSvg(AppAssetLink.notifSvg),
+        )
+        // Chipwidget(
+        //   label: "Carte",
+        //   onPressed: () {},
+        //   enabled: false,
+        // ),
+      ],
       body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: padding * 2),
-          child: const Center(
-            child: Text('Tada'),
-          )),
+        padding: EdgeInsets.symmetric(horizontal: padding * 2),
+        child: const Center(
+          child: Text('Tada'),
+        ),
+      ),
     );
   }
 }

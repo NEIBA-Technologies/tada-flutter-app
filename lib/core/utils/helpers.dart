@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../components/loading_indicator.dart';
+import '../../components/others_widget/loading_indicator.dart';
 import '../app_assets_link.dart';
 
 class Helpers {
@@ -25,8 +25,8 @@ class Helpers {
 
   static SvgPicture getSvg(
     assetLink, {
-    double? width = 16,
-    double? height = 16,
+    double? width = 18,
+    double? height = 18,
     Color? color,
     BoxFit? fit,
   }) {
@@ -35,6 +35,7 @@ class Helpers {
       width: width,
       height: height ?? width,
       fit: fit ?? BoxFit.contain,
+      color: color,
       placeholderBuilder: (context) {
         return SvgPicture.asset(
           AppAssetLink.logoSvg,

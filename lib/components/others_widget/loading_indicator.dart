@@ -9,7 +9,7 @@ import 'package:flutter/material.dart'
         StrokeCap,
         Widget;
 
-import '../core/constants.dart';
+import '../../core/constants.dart';
 
 class LoadingIndicator extends StatelessWidget {
   final Color? color;

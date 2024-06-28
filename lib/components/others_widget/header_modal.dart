@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/constants.dart';
+import '../../core/constants.dart';
 import 'icon_barre_drag.dart';
 import 'icon_close.dart';
 

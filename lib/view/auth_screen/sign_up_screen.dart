@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../components/app_buttom_widget.dart';
-import '../../components/app_form_field.dart';
-import '../../components/google_button.dart';
-import '../../components/hero_logo.dart';
-import '../../components/space_height_custom.dart';
+import '../../components/others_widget/app_buttom_widget.dart';
+import '../../components/others_widget/app_form_field.dart';
+import '../../components/others_widget/google_button.dart';
+import '../../components/others_widget/hero_logo.dart';
+import '../../components/others_widget/space_height_custom.dart';
 import '../../core/constants.dart';
 import '../../core/extensions.dart';
 import '../../core/router_generator.dart';
@@ -82,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 AppButtonWidget(
                     onPressed: () {
                       Navigator.pushReplacementNamed(
-                          context, RouterGenerator.signUpRoute);
+                          context, RouterGenerator.signInRoute);
                     },
                     label: "Commencer"),
                 const SpaceHeightCustom(),

@@ -38,7 +38,8 @@ class ThemeCubit extends Cubit<ThemeData> {
         systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Colors.white,
             statusBarIconBrightness: Brightness.dark,
-            statusBarBrightness: Brightness.light),
+            statusBarBrightness: Brightness.light,
+        ),
         centerTitle: false,
         iconTheme: IconThemeData(color: primaryColor, size: 20),
         titleTextStyle: TextStyle(

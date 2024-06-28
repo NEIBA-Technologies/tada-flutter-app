@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tada/components/space_height_custom.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/utils/helpers.dart';
 
-import '../core/constants.dart';
+import '../../core/constants.dart';
+import 'space_height_custom.dart';
 
 // ignore: must_be_immutable
 class ButtomNavigationWidget extends StatefulWidget {
@@ -31,16 +31,17 @@ class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
         Helpers.getSvg(
           widget.iconPath,
           color: widget.selected ? primaryColor : greyColor,
-          height: 25,
+          height: 22,
         ),
-        SpaceHeightCustom(),
+        const SpaceHeightCustom(),
         Flexible(
           child: Text(
             widget.label,
             maxLines: 1,
             overflow: TextOverflow.fade,
-            style: context.textTheme.labelSmall!.copyWith(
-                color: widget.selected ? primaryColor : greyColor, fontSize: 11),
+            style: context.textTheme.labelMedium!.copyWith(
+                color: widget.selected ? primaryColor : greyColor,
+                fontWeight: FontWeight.w600),
           ),
         ),
       ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../core/app_assets_link.dart';
-import '../core/utils/helpers.dart';
+import '../../core/app_assets_link.dart';
+import '../../core/utils/helpers.dart';
 
 class HeroLogo extends StatelessWidget {
   const HeroLogo({super.key});

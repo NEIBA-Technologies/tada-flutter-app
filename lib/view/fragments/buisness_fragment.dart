@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tada/components/layouts/scaffold_page.dart';
 
-import '../../core/app_assets_link.dart';
 import '../../core/constants.dart';
-import '../../core/utils/helpers.dart';
 
 class BusinessFragment extends StatefulWidget {
   const BusinessFragment({super.key});
@@ -14,27 +13,9 @@ class BusinessFragment extends StatefulWidget {
 class _BusinessFragmentState extends State<BusinessFragment> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      appBar: AppBar(
-        scrolledUnderElevation: 15,
-        title: Row(
-          children: [
-            const Flexible(
-              child: Text(
-                'Mon portefeuille',
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.start,
-                maxLines: 1,
-              ),
-            ),
-            const SizedBox(width: 5),
-
-          ],
-        ),
-
-      ),
+    return ScaffoldPage(
+      titlePage: 'Mon portefeuille',
       body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: padding * 2),
           child: const Center(

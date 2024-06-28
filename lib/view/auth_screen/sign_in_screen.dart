@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tada/core/extensions.dart';
 
-import '../../components/app_buttom_widget.dart';
-import '../../components/app_form_field.dart';
-import '../../components/google_button.dart';
-import '../../components/hero_logo.dart';
-import '../../components/space_height_custom.dart';
+import '../../components/others_widget/app_buttom_widget.dart';
+import '../../components/others_widget/app_form_field.dart';
+import '../../components/others_widget/google_button.dart';
+import '../../components/others_widget/hero_logo.dart';
+import '../../components/others_widget/space_height_custom.dart';
 import '../../core/constants.dart';
 import '../../core/router_generator.dart';
-import '../../old_doc/lib/widgets/app_textfield.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -28,30 +27,6 @@ class _SignInScreenState extends State<SignInScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
-  }
-
-  Widget _buildTextField({
-    required String label,
-    required TextEditingController controller,
-    required TextInputType keyboardType,
-    required bool obscureText,
-    required String? Function(String?) validator,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        Text(
-          label,
-          style: const TextStyle(color: Colors.black),
-        ),
-        CustomTextField(
-          obscureText: obscureText,
-          width: 361,
-          height: 44,
-        ),
-      ],
-    );
   }
 
   @override
@@ -127,10 +102,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       Flexible(
                         child: TextButton(
                           onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => const ForgetPSW1())
-                            // );
+                            Navigator.pushNamed(context,
+                                RouterGenerator.resetPasswordStepOneRoute);
                           },
                           child: Text('Mot de passe oublié ?',
                               maxLines: 1,
@@ -147,8 +120,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SpaceHeightCustom(breakPoint: BreakPoint.md),
                   AppButtonWidget(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(
-                            context, RouterGenerator.signUpRoute);
+                        Navigator.pushNamed(
+                            context, RouterGenerator.indexRoute);
                       },
                       label: "Commencer"),
                   const SpaceHeightCustom(),

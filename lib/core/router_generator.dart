@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
-import 'package:tada/components/animated_routes/scale_up_route.dart';
+import 'package:tada/components/animated_routes/transparant_route.dart';
 import 'package:tada/components/params/RouterArguments.dart';
+import 'package:tada/view/auth_screen/fortget_password/reset_password_step_four.dart';
+import 'package:tada/view/auth_screen/fortget_password/reset_password_step_one.dart';
+import 'package:tada/view/auth_screen/fortget_password/reset_password_step_three.dart';
+import 'package:tada/view/auth_screen/fortget_password/reset_password_step_two.dart';
 import 'package:tada/view/auth_screen/sign_in_screen.dart';
 
 import '../view/auth_screen/sign_up_screen.dart';
@@ -14,6 +18,10 @@ class RouterGenerator {
   static const onboardingRoute = '/onboarding';
   static const signUpRoute = '/signUp';
   static const signInRoute = '/signIn';
+  static const resetPasswordStepOneRoute = '/resetPasswordStepOne';
+  static const resetPasswordStepTwoRoute = '/resetPasswordStepTwo';
+  static const resetPasswordStepThreeRoute = '/resetPasswordStepThree';
+  static const resetPasswordStepFourRoute = '/resetPasswordStepFour';
   static const indexRoute = "/homeRoute";
   static String? currentRoute;
 
@@ -41,6 +49,19 @@ class RouterGenerator {
       case signInRoute:
         page = const SignInScreen();
         break;
+      case resetPasswordStepOneRoute:
+        page = const ResetPasswordStepOne();
+        break;
+
+      case resetPasswordStepTwoRoute:
+        page = ResetPasswordStepTwo();
+        break;
+      case resetPasswordStepThreeRoute:
+        page = ResetPasswordStepThree();
+        break;
+      case resetPasswordStepFourRoute:
+        page = ResetPasswordStepFour();
+        break;
       case indexRoute:
         page = IndexScreen(
           arguments: setting.arguments as RouterArguments?,
@@ -48,6 +69,6 @@ class RouterGenerator {
         break;
     }
 
-    return ScaleUpRouter(builder: (context) => page, current: page);
+    return TransparantRoute(builder: (context) => page);
   }
 }

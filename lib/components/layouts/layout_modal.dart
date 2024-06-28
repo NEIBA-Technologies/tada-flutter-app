@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/constants.dart';
+import '../../core/constants.dart';
 
 class LayoutModal extends StatelessWidget {
   final Widget child;

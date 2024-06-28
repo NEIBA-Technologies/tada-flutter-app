@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tada/components/app_buttom_widget.dart';
+import 'package:tada/components/others_widget/app_buttom_widget.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/router_generator.dart';
 
-import '../../components/space_height_custom.dart';
+import '../../components/others_widget/space_height_custom.dart';
 import '../../core/constants.dart';
 import '../../core/repositories/app_repository.dart';
 import '../../core/utils/helpers.dart';
