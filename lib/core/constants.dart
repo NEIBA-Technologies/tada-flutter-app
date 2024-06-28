@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'app_assets_link.dart';
 import 'models/assignment.dart';
+import 'router_generator.dart';
 
 // 0xFFFF5B4A  #FF5B4A;
 Map<int, Color> color0 = {
@@ -92,19 +93,37 @@ final List<Assignment> assignmentContinues = [
   Assignment.fromMap({
     "title": "Mapping spontané",
     "icon": AppAssetLink.camera,
+    "picture": AppAssetLink.mapping,
     "detail": "Enregistrez les points clés dans votre entourage. ",
-    "price": 20,
+    "gain": 20,
+     "duration": "30 min",
+    "time":"5 jour",
+    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
+    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients." 
+"Veuillez répondre aux questions suivantes avec soin et précision.",
   }),
   Assignment.fromMap({
     "title": "Tâche d’information",
     "icon": AppAssetLink.user,
+    "picture": AppAssetLink.tasknew,
+     "duration": "30 min",
+    "time":"5 jour",
     "detail": "Epinglé pour avoir toujours de meilleurs informations sur vous. ",
-    "price": 5000,
+    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
+    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients." 
+"Veuillez répondre aux questions suivantes avec soin et précision.",
+    "gain": 5000,
   }),
   Assignment.fromMap({
     "title": "Guide des meilleurs partiques",
     "icon": AppAssetLink.bookopen,
+    "picture": AppAssetLink.invinstigation,
+     "duration": "30 min",
+    "time":"3 jour",
     "detail": "Epinglé pour avoir toujours de meilleurs informations sur vous",
+    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
+    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients." 
+"Veuillez répondre aux questions suivantes avec soin et précision.",
    
   }),
   
@@ -115,10 +134,15 @@ final List<Assignment> assignmentAvailable = [
     "title": "Enquête terrain",
     "icon": AppAssetLink.alert,
     "detail": "Se rendre dans un magasin pour collecter des données. ",
-    "price": 2000,
+    "picture": AppAssetLink.invinstigation,
+    "gain": 2000,
     "duration": "20 à 30 min",
-    "time":"1 jour restant",
+    "time":"1 jour",
     "favoris": true,
+    "route": RouterGenerator.investigationRoute,
+    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
+    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients." 
+"Veuillez répondre aux questions suivantes avec soin et précision.",
   }),
   
 ];

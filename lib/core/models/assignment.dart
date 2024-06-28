@@ -5,22 +5,26 @@ import '../constants.dart';
 class Assignment {
   final String title;
   final String icon;
-  final int? price;
+  final int? gain;
   final String detail;
   final String? duration;
   final String? time;
   final bool? favoris;
-  // final Documenttitle value;
+  final String picture;
+  final String? description;
+  final String? route;
 
   Assignment({
     required this.title,
+    required this.picture,
     required this.icon,
-    required this.price,
+    required this.gain,
     required this.detail,
     required this.duration,
     required this.time,
     required this.favoris,
-    // required this.value,
+    required this.description,
+    required this.route,
   });
 
   factory Assignment.fromJson(String str) =>
@@ -31,22 +35,26 @@ class Assignment {
   factory Assignment.fromMap(Map<String, dynamic> json) => Assignment(
         title: json["title"],
         icon: json["icon"],
-        price: json["price"],
+        gain: json["gain"],
         detail: json["detail"],
         duration: json["duration"],
         time: json["time"],
         favoris: json["favoris"],
-        // value: json["value"],
+        description: json["description"],
+        picture: json["picture"],
+        route: json["route"],
       );
 
   Map<String, dynamic> toMap() => {
         "title": title,
         "icon": icon,
-        "price": price,
+        "gain": gain,
         "detail": detail,
         "duration": duration,
         "time": time,
         "favoris": favoris,
-        // "value": value,
+        "description": description,
+        "picture": picture,
+        "route": route,
       };
 }

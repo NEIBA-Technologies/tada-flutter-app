@@ -20,4 +20,11 @@ class AppAssetLink {
   static String alert = "assets/svg/crisis_alert.svg";
   static String user = "assets/svg/user-02.svg";
 
+  static String calendar = "assets/svg/calendar.svg";
+  static String clock = "assets/svg/clock.svg";
+  static String bank = "assets/svg/bank-note-01.svg";
+
+  static String invinstigation = "assets/images/Frame2104.png";
+  static String tasknew = "assets/images/Frame21043.png";
+  static String mapping = "assets/images/Frame52104.png";
 }

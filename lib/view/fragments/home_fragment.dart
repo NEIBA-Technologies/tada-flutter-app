@@ -27,7 +27,9 @@ class _HomeFragmentState extends State<HomeFragment> {
           onPressed: () {},
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            
+          },
           icon: Helpers.getSvg(AppAssetLink.notifSvg),
         )
         // Chipwidget(

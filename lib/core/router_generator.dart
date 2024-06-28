@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:tada/components/animated_routes/transparant_route.dart';
 import 'package:tada/components/params/RouterArguments.dart';
+import 'package:tada/core/models/assignment.dart';
 import 'package:tada/view/auth_screen/fortget_password/reset_password_step_four.dart';
 import 'package:tada/view/auth_screen/fortget_password/reset_password_step_one.dart';
 import 'package:tada/view/auth_screen/fortget_password/reset_password_step_three.dart';
@@ -9,8 +10,10 @@ import 'package:tada/view/auth_screen/fortget_password/reset_password_step_two.d
 import 'package:tada/view/auth_screen/sign_in_screen.dart';
 
 import '../view/auth_screen/sign_up_screen.dart';
+import '../view/detail_assignment_screen.dart';
 import '../view/index_screen.dart';
 import '../view/intro/onboarding_view.dart';
+import '../view/invinstigation_screen.dart';
 import '../view/splash_screen.dart';
 
 class RouterGenerator {
@@ -22,6 +25,8 @@ class RouterGenerator {
   static const resetPasswordStepTwoRoute = '/resetPasswordStepTwo';
   static const resetPasswordStepThreeRoute = '/resetPasswordStepThree';
   static const resetPasswordStepFourRoute = '/resetPasswordStepFour';
+  static const investigationRoute = '/investigation';
+  static const detailAssignmentRoute = '/detail-assignment';
   static const indexRoute = "/homeRoute";
   static String? currentRoute;
 
@@ -51,6 +56,12 @@ class RouterGenerator {
         break;
       case resetPasswordStepOneRoute:
         page = const ResetPasswordStepOne();
+        break;
+      case investigationRoute:
+        page =  InvinstigationScreen(data:  setting.arguments as Assignment,);
+        break;
+      case detailAssignmentRoute:
+        page =  DetailAssignmentScreen(data:  setting.arguments as Assignment,);
         break;
 
       case resetPasswordStepTwoRoute:

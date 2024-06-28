@@ -10,6 +10,7 @@ class AppFormField extends StatelessWidget {
   AppFormField({
     super.key,
     required this.label,
+     this.labelHint,
     this.keyboard,
     this.controller,
     this.onTap,
@@ -17,6 +18,7 @@ class AppFormField extends StatelessWidget {
   });
 
   String label;
+  String? labelHint;
   TextInputType? keyboard;
   TextEditingController? controller;
   bool isObscure;
@@ -33,6 +35,9 @@ class AppFormField extends StatelessWidget {
         ),
         const SpaceHeightCustom(),
         TextFormField(
+          decoration: InputDecoration(
+            hintText: labelHint
+          ),
           obscureText: isObscure,
           controller: controller,
           onTap: onTap,
