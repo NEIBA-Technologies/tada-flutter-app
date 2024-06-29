@@ -1,19 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart'
-    show
-        AppBarTheme,
-        BorderRadius,
-        BorderSide,
-        CheckboxThemeData,
-        ColorScheme,
-        Colors,
-        EdgeInsets,
-        IconThemeData,
-        InputDecorationTheme,
-        OutlineInputBorder,
-        TextStyle,
-        TextTheme,
-        ThemeData;
+    show AppBarTheme, BorderRadius, BorderSide, BottomSheetThemeData, CheckboxThemeData, ColorScheme, Colors, EdgeInsets, IconThemeData, InputDecorationTheme, OutlineInputBorder, TextStyle, TextTheme, ThemeData;
 import 'package:flutter/services.dart' show FontWeight, SystemUiOverlayStyle;
 import 'package:flutter_bloc/flutter_bloc.dart' show Cubit;
 
@@ -30,7 +17,10 @@ class ThemeCubit extends Cubit<ThemeData> {
     scaffoldBackgroundColor: const Color.fromRGBO(233, 238, 234, 1),
     primaryColor: primaryColor,
     fontFamily: fontPrimary,
-
+bottomSheetTheme: const BottomSheetThemeData(
+  backgroundColor: Colors.transparent,
+  surfaceTintColor: Colors.transparent,
+),
     appBarTheme: AppBarTheme(
         elevation: 3,
         shadowColor: Colors.black38,
@@ -121,7 +111,7 @@ class ThemeCubit extends Cubit<ThemeData> {
         borderRadius: BorderRadius.circular(8),
         borderSide: const BorderSide(color: Colors.black12, width: 1),
       ),
-      focusedErrorBorder: OutlineInputBorder(
+      focusedErrorBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.red, width: 1),
       ),
       focusedBorder: OutlineInputBorder(
@@ -130,7 +120,7 @@ class ThemeCubit extends Cubit<ThemeData> {
       ),
     ),
     checkboxTheme: CheckboxThemeData(
-      fillColor: WidgetStatePropertyAll(Colors.white),
+      fillColor: const WidgetStatePropertyAll(Colors.white),
       checkColor: WidgetStatePropertyAll(primaryColor),
     ),
   );

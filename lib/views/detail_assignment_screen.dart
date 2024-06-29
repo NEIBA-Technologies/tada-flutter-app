@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:tada/components/layouts/scaffold_page.dart';
 import 'package:tada/core/constants.dart';
+import 'package:tada/core/extensions.dart';
 
-import '../components/layouts/default_page.dart';
 import '../components/others_widget/app_buttom_widget.dart';
 import '../components/others_widget/space_height_custom.dart';
 import '../core/app_assets_link.dart';
@@ -11,7 +13,7 @@ import '../core/utils/helpers.dart';
 class DetailAssignmentScreen extends StatefulWidget {
   DetailAssignmentScreen({super.key, required this.data});
 
-  Assignment? data;
+  final Assignment data;
 
   @override
   State<DetailAssignmentScreen> createState() => _DetailAssignmentScreenState();
@@ -20,96 +22,93 @@ class DetailAssignmentScreen extends StatefulWidget {
 class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
   @override
   Widget build(BuildContext context) {
-    return DefaultPage(
-      titlePage: '${widget.data?.title}',
+    return ScaffoldPage(
+      titlePage: widget.data.title,
+      color: Colors.white,
+      canBack: true,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(padding),
         child: Column(
           children: [
-            SizedBox(
-              // height: size.height * 0.5,
-              child: Center(
-                child:
-                    Helpers.getImage(widget.data!.picture, fit: BoxFit.contain),
-              ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Helpers.getImage(widget.data.picture),
             ),
             const SpaceHeightCustom(),
-            Text("${widget.data?.description}"),
+            Text(
+              "${widget.data.description}",
+              style: context.labelMedium.copyWith(fontWeight: FontWeight.w600),
+            ),
             const SpaceHeightCustom(
               breakPoint: BreakPoint.sm,
             ),
-            Row(
-              children: [
-                const Expanded(
-                    flex: 2,
-                    child: Text("Temps estimé",
-                        style: TextStyle(fontWeight: FontWeight.bold))),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Helpers.getSvg(AppAssetLink.clock),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Text("${widget.data?.duration}"),
-                    ],
-                  ),
-                )
-              ],
+            _buildRowItem(
+              title: "Temps estimé",
+              icon: Helpers.getSvg(AppAssetLink.clock),
+              value: widget.data?.duration,
             ),
             const SpaceHeightCustom(),
-            Row(
-              children: [
-                const Expanded(
-                    flex: 2,
-                    child: Text("Jours restants",
-                        style: TextStyle(fontWeight: FontWeight.bold))),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Helpers.getSvg(AppAssetLink.calendar),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Text("${widget.data?.time}"),
-                    ],
-                  ),
-                )
-              ],
+            _buildRowItem(
+              title: "Jours restants",
+              icon: Helpers.getSvg(AppAssetLink.calendar),
+              value: widget.data?.time,
             ),
             const SpaceHeightCustom(),
-            Row(
-              children: [
-                const Expanded(
-                    flex: 2,
-                    child: Text(
-                      "Gain",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Helpers.getSvg(AppAssetLink.bank),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Text("${widget.data?.gain}"),
-                    ],
-                  ),
-                )
-              ],
+            _buildRowItem(
+              title: "Gain",
+              icon: Helpers.getSvg(AppAssetLink.bank),
+              value: '${widget.data?.gain}'.formatCurrency(),
             ),
           ],
         ),
       ),
-      bottomsheet: AppButtonWidget(
-          onPressed: () {
-            if (widget.data?.route != null) {
-              Navigator.pushNamed(context, widget.data!.route!,
-                  arguments: widget.data);
-            }
-          },
-          label: "Commencer"),
+      bottomsheet: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: AppButtonWidget(
+            onPressed: () {
+              if (widget.data?.route != null) {
+                Navigator.pushNamed(context, widget.data!.route!,
+                    arguments: widget.data);
+              }
+            },
+            label: "Commencer"),
+      ),
+    );
+  }
+
+  _buildRowItem(
+      {required String title, required SvgPicture icon, String? value}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          flex: 3,
+          child: Text(
+            title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: context.labelLarge,
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              icon,
+              const SizedBox(width: 5),
+              Text(
+                "$value",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.start,
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

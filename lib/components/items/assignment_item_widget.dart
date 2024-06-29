@@ -75,7 +75,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                             widget.data.title,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: context.titleSmall!
+                            style: context.titleSmall
                                 .copyWith(fontFamily: fontPrimary),
                           ),
                         ),
@@ -95,8 +95,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       child: Text(
                         widget.data.detail,
-                        style: context.labelSmall!
-                            .copyWith(fontSize: 12),
+                        style: context.labelSmall!.copyWith(fontSize: 12),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -106,11 +105,15 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         if (widget.data.gain != null)
-                          _buildChildText("${widget.data.gain}".formatCurrency()),
+                          _buildChildText(
+                              "${widget.data.gain}".formatCurrency()),
                         if (widget.data.gain == null)
                           _buildChildText("Non payé"),
-                        if (widget.data.duration != null && widget.data.type == MissionType.Spontaneous)
-                          _buildChildText("${widget.data.duration} ${widget.data.time} restants", time: true),
+                        if (widget.data.duration != null &&
+                            widget.data.type == MissionType.Spontaneous)
+                          _buildChildText(
+                              "${widget.data.duration} ${widget.data.time} restants",
+                              time: true),
                       ],
                     )
                   ],
@@ -124,8 +127,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
   }
 
   get styleBuildChild {
-    return context.titleSmall!
-        .copyWith(fontFamily: fontPrimary, fontSize: 12);
+    return context.titleSmall!.copyWith(fontFamily: fontPrimary, fontSize: 12);
   }
 
   _buildChildText(String label, {bool time = false}) {

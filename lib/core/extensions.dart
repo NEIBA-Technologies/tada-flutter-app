@@ -1,24 +1,29 @@
-
 import 'package:flutter/material.dart'
     show BuildContext, TextStyle, TextTheme, Theme, ThemeData;
 import 'package:intl/intl.dart' show NumberFormat, DateFormat;
 
 extension ThemeExt on BuildContext {
+  ThemeData get theme => Theme.of(this);
+
   TextTheme get textTheme => Theme.of(this).textTheme;
 
+  /// 16 w600 Sora
   TextStyle get labelLarge => Theme.of(this).textTheme.labelLarge!;
 
+  /// 14 w500 Gilroy
   TextStyle get labelMedium => Theme.of(this).textTheme.labelMedium!;
 
-  TextStyle get labelSmall => Theme.of(this).textTheme.labelSmall!;
+  /// 14 w400 Gilroy
+  TextStyle get labelSmall => Theme.of(this).textTheme.labelSmall!; //
 
-  TextStyle get titleLarge => Theme.of(this).textTheme.titleLarge!;
+  /// 20 w600 Sora
+  TextStyle get titleLarge => Theme.of(this).textTheme.titleLarge!; //
 
-  TextStyle get titleMedium => Theme.of(this).textTheme.titleMedium!;
+  /// 16 w500 Sora
+  TextStyle get titleMedium => Theme.of(this).textTheme.titleMedium!; //
 
-  TextStyle get titleSmall => Theme.of(this).textTheme.titleSmall!;
-
-  ThemeData get theme => Theme.of(this);
+  /// 14 w600 Sora
+  TextStyle get titleSmall => Theme.of(this).textTheme.titleSmall!; //
 }
 
 extension StringExt on String {
@@ -49,11 +54,10 @@ extension CurrencyFormater on String {
     if (isEmpty || toLowerCase() == "null") return "";
 
     return NumberFormat.currency(
-        locale: locale, decimalDigits: decimalDigits, symbol: "F CFA")
+            locale: locale,  decimalDigits: decimalDigits, symbol: "XOF")
         .format(double.parse(this));
   }
 }
-
 
 extension NumberFormater on num {
   String simpleCurrency({String locale = "fr", int decimalDigits = 0}) {
@@ -72,7 +76,6 @@ extension DateFormater on DateTime {
   String hhmm() {
     return DateFormat('HH:mm', 'fr').format(this);
   }
-
 
   String hummanShort() {
     return DateFormat('dd LLL y à HH:mm', 'fr').format(this);
