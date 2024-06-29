@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart'
-    show AppBarTheme, BorderRadius, BorderSide, BottomSheetThemeData, CheckboxThemeData, ColorScheme, Colors, EdgeInsets, IconThemeData, InputDecorationTheme, OutlineInputBorder, TextStyle, TextTheme, ThemeData;
+    show AppBarTheme, BorderRadius, BorderSide, BottomSheetThemeData, CheckboxThemeData, ColorScheme, Colors, EdgeInsets, IconThemeData, InputDecorationTheme, OutlineInputBorder, TabAlignment, TabBarIndicatorSize, TabBarTheme, TextStyle, TextTheme, ThemeData;
 import 'package:flutter/services.dart' show FontWeight, SystemUiOverlayStyle;
 import 'package:flutter_bloc/flutter_bloc.dart' show Cubit;
 
@@ -32,10 +32,10 @@ bottomSheetTheme: const BottomSheetThemeData(
             statusBarBrightness: Brightness.light,
         ),
         centerTitle: false,
-        iconTheme: IconThemeData(color: primaryColor, size: 20),
+        iconTheme: IconThemeData(color: primaryColor, size: 18),
         titleTextStyle: TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: 20,
+          fontSize: 19,
           color: blackColor,
           decorationColor: blackColor,
         )),
@@ -123,5 +123,15 @@ bottomSheetTheme: const BottomSheetThemeData(
       fillColor: const WidgetStatePropertyAll(Colors.white),
       checkColor: WidgetStatePropertyAll(primaryColor),
     ),
+
+    tabBarTheme: TabBarTheme(
+      tabAlignment: TabAlignment.start,
+      labelPadding: const EdgeInsets.symmetric(horizontal: 1.5),
+      dividerColor: Colors.white,
+      indicatorSize: TabBarIndicatorSize.tab,
+      indicatorColor: blackColor,
+      labelColor: blackColor,
+      unselectedLabelColor: greyColor.shade200,
+    )
   );
 }

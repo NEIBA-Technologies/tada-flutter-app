@@ -12,11 +12,13 @@ class AssignmentItemWidget extends StatefulWidget {
     required this.data,
     required this.color,
     this.ispinned = false,
+    this.canSetBookmark = false,
   });
 
   final Assignment data;
   final MaterialColor color;
   final bool ispinned;
+  final bool canSetBookmark;
 
   @override
   State<AssignmentItemWidget> createState() => _AssignmentItemWidgetState();
@@ -53,7 +55,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+            Container(
               width: MediaQuery.of(context).size.width / 4,
               child: Helpers.getSvg(widget.data.icon,
                   height: 25, color: widget.color),
@@ -79,7 +81,8 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                                 .copyWith(fontFamily: fontPrimary),
                           ),
                         ),
-                        if (widget.data.favoris == true)
+                        if (widget.canSetBookmark &&
+                            widget.data.favoris == true)
                           GestureDetector(
                             onTap: togglePinned,
                             child: Icon(

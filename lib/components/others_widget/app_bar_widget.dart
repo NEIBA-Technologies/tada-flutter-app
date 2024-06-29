@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:tada/components/layouts/scaffold_page.dart';
 
 import '../../core/constants.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSize {
   List<Widget>? actions;
-  final Widget title;
-  final Widget? backIcon;
+  String? title;
+  Widget? backIcon;
+  PreferredSizeWidget? bottom;
   bool? canBack = false;
+
+  final ScaffoldPage params;
 
   AppBarWidget({
     super.key,
-    this.actions,
-    required this.title,
-    this.backIcon,
-    this.canBack = false,
-  });
+    required this.params,
+  }) {
+    actions = params.actions;
+    title = params.titlePage;
+    backIcon = params.backIcon;
+    canBack = params.canBack;
+    bottom = params.bottom;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSize {
       scrolledUnderElevation: 15,
       automaticallyImplyLeading: false,
       iconTheme: IconThemeData(color: blackColor, size: 17),
+      bottom: bottom,
       leading: (canBack ?? false)
           ? (backIcon ??
               IconButton(
@@ -31,7 +39,11 @@ class AppBarWidget extends StatelessWidget implements PreferredSize {
                 icon: const Icon(Icons.arrow_back_ios_new_rounded),
               ))
           : null,
-      title: title,
+      title: Text(
+        "$title",
+        overflow: TextOverflow.ellipsis,
+        maxLines: 1,
+      ),
       actions: actions,
     );
   }
@@ -41,5 +53,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSize {
   Widget get child => const SizedBox();
 
   @override
-  Size get preferredSize => const Size(kToolbarHeight, kToolbarHeight);
+  Size get preferredSize =>
+      Size(double.infinity, kToolbarHeight * (bottom != null ? 1.3 : 1));
 }

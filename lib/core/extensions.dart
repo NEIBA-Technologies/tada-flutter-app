@@ -50,11 +50,11 @@ extension DateTimeExt on DateTime {
 extension CurrencyFormater on String {
   /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
 // locale eu or fr_FR
-  String formatCurrency({String locale = "eu", int decimalDigits = 0}) {
+  String formatCurrency({String locale = "eu", int decimalDigits = 2}) {
     if (isEmpty || toLowerCase() == "null") return "";
 
     return NumberFormat.currency(
-            locale: locale,  decimalDigits: decimalDigits, symbol: "XOF")
+            locale: locale, decimalDigits: decimalDigits, symbol: "XOF")
         .format(double.parse(this));
   }
 }

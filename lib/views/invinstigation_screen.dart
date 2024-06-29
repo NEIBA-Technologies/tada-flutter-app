@@ -25,6 +25,8 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
     Size size = MediaQuery.of(context).size;
     return ScaffoldPage(
       titlePage: '${widget.data?.title}',
+      color: Colors.white,
+      canBack: true,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(padding),
         child: Column(
@@ -78,15 +80,20 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
               controller: _nameController,
               labelHint: "Sélectionner les produits",
             ),
+            const SpaceHeightCustom(),
+            AppFormField(
+              labelBold: true,
+              label: 'Catégories de produits en vente ',
+              controller: _nameController,
+              labelHint: "Sélectionner les produits",
+            ),
           ],
         ),
       ),
-      bottomsheet: AppButtonWidget(
-          onPressed: () {
-            // Navigator.pushNamed(
-            //     context, RouterGenerator.signInRoute);
-          },
-          label: "Commencer"),
+      bottomsheet: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: AppButtonWidget(onPressed: () {}, label: "Commencer"),
+      ),
     );
   }
 }

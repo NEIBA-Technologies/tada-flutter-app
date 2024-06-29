@@ -5,9 +5,11 @@ class ScaffoldPage extends StatelessWidget {
   final String titlePage;
   final Widget body;
   final List<Widget> actions;
+  final Widget? backIcon;
   final Widget? bottomsheet;
+  final PreferredSizeWidget? bottom;
   final Color? color;
-   bool? canBack;
+  bool? canBack;
 
   ScaffoldPage(
       {super.key,
@@ -15,23 +17,17 @@ class ScaffoldPage extends StatelessWidget {
       this.actions = const [],
       required this.body,
       this.bottomsheet,
+      this.backIcon,
       this.canBack,
-      this.color});
+      this.color,
+      this.bottom});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: color,
-      appBar: AppBarWidget(
-        canBack: canBack,
-        title: Text(
-          titlePage,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 1,
-        ),
-        actions: actions,
-      ),
-      bottomSheet: bottomsheet != null
+      appBar: AppBarWidget(params: this),
+      bottomNavigationBar: bottomsheet != null
           ? BottomSheet(
               onClosing: () {},
               builder: (context) => bottomsheet!,

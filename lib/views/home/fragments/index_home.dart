@@ -83,6 +83,7 @@ class MissionDisplayCard extends StatelessWidget {
             return AssignmentItemWidget(
               color: primaryColor,
               data: e,
+              canSetBookmark: true,
             );
           }),
         ],
