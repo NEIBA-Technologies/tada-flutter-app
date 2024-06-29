@@ -130,7 +130,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
   }
 
   get styleBuildChild {
-    return context.titleSmall!.copyWith(fontFamily: fontPrimary, fontSize: 12);
+    return context.titleSmall.copyWith(fontFamily: fontPrimary, fontSize: 12);
   }
 
   _buildChildText(String label, {bool time = false}) {

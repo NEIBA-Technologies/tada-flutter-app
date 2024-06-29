@@ -75,6 +75,14 @@ extension NumberFormater on num {
     return input;
   }
 }
+extension NumberFormaterString on String {
+  String simpleCurrency({String locale = "es", int decimalDigits = 0}) {
+    final input = NumberFormat.simpleCurrency(
+            locale: locale, decimalDigits: decimalDigits, name: "")
+        .format(this);
+    return input;
+  }
+}
 
 extension DateFormater on DateTime {
   String yyyyMd() {

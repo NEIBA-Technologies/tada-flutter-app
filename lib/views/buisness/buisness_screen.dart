@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:tada/components/layouts/scaffold_page.dart';
 import 'package:tada/components/others_widget/app_buttom_widget.dart';
 import 'package:tada/components/others_widget/hero_logo.dart';
-import 'package:tada/components/others_widget/space_height_custom.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/router_generator.dart';
 
 import '../../components/items/transaction_item.dart';
+import '../../components/others_widget/space_custom.dart';
+import '../../core/app_assets_link.dart';
 import '../../core/constants.dart';
 import '../../core/models/transaction.dart';
+import '../../core/utils/helpers.dart';
 
 class BusinessScreen extends StatefulWidget {
   const BusinessScreen({super.key});
@@ -133,7 +135,8 @@ class _BusinessScreenState extends State<BusinessScreen> {
                       const SpaceHeightCustom(),
                       AppButtonWidget(
                         onPressed: () {
-                          Navigator.pushNamed(context, RouterGenerator.withdrawCashRoute);
+                          Navigator.pushNamed(
+                              context, RouterGenerator.withdrawCashRoute);
                         },
                       ),
                     ],
@@ -198,6 +201,40 @@ class _BusinessScreenState extends State<BusinessScreen> {
                   ],
                 ),
               ),
+              Card(
+                color: Colors.white,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width / 8,
+                      child: Helpers.getSvg(AppAssetLink.smartPhoneIconSvg,
+                          color: primaryColor, height: 30),
+                    ),
+                    const SpaceWidthCustom(),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Ajouter un compte mobile monney',
+                            textAlign: TextAlign.start,
+                            style: context.labelLarge,
+                          ),
+                          const SpaceHeightCustom(),
+                          Text(
+                            "Enregistrez un compte pour faire vos retaits d'argent",
+                            textAlign: TextAlign.start,
+                            style: context.titleSmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),

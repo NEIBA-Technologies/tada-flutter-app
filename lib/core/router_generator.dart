@@ -8,8 +8,11 @@ import 'package:tada/views/auth_screen/fortget_password/reset_password_step_one.
 import 'package:tada/views/auth_screen/fortget_password/reset_password_step_three.dart';
 import 'package:tada/views/auth_screen/fortget_password/reset_password_step_two.dart';
 import 'package:tada/views/auth_screen/sign_in_screen.dart';
+import 'package:tada/views/buisness/add_an_account_screen.dart';
+import 'package:tada/views/buisness/removal_withdrawal_success_screen.dart';
 
 import '../views/auth_screen/sign_up_screen.dart';
+import '../views/buisness/removal_withdrawal_screen.dart';
 import '../views/buisness/withdraw_cash_screen.dart';
 import '../views/detail_assignment_screen.dart';
 import '../views/index_screen.dart';
@@ -30,6 +33,9 @@ class RouterGenerator {
   static const detailAssignmentRoute = '/detail-assignment';
   static const indexRoute = "/homeRoute";
   static const withdrawCashRoute = "/withdraw_cash_screen";
+  static const addAnAccountRoute = "/AddAnAccountScreen";
+  static const removalWithdrawalRoute = "/RemovalWithdrawalScreen";
+  static const removalWithdrawalSuccessRoute = "/removalWithdrawalSuccess";
   static String? currentRoute;
 
   static Route<dynamic> navigate(RouteSettings setting) {
@@ -81,6 +87,14 @@ class RouterGenerator {
         break;
       case withdrawCashRoute:
         page = WithdrawCashScreen();
+        break;
+      case addAnAccountRoute:
+        page = AddAnAccountScreen();
+        break;
+      case removalWithdrawalRoute:
+        page = RemovalWithdrawalScreen();
+        break;case removalWithdrawalSuccessRoute:
+        page = RemovalWithdrawalSuccessScreen();
         break;
       case indexRoute:
         page = IndexScreen(

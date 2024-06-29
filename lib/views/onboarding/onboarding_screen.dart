@@ -4,7 +4,7 @@ import 'package:tada/components/others_widget/app_buttom_widget.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/router_generator.dart';
 
-import '../../components/others_widget/space_height_custom.dart';
+import '../../components/others_widget/space_custom.dart';
 import '../../core/app_assets_link.dart';
 import '../../core/constants.dart';
 import '../../core/models/onboarding.dart';

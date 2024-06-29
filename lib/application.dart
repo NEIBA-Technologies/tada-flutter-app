@@ -45,7 +45,7 @@ class _ApplicationState extends State<Application> {
               title: 'Tada',
               debugShowCheckedModeBanner: false,
               theme: theme,
-              initialRoute: RouterGenerator.splashScreen,
+              initialRoute: RouterGenerator.addAnAccountRoute,
               // initialRoute: hasAlreadyOnboarding
               // ? RouterGenerator.signUpRoute
               // : RouterGenerator.onboardingRoute,

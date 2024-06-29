@@ -4,7 +4,7 @@ import 'package:tada/core/constants.dart';
 
 import '../components/others_widget/app_buttom_widget.dart';
 import '../components/others_widget/app_form_field.dart';
-import '../components/others_widget/space_height_custom.dart';
+import '../components/others_widget/space_custom.dart';
 import '../core/models/assignment.dart';
 
 class InvinstigationScreen extends StatefulWidget {

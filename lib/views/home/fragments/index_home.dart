@@ -4,7 +4,7 @@ import 'package:tada/core/extensions.dart';
 import '../../../components/items/assignment_item_widget.dart';
 import '../../../components/layouts/scaffold_page.dart';
 import '../../../components/others_widget/chip_widget.dart';
-import '../../../components/others_widget/space_height_custom.dart';
+import '../../../components/others_widget/space_custom.dart';
 import '../../../core/app_assets_link.dart';
 import '../../../core/constants.dart';
 import '../../../core/utils/helpers.dart';

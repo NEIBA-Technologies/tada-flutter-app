@@ -7,7 +7,7 @@ import 'package:tada/core/utils/helpers.dart';
 import '../../../components/others_widget/app_buttom_widget.dart';
 import '../../../components/others_widget/app_form_field.dart';
 import '../../../components/others_widget/icon_outline.dart';
-import '../../../components/others_widget/space_height_custom.dart';
+import '../../../components/others_widget/space_custom.dart';
 import '../../../core/router_generator.dart';
 
 class ResetPasswordStepOne extends StatefulWidget {

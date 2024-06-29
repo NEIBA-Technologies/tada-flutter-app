@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tada/components/others_widget/space_height_custom.dart';
 import 'package:tada/core/extensions.dart';
 
 import '../../core/models/transaction.dart';
+import '../others_widget/space_custom.dart';
 
 class TransactionItem extends StatelessWidget {
   final Transaction data;

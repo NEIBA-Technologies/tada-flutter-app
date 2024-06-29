@@ -3,7 +3,7 @@ import 'package:tada/core/extensions.dart';
 
 import '../../../components/others_widget/app_buttom_widget.dart';
 import '../../../components/others_widget/icon_outline.dart';
-import '../../../components/others_widget/space_height_custom.dart';
+import '../../../components/others_widget/space_custom.dart';
 import '../../../core/app_assets_link.dart';
 import '../../../core/constants.dart';
 import '../../../core/router_generator.dart';

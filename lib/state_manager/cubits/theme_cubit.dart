@@ -31,8 +31,9 @@ class ThemeCubit extends Cubit<ThemeData> {
 
   static final baseTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
-    // colorSchemeSeed: primaryColor,
     useMaterial3: true,
+    brightness: Brightness.light,
+    dividerColor: greyColor.shade100,
     scaffoldBackgroundColor: const Color.fromRGBO(233, 238, 234, 1),
     primaryColor: primaryColor,
     fontFamily: fontPrimary,
@@ -164,5 +165,7 @@ class ThemeCubit extends Cubit<ThemeData> {
       circularTrackColor: primaryColor,
       linearTrackColor: greyColor.shade100,
     ),
+
+
   );
 }
