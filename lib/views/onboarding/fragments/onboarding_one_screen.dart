@@ -40,8 +40,8 @@ class OnboardingOne extends StatelessWidget {
           children: [
             Container(
               color: const Color(0xffFFE2B0),
-              width: screenWidth * 0.95, 
-              height: screenHeight * 0.4, 
+              width: screenWidth * 0.95,
+              height: screenHeight * 0.4,
               alignment: Alignment.center,
               child: SvgPicture.asset(
                 'asset/images/icon/pana.svg',
@@ -69,7 +69,7 @@ class OnboardingOne extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            const Spacer(), 
+            const Spacer(),
             /*Center(
               child: ContinuingButton(
                 width: screenWidth * 0.95,

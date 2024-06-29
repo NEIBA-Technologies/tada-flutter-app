@@ -50,12 +50,12 @@ class _SignInScreenState extends State<SignInScreen> {
                         const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                         Text(
                           'Fait plus d’argent avec Tada !',
-                          style: context.textTheme.titleLarge,
+                          style: context.titleLarge,
                         ),
                         const SpaceHeightCustom(),
                         Text(
                           'Entre tes informations personnelles',
-                          style: context.textTheme.titleMedium,
+                          style: context.titleMedium,
                         ),
                       ],
                     ),
@@ -91,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           overlayColor:
                               const WidgetStatePropertyAll(Colors.transparent),
                           textStyle: WidgetStatePropertyAll(
-                            context.textTheme.labelSmall!.copyWith(
+                            context.labelSmall!.copyWith(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
                             ),
@@ -108,7 +108,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Text('Mot de passe oublié ?',
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: context.textTheme.labelSmall!.copyWith(
+                              style: context.labelSmall!.copyWith(
                                 color: primaryColor,
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
@@ -139,11 +139,11 @@ class _SignInScreenState extends State<SignInScreen> {
                           text: TextSpan(children: [
                             TextSpan(
                               text: 'Vous n’avez pas de compte ? ',
-                              style: context.textTheme.titleSmall,
+                              style: context.titleSmall,
                             ),
                             TextSpan(
                               text: 'Inscription',
-                              style: context.textTheme.titleSmall!
+                              style: context.titleSmall!
                                   .copyWith(color: primaryColor),
                             ),
                           ])),

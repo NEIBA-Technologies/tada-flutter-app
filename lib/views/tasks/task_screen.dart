@@ -3,19 +3,18 @@ import 'package:flutter/material.dart';
 import '../../components/layouts/scaffold_page.dart';
 import '../../core/constants.dart';
 
-class AccountFragment extends StatefulWidget {
-  const AccountFragment({super.key});
+class TaskScreen extends StatefulWidget {
+  const TaskScreen({super.key});
 
   @override
-  State<AccountFragment> createState() => _AccountFragmentState();
+  State<TaskScreen> createState() => _TaskScreenState();
 }
 
-class _AccountFragmentState extends State<AccountFragment> {
+class _TaskScreenState extends State<TaskScreen> {
   @override
   Widget build(BuildContext context) {
-
     return ScaffoldPage(
-      titlePage: "Mon profil",
+      titlePage: 'Mes tâches',
       body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: padding * 2),
           child: const Center(

@@ -20,7 +20,6 @@ class DetailAssignmentScreen extends StatefulWidget {
 class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return DefaultPage(
       titlePage: '${widget.data?.title}',
       body: SingleChildScrollView(
@@ -105,9 +104,10 @@ class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
       ),
       bottomsheet: AppButtonWidget(
           onPressed: () {
-            if (widget.data?.route != null)
+            if (widget.data?.route != null) {
               Navigator.pushNamed(context, widget.data!.route!,
                   arguments: widget.data);
+            }
           },
           label: "Commencer"),
     );

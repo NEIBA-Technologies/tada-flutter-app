@@ -20,7 +20,7 @@ class AppButtonWidget extends StatelessWidget {
   const AppButtonWidget({
     super.key,
     required this.onPressed,
-    required this.label,
+      this.label = "Commencer",
     this.sizeButton = SizeButton.sm,
     this.styleButton = StyleButton.ORANGE,
   });

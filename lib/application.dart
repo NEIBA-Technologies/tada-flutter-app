@@ -32,26 +32,36 @@ class _ApplicationState extends State<Application> {
       ],
       child: BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
-          return MaterialApp(
-            title: 'Tada',
-            debugShowCheckedModeBanner: false,
-            theme: theme,
-            initialRoute: RouterGenerator.splashScreen,
-            // initialRoute: hasAlreadyOnboarding
-            // ? RouterGenerator.signUpRoute
-            // : RouterGenerator.onboardingRoute,
-            onUnknownRoute: (settings) {
-              return BlurredRouter(
-                  builder: ((context) => const Scaffold(
-                      body: Center(child: Text("Page non disponible")))));
-            },
-            localizationsDelegates: const [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: const [Locale('fr'), Locale('en')],
-            onGenerateRoute: RouterGenerator.navigate,
+          return AnnotatedRegion(
+            value: SystemUiOverlayStyle(
+              statusBarColor: Colors.white,
+              statusBarIconBrightness: Brightness.dark,
+              statusBarBrightness: Brightness.light,
+              systemNavigationBarColor: Colors.white,
+              systemNavigationBarIconBrightness: Brightness.dark,
+
+            ),
+            child: MaterialApp(
+              title: 'Tada',
+              debugShowCheckedModeBanner: false,
+              theme: theme,
+              initialRoute: RouterGenerator.indexRoute,
+              // initialRoute: hasAlreadyOnboarding
+              // ? RouterGenerator.signUpRoute
+              // : RouterGenerator.onboardingRoute,
+              onUnknownRoute: (settings) {
+                return BlurredRouter(
+                    builder: ((context) => const Scaffold(
+                        body: Center(child: Text("Page non disponible")))));
+              },
+              localizationsDelegates: const [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [Locale('fr'), Locale('en')],
+              onGenerateRoute: RouterGenerator.navigate,
+            ),
           );
         },
       ),

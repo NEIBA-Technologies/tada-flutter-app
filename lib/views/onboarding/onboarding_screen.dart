@@ -5,10 +5,11 @@ import 'package:tada/core/extensions.dart';
 import 'package:tada/core/router_generator.dart';
 
 import '../../components/others_widget/space_height_custom.dart';
+import '../../core/app_assets_link.dart';
 import '../../core/constants.dart';
+import '../../core/models/onboarding.dart';
 import '../../core/repositories/app_repository.dart';
 import '../../core/utils/helpers.dart';
-import 'onboarding_items.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
@@ -18,14 +19,36 @@ class OnboardingView extends StatefulWidget {
 }
 
 class _OnboardingViewState extends State<OnboardingView> {
-  final onboarding = OnboardingItems();
+  List<Onboarding> items = [
+    Onboarding(
+      title: "Ouvre ton compte.",
+      descriptions:
+      "Crée ta  boutique en un clic Crée ta  boutique en un clic Crée ta  boutique en un clic.",
+      image: AppAssetLink.openAccount,
+    ),
+    Onboarding(
+        title: "Donne ton avis sur l’application.",
+        descriptions:
+        "Crée ta  boutique en un clic Crée ta  boutique en un clic Crée ta  boutique en un clic.",
+        image: AppAssetLink.giveOpinion),
+    Onboarding(
+        title: "Gagne de l’argent !",
+        descriptions:
+        "Crée ta  boutique en un clic Crée ta  boutique en un clic Crée ta  boutique en un clic.",
+        image: AppAssetLink.earnMoney),
+  ];
+
+  List<Onboarding> get onboardingItems => items.toList();
+
   final pageController = PageController();
 
   bool isLastPage = false;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -34,7 +57,7 @@ class _OnboardingViewState extends State<OnboardingView> {
           if (!isLastPage)
             TextButton(
               onPressed: () =>
-                  pageController.jumpToPage(onboarding.items.length - 1),
+                  pageController.jumpToPage(onboardingItems.length - 1),
               child: Text(
                 "Sauter",
                 style: TextStyle(
@@ -49,9 +72,11 @@ class _OnboardingViewState extends State<OnboardingView> {
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15),
           child: PageView.builder(
-              onPageChanged: (index) => setState(
-                  () => isLastPage = onboarding.items.length - 1 == index),
-              itemCount: onboarding.items.length,
+              onPageChanged: (index) =>
+                  setState(
+                          () =>
+                      isLastPage = onboardingItems.length - 1 == index),
+              itemCount: onboardingItems.length,
               controller: pageController,
               itemBuilder: (context, index) {
                 return SingleChildScrollView(
@@ -62,7 +87,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                         height: size.height / 2.2,
                         width: size.width,
                         child: Helpers.getImage(
-                          onboarding.items[index].image,
+                          onboardingItems[index].image,
                           // fit: BoxFit.contain
                         ),
                       ),
@@ -72,16 +97,16 @@ class _OnboardingViewState extends State<OnboardingView> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          onboarding.items[index].title,
-                          style: context.textTheme.titleLarge,
+                          onboardingItems[index].title,
+                          style: context.titleLarge,
                           textAlign: TextAlign.start,
                         ),
                       ),
                       const SpaceHeightCustom(),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(onboarding.items[index].descriptions,
-                            style: context.textTheme.titleMedium),
+                        child: Text(onboardingItems[index].descriptions,
+                            style: context.titleMedium),
                       ),
                       const SpaceHeightCustom(
                         breakPoint: BreakPoint.xxl,
@@ -90,11 +115,12 @@ class _OnboardingViewState extends State<OnboardingView> {
                       const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                       SmoothPageIndicator(
                         controller: pageController,
-                        count: onboarding.items.length,
-                        onDotClicked: (index) => pageController.animateToPage(
-                            index,
-                            duration: const Duration(milliseconds: 600),
-                            curve: Curves.easeIn),
+                        count: onboardingItems.length,
+                        onDotClicked: (index) =>
+                            pageController.animateToPage(
+                                index,
+                                duration: const Duration(milliseconds: 600),
+                                curve: Curves.easeIn),
                         effect: WormEffect(
                           dotHeight: 8,
                           dotWidth: 8,
@@ -114,14 +140,15 @@ class _OnboardingViewState extends State<OnboardingView> {
     return AppButtonWidget(
         onPressed: isLastPage
             ? () async {
-                await AppRepository().updateStorageOnboarding();
-                if (!mounted) return;
-                Navigator.pushReplacementNamed(
-                  context,
-                  RouterGenerator.signUpRoute,
-                );
-              }
-            : () => pageController.nextPage(
+          await AppRepository().updateStorageOnboarding();
+          if (!mounted) return;
+          Navigator.pushReplacementNamed(
+            context,
+            RouterGenerator.signUpRoute,
+          );
+        }
+            : () =>
+            pageController.nextPage(
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.easeIn),
         label: "Commencer");

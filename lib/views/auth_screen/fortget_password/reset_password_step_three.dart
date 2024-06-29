@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:tada/core/app_assets_link.dart';
-import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
-import 'package:tada/core/utils/helpers.dart';
 
 import '../../../components/others_widget/app_buttom_widget.dart';
 import '../../../components/others_widget/app_form_field.dart';
 import '../../../components/others_widget/icon_outline.dart';
 import '../../../components/others_widget/space_height_custom.dart';
+import '../../../core/app_assets_link.dart';
+import '../../../core/constants.dart';
 import '../../../core/router_generator.dart';
+import '../../../core/utils/helpers.dart';
 
-class ResetPasswordStepOne extends StatefulWidget {
-  const ResetPasswordStepOne({super.key});
+class ResetPasswordStepThree extends StatefulWidget {
+  const ResetPasswordStepThree({Key? key}) : super(key: key);
 
   @override
-  _ResetPasswordStepOneState createState() => _ResetPasswordStepOneState();
+  _ResetPasswordStepThreeState createState() => _ResetPasswordStepThreeState();
 }
 
-class _ResetPasswordStepOneState extends State<ResetPasswordStepOne> {
+class _ResetPasswordStepThreeState extends State<ResetPasswordStepThree> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +52,15 @@ class _ResetPasswordStepOneState extends State<ResetPasswordStepOne> {
                         ),
                         const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                         Text(
-                          'Mot de passe oublié ?',
+                          'Définir un nouveau mot de passe',
                           textAlign: TextAlign.center,
-                          style: context.textTheme.titleLarge,
+                          style: context.titleLarge,
                         ),
                         const SpaceHeightCustom(),
                         Text(
-                          'Nous vous enverrons des instructions de réinitialisation par mail.',
+                          'Votre nouveau mot de passe doit être différent des mots de passe précédemment utilisés.',
                           textAlign: TextAlign.center,
-                          style: context.textTheme.titleMedium,
+                          style: context.titleMedium,
                         ),
                       ],
                     ),
@@ -67,15 +69,23 @@ class _ResetPasswordStepOneState extends State<ResetPasswordStepOne> {
                     breakPoint: BreakPoint.md,
                   ),
                   AppFormField(
-                    label: 'Adresse mail',
-                    controller: _emailController,
-                    keyboard: TextInputType.emailAddress,
+                    label: 'Mot de passe',
+                    controller: _passwordController,
+                    keyboard: TextInputType.visiblePassword,
+                    isObscure: true,
+                  ),
+                  Text('Doit contenir au moins 8 caractères.',style: context.labelSmall,),
+                  const SpaceHeightCustom(breakPoint: BreakPoint.sm),
+                  AppFormField(
+                    label: 'Mot de passe ',
+                    controller: _passwordController,
+                    isObscure: true,
                   ),
                   const SpaceHeightCustom(breakPoint: BreakPoint.md),
                   AppButtonWidget(
                       onPressed: () {
                         Navigator.pushNamed(
-                            context, RouterGenerator.resetPasswordStepTwoRoute);
+                            context, RouterGenerator.resetPasswordStepFourRoute);
                       },
                       label: "Commencer"),
                   const SpaceHeightCustom(breakPoint: BreakPoint.sm),
@@ -83,10 +93,10 @@ class _ResetPasswordStepOneState extends State<ResetPasswordStepOne> {
                     alignment: Alignment.center,
                     child: TextButton.icon(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamedAndRemoveUntil(context,RouterGenerator.signInRoute,(route) => false,);
                       },
                       label: Text("Retour à connexion",
-                          style: context.textTheme.titleSmall),
+                          style: context.titleSmall),
                       icon: Icon(
                         Icons.arrow_back,
                         color: blackColor,

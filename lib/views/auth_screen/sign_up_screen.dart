@@ -43,12 +43,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                       Text(
                         'Gagne plus d’argent avec Tada  !',
-                        style: context.textTheme.titleLarge,
+                        style: context.titleLarge,
                       ),
                       const SpaceHeightCustom(),
                       Text(
                         'Entre tes informations personnelles ',
-                        style: context.textTheme.titleMedium,
+                        style: context.titleMedium,
                       ),
                     ],
                   ),
@@ -99,11 +99,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         text: TextSpan(children: [
                           TextSpan(
                             text: 'Vous avez déjà un compte Tada ? ',
-                            style: context.textTheme.titleSmall,
+                            style: context.titleSmall,
                           ),
                           TextSpan(
                             text: 'Connexion',
-                            style: context.textTheme.titleSmall!
+                            style: context.titleSmall!
                                 .copyWith(color: primaryColor),
                           ),
                         ])),

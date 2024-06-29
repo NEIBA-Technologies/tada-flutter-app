@@ -30,6 +30,7 @@ class ThemeCubit extends Cubit<ThemeData> {
     scaffoldBackgroundColor: const Color.fromRGBO(233, 238, 234, 1),
     primaryColor: primaryColor,
     fontFamily: fontPrimary,
+
     appBarTheme: AppBarTheme(
         elevation: 3,
         shadowColor: Colors.black38,

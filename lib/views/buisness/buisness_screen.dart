@@ -3,14 +3,14 @@ import 'package:tada/components/layouts/scaffold_page.dart';
 
 import '../../core/constants.dart';
 
-class BusinessFragment extends StatefulWidget {
-  const BusinessFragment({super.key});
+class BusinessScreen extends StatefulWidget {
+  const BusinessScreen({super.key});
 
   @override
-  State<BusinessFragment> createState() => _BusinessFragmentState();
+  State<BusinessScreen> createState() => _BusinessScreenState();
 }
 
-class _BusinessFragmentState extends State<BusinessFragment> {
+class _BusinessScreenState extends State<BusinessScreen> {
   @override
   Widget build(BuildContext context) {
 

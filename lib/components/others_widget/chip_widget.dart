@@ -21,7 +21,7 @@ class Chipwidget extends StatelessWidget {
       label: Text(label),
       color:  WidgetStatePropertyAll(enabled ? primaryColor: Colors.white),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-      labelStyle: context.textTheme.titleSmall!
+      labelStyle: context.titleSmall!
           .copyWith(color: enabled ? Colors.white : blackColor, fontSize: 13),
       side: BorderSide.none,
       onPressed: onPressed,

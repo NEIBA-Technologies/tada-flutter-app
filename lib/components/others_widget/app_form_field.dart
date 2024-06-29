@@ -10,14 +10,16 @@ class AppFormField extends StatelessWidget {
   AppFormField({
     super.key,
     required this.label,
-     this.labelHint,
+    this.labelHint,
     this.keyboard,
     this.controller,
     this.onTap,
     this.isObscure = false,
+    this.labelBold = false,
   });
 
   String label;
+  bool? labelBold;
   String? labelHint;
   TextInputType? keyboard;
   TextEditingController? controller;
@@ -31,18 +33,17 @@ class AppFormField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: context.textTheme.labelSmall,
+          style: context.labelSmall!
+              .copyWith(fontWeight: (labelBold ?? false) ? FontWeight.w700:  null),
         ),
         const SpaceHeightCustom(),
         TextFormField(
-          decoration: InputDecoration(
-            hintText: labelHint
-          ),
+          decoration: InputDecoration(hintText: labelHint),
           obscureText: isObscure,
           controller: controller,
           onTap: onTap,
           keyboardType: keyboard,
-          style:   TextStyle(
+          style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
             color: blackColor,

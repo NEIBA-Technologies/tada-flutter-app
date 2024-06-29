@@ -3,18 +3,18 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:tada/components/animated_routes/transparant_route.dart';
 import 'package:tada/components/params/RouterArguments.dart';
 import 'package:tada/core/models/assignment.dart';
-import 'package:tada/view/auth_screen/fortget_password/reset_password_step_four.dart';
-import 'package:tada/view/auth_screen/fortget_password/reset_password_step_one.dart';
-import 'package:tada/view/auth_screen/fortget_password/reset_password_step_three.dart';
-import 'package:tada/view/auth_screen/fortget_password/reset_password_step_two.dart';
-import 'package:tada/view/auth_screen/sign_in_screen.dart';
+import 'package:tada/views/auth_screen/fortget_password/reset_password_step_four.dart';
+import 'package:tada/views/auth_screen/fortget_password/reset_password_step_one.dart';
+import 'package:tada/views/auth_screen/fortget_password/reset_password_step_three.dart';
+import 'package:tada/views/auth_screen/fortget_password/reset_password_step_two.dart';
+import 'package:tada/views/auth_screen/sign_in_screen.dart';
 
-import '../view/auth_screen/sign_up_screen.dart';
-import '../view/detail_assignment_screen.dart';
-import '../view/index_screen.dart';
-import '../view/intro/onboarding_view.dart';
-import '../view/invinstigation_screen.dart';
-import '../view/splash_screen.dart';
+import '../views/auth_screen/sign_up_screen.dart';
+import '../views/detail_assignment_screen.dart';
+import '../views/index_screen.dart';
+import '../views/onboarding/onboarding_screen.dart';
+import '../views/invinstigation_screen.dart';
+import '../views/splash_screen.dart';
 
 class RouterGenerator {
   static const splashScreen = "/splashScreen";

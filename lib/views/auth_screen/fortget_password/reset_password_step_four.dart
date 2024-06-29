@@ -33,14 +33,14 @@ class ResetPasswordStepFour extends StatelessWidget {
                       const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                       Text(
                         'Mot de passe réinitialisé',
-                        style: context.textTheme.titleLarge,
+                        style: context.titleLarge,
                         textAlign: TextAlign.center,
                       ),
                       const SpaceHeightCustom(),
                       Text(
                         'Votre mot de passe a été réinitialisé avec succès. Cliquez ci-dessous pour vous connecter comme par magie.',
                         textAlign: TextAlign.center,
-                        style: context.textTheme.titleMedium,
+                        style: context.titleMedium,
                       ),
                     ],
                   ),
@@ -70,7 +70,7 @@ class ResetPasswordStepFour extends StatelessWidget {
                       );
                     },
                     label: Text("Retour à la connexion",
-                        style: context.textTheme.titleSmall),
+                        style: context.titleSmall),
                     icon: Icon(
                       Icons.arrow_back,
                       color: blackColor,

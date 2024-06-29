@@ -32,7 +32,6 @@ Map<int, Color> color1 = {
   900: const Color.fromRGBO(255, 226, 176, 1),
 };
 
-
 // 0xFFFFA200 #FFA200
 Map<int, Color> color3 = {
   50: const Color.fromRGBO(255, 162, 0, .1),
@@ -112,37 +111,42 @@ final List<Assignment> assignmentContinues = [
     "picture": AppAssetLink.mapping,
     "detail": "Enregistrez les points clés dans votre entourage. ",
     "gain": 20,
-     "duration": "30 min",
-    "time":"5 jour",
-    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
-    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
-"Veuillez répondre aux questions suivantes avec soin et précision.",
+    "duration": "30 min",
+    "time": "5 jour",
+    'type':MissionType.Continue,
+    "description":
+        "Merci de participer à cette mission de visite de magasin. Votre contribution "
+            "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
+            "Veuillez répondre aux questions suivantes avec soin et précision.",
   }),
   Assignment.fromMap({
     "title": "Tâche d’information",
     "icon": AppAssetLink.user,
     "picture": AppAssetLink.tasknew,
-     "duration": "30 min",
-    "time":"5 jour",
-    "detail": "Epinglé pour avoir toujours de meilleurs informations sur vous. ",
-    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
-    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
-"Veuillez répondre aux questions suivantes avec soin et précision.",
+    "duration": "30 min",
+    "time": "5 jour",
+    'type':MissionType.Continue,
+    "detail":
+        "Epinglé pour avoir toujours de meilleurs informations sur vous. ",
+    "description":
+        "Merci de participer à cette mission de visite de magasin. Votre contribution "
+            "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
+            "Veuillez répondre aux questions suivantes avec soin et précision.",
     "gain": 5000,
   }),
   Assignment.fromMap({
     "title": "Guide des meilleurs partiques",
     "icon": AppAssetLink.bookopen,
     "picture": AppAssetLink.invinstigation,
-     "duration": "30 min",
-    "time":"3 jour",
+    "duration": "30 min",
+    "time": "3 jour",
+    'type':MissionType.Continue,
     "detail": "Epinglé pour avoir toujours de meilleurs informations sur vous",
-    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
-    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
-"Veuillez répondre aux questions suivantes avec soin et précision.",
-
+    "description":
+        "Merci de participer à cette mission de visite de magasin. Votre contribution "
+            "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
+            "Veuillez répondre aux questions suivantes avec soin et précision.",
   }),
-
 ];
 
 final List<Assignment> assignmentAvailable = [
@@ -153,12 +157,13 @@ final List<Assignment> assignmentAvailable = [
     "picture": AppAssetLink.invinstigation,
     "gain": 2000,
     "duration": "20 à 30 min",
-    "time":"1 jour",
+    "time": "1 jour",
     "favoris": true,
     "route": RouterGenerator.investigationRoute,
-    "description": "Merci de participer à cette mission de visite de magasin. Votre contribution "
-    "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
-"Veuillez répondre aux questions suivantes avec soin et précision.",
+    'type':MissionType.Spontaneous,
+    "description":
+        "Merci de participer à cette mission de visite de magasin. Votre contribution "
+            "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
+            "Veuillez répondre aux questions suivantes avec soin et précision.",
   }),
-
 ];

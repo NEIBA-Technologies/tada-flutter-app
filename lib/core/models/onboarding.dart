@@ -1,8 +1,8 @@
-class OnboardingInfo {
+class Onboarding {
   final String title;
   final String descriptions;
   final String image;
 
-  OnboardingInfo(
+  Onboarding(
       {required this.title, required this.descriptions, required this.image});
 }

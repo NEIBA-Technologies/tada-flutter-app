@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../constants.dart';
+enum MissionType { Spontaneous, Continue }
 
 class Assignment {
   final String title;
@@ -14,6 +14,8 @@ class Assignment {
   final String? description;
   final String? route;
 
+  final MissionType? type;
+
   Assignment({
     required this.title,
     required this.picture,
@@ -25,6 +27,7 @@ class Assignment {
     required this.favoris,
     required this.description,
     required this.route,
+    this.type,
   });
 
   factory Assignment.fromJson(String str) =>
@@ -43,6 +46,7 @@ class Assignment {
         description: json["description"],
         picture: json["picture"],
         route: json["route"],
+    type: json["type"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -56,5 +60,6 @@ class Assignment {
         "description": description,
         "picture": picture,
         "route": route,
+        "type": type,
       };
 }

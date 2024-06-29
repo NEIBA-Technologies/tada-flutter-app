@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tada/components/params/RouterArguments.dart';
 import 'package:tada/core/app_assets_link.dart';
+import 'package:tada/views/accounts/account_screen.dart';
 
 import '../components/others_widget/bottom_navigation_widget.dart';
 import '../core/constants.dart';
 import '../core/shared/modals.dart';
-import 'fragments/account_fragment.dart';
-import 'fragments/buisness_fragment.dart';
-import 'fragments/home_fragment.dart';
-import 'fragments/task_fragment.dart';
+import 'buisness/buisness_screen.dart';
+import 'home/home_screen.dart';
+import 'tasks/task_screen.dart';
 
 class IndexScreen extends StatefulWidget {
   final RouterArguments? arguments;
@@ -82,25 +82,25 @@ final List<Map<String, dynamic>> fragmentList = [
   {
     'iconPath': AppAssetLink.homeSvg,
     'target': FragmentTarget.HOME,
-    'fragment': const HomeFragment(),
+    'fragment': const HomeScreen(),
     'label': "Accueil"
   },
   {
     'iconPath': AppAssetLink.taskSvg,
     'target': FragmentTarget.TASK,
-    'fragment': const TaskFragment(),
+    'fragment': const TaskScreen(),
     'label': "Tâches"
   },
   {
     'iconPath': AppAssetLink.walletSvg,
     'target': FragmentTarget.BUSINESS,
-    'fragment': const BusinessFragment(),
+    'fragment': const BusinessScreen(),
     'label': "Portefeuille"
   },
   {
     'iconPath': AppAssetLink.userSvg,
     'target': FragmentTarget.ACCOUNT,
-    'fragment': const AccountFragment(),
+    'fragment': const AccountScreen(),
     'label': "Compte"
   },
 ];

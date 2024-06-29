@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tada/core/extensions.dart';
 
-import '../core/constants.dart';
-import '../core/models/assignment.dart';
-import '../core/router_generator.dart';
-import '../core/utils/helpers.dart';
+import '../../core/constants.dart';
+import '../../core/models/assignment.dart';
+import '../../core/router_generator.dart';
+import '../../core/utils/helpers.dart';
 
 class AssignmentItemWidget extends StatefulWidget {
   AssignmentItemWidget({
@@ -75,7 +75,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                             widget.data.title,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: context.textTheme.titleSmall!
+                            style: context.titleSmall!
                                 .copyWith(fontFamily: fontPrimary),
                           ),
                         ),
@@ -86,7 +86,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                               isPinned
                                   ? Icons.bookmark
                                   : Icons.bookmark_outline,
-                              size: 14,
+                              size: 17,
                             ),
                           ),
                       ],
@@ -95,13 +95,24 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       child: Text(
                         widget.data.detail,
-                        style: context.textTheme.labelSmall!
+                        style: context.labelSmall!
                             .copyWith(fontSize: 12),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    _buildChild()
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        if (widget.data.gain != null)
+                          _buildChildText("${widget.data.gain}".formatCurrency()),
+                        if (widget.data.gain == null)
+                          _buildChildText("Non payé"),
+                        if (widget.data.duration != null && widget.data.type == MissionType.Spontaneous)
+                          _buildChildText("${widget.data.duration} ${widget.data.time} restants", time: true),
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -113,28 +124,18 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
   }
 
   get styleBuildChild {
-    return context.textTheme.titleSmall!
+    return context.titleSmall!
         .copyWith(fontFamily: fontPrimary, fontSize: 12);
   }
 
-  _buildChild() {
-    if (widget.data.gain != null) {
-      return Text(
-        "${widget.data.gain}".formatCurrency(),
-        style: styleBuildChild,
-      );
-    }
-    if (widget.data.gain == null) {
-      return Text(
-        "Non payé",
-        style: styleBuildChild,
-      );
-    }
-    if (widget.data.duration != null) {
-      return Text(
-        "${widget.data.duration} ${widget.data.time} restants",
-        style: styleBuildChild,
-      );
-    }
+  _buildChildText(String label, {bool time = false}) {
+    return Flexible(
+      child: Text(label,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: time
+              ? context.labelSmall!.copyWith(fontSize: 12)
+              : styleBuildChild),
+    );
   }
 }
