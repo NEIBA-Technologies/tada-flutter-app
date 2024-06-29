@@ -62,7 +62,7 @@ class _RemovalWithdrawalScreenState extends State<RemovalWithdrawalScreen> {
             ),
             const SpaceHeightCustom(breakPoint: BreakPoint.xxl),
             Container(
-              width: MediaQuery.of(context).size.width / 2,
+              width: MediaQuery.of(context).size.width / 1.7,
               alignment: Alignment.center,
               child: Row(
                 mainAxisSize: MainAxisSize.min,

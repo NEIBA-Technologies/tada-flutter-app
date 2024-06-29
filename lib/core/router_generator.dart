@@ -11,6 +11,7 @@ import 'package:tada/views/auth_screen/sign_in_screen.dart';
 import 'package:tada/views/buisness/add_an_account_screen.dart';
 import 'package:tada/views/buisness/removal_withdrawal_success_screen.dart';
 
+import '../views/accounts/fragments/update_password_fragment.dart';
 import '../views/auth_screen/sign_up_screen.dart';
 import '../views/buisness/removal_withdrawal_screen.dart';
 import '../views/buisness/withdraw_cash_screen.dart';
@@ -36,6 +37,7 @@ class RouterGenerator {
   static const addAnAccountRoute = "/AddAnAccountScreen";
   static const removalWithdrawalRoute = "/RemovalWithdrawalScreen";
   static const removalWithdrawalSuccessRoute = "/removalWithdrawalSuccess";
+  static const updatePasswordRoute = "/UpdatePasswordFragment";
   static String? currentRoute;
 
   static Route<dynamic> navigate(RouteSettings setting) {
@@ -93,8 +95,12 @@ class RouterGenerator {
         break;
       case removalWithdrawalRoute:
         page = RemovalWithdrawalScreen();
-        break;case removalWithdrawalSuccessRoute:
+        break;
+      case removalWithdrawalSuccessRoute:
         page = RemovalWithdrawalSuccessScreen();
+        break;
+      case updatePasswordRoute:
+        page = UpdatePasswordFragment();
         break;
       case indexRoute:
         page = IndexScreen(

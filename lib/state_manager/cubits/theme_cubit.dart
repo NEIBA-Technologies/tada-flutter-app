@@ -46,6 +46,7 @@ class ThemeCubit extends Cubit<ThemeData> {
         shadowColor: Colors.black38,
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
+
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.white,
           statusBarIconBrightness: Brightness.dark,

@@ -5,6 +5,7 @@ import 'package:tada/components/others_widget/hero_logo.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/router_generator.dart';
 
+import '../../components/items/card_action.dart';
 import '../../components/items/transaction_item.dart';
 import '../../components/others_widget/space_custom.dart';
 import '../../core/app_assets_link.dart';
@@ -91,24 +92,10 @@ class _BusinessScreenState extends State<BusinessScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
+              CardAction(
+                title: 'Argent encaissé',
+                surfix: 'XOF ${15000.simpleCurrency()}',
                 color: yellowColor,
-                child: Padding(
-                  padding: EdgeInsets.all(padding * 1.5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Argent encaissé',
-                        style: context.titleSmall,
-                      ),
-                      Text(
-                        'XOF ${15000.simpleCurrency()}',
-                        style: context.labelLarge,
-                      ),
-                    ],
-                  ),
-                ),
               ),
               const SpaceHeightCustom(),
               Card(
@@ -201,38 +188,46 @@ class _BusinessScreenState extends State<BusinessScreen> {
                   ],
                 ),
               ),
+              const SpaceHeightCustom(),
               Card(
                 color: Colors.white,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width / 8,
-                      child: Helpers.getSvg(AppAssetLink.smartPhoneIconSvg,
-                          color: primaryColor, height: 30),
-                    ),
-                    const SpaceWidthCustom(),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Ajouter un compte mobile monney',
-                            textAlign: TextAlign.start,
-                            style: context.labelLarge,
+                child: GestureDetector(
+                  onTap: () => Navigator.pushNamed(
+                      context, RouterGenerator.addAnAccountRoute),
+                  child: Padding(
+                    padding: EdgeInsets.all(padding),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 8,
+                          child: Helpers.getSvg(AppAssetLink.smartPhoneIconSvg,
+                              color: primaryColor, height: 30),
+                        ),
+                        const SpaceWidthCustom(),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Ajouter un compte mobile monney',
+                                textAlign: TextAlign.start,
+                                style: context.titleSmall,
+                              ),
+                              const SpaceHeightCustom(),
+                              Text(
+                                "Enregistrez un compte pour faire vos retaits d'argent",
+                                textAlign: TextAlign.start,
+                                style: context.labelSmall,
+                              ),
+                            ],
                           ),
-                          const SpaceHeightCustom(),
-                          Text(
-                            "Enregistrez un compte pour faire vos retaits d'argent",
-                            textAlign: TextAlign.start,
-                            style: context.titleSmall,
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               )
             ],

@@ -3,6 +3,7 @@ import 'package:tada/components/items/row_item_account.dart';
 import 'package:tada/core/app_assets_link.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
+import 'package:tada/core/router_generator.dart';
 import 'package:tada/core/utils/helpers.dart';
 
 import '../../components/layouts/scaffold_page.dart';
@@ -32,7 +33,9 @@ class _WithdrawCashScreenState extends State<WithdrawCashScreen> {
       canBack: true,
       bottomsheet: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: AppButtonWidget(onPressed: () {}, label: "Commencer"),
+        child: AppButtonWidget(onPressed: () {
+          Navigator.pushNamed(context, RouterGenerator.addAnAccountRoute);
+        }, label: "Commencer"),
       ),
       body: SingleChildScrollView(
         padding:   EdgeInsets.all(padding),

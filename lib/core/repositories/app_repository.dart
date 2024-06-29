@@ -70,5 +70,6 @@ Future<void> updateStorageOnboarding() async {
 
   Future<void> logOut() async {
     await deleteToken();
+
   }
 }

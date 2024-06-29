@@ -43,7 +43,7 @@ class _RemovalWithdrawalSuccessScreenState
               Container(
                 width: MediaQuery.of(context).size.width / 5,
                 height: MediaQuery.of(context).size.width / 5,
-                margin: EdgeInsets.only(bottom: 30),
+                margin: const EdgeInsets.only(bottom: 30),
                 child: CircularProgressIndicator(
                   strokeCap: StrokeCap.round,
                   backgroundColor: Colors.black12,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants.dart';
 import 'icon_barre_drag.dart';
-import 'icon_close.dart';
+import 'icon_close_modal.dart';
 
 class HeaderModal extends StatelessWidget {
   final Color? backgorundColor;
@@ -29,7 +29,7 @@ class HeaderModal extends StatelessWidget {
           top: 20,
           left: padding * 2,
           child:
-              const Align(alignment: Alignment.centerLeft, child: IconClose()),
+              const Align(alignment: Alignment.centerLeft, child: IconCloseModal()),
         ),
         const Positioned(
           top: 10,

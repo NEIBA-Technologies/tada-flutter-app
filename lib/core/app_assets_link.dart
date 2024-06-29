@@ -20,6 +20,15 @@ class AppAssetLink {
   static String bankSvg = "assets/svg/bank-note-01.svg";
   static String redCheckSvg = "assets/svg/red_check_Icon.svg";
   static String basketIconSvg = "assets/svg/basket_Icon.svg";
+  static String heartHexagonSvg =  "assets/svg/heart-hexagon.svg";
+  static String signOutSvg =  "assets/svg/sign-out.svg";
+
+  static String gridIcon1Svg =  "assets/svg/grid_Icon1.svg";
+  static String gridIcon2Svg =  "assets/svg/grid_Icon2.svg";
+  static String gridIcon3Svg =  "assets/svg/grid_Icon3.svg";
+  static String gridIcon4Svg =  "assets/svg/grid_Icon4.svg";
+  static String gridIcon5Svg =  "assets/svg/grid_Icon5.svg";
+  static String gridIcon6Svg =  "assets/svg/grid_Icon6.svg";
 
   static String invinstigation = "assets/images/enquete_terrain.png";
   static String tasknew = "assets/images/task.png";
@@ -28,5 +37,8 @@ class AppAssetLink {
   static String earnMoney = "assets/images/Frame_2092.png";
   static String giveOpinion = "assets/images/Illustration_notice.png";
   static String openAccount = "assets/images/Illustration.png";
+  static String userAccount = "assets/images/user.png";
+
+
 
 }

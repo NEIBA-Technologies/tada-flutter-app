@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tada/core/extensions.dart';
 
 import '../../../components/layouts/scaffold_page.dart';
+import '../../../components/others_widget/icon_close.dart';
 import '../../../core/constants.dart';
 import '../../../core/models/notification.dart';
 import '../home_screen.dart';
@@ -38,11 +39,10 @@ class _NotificationFragmentState extends State<NotificationFragment> {
     return ScaffoldPage(
       titlePage: 'Notifications',
       actions: [
-        IconButton(
+        IconClose(
           onPressed: () {
             navigationInHomeTo(PageViewIndex().home);
           },
-          icon: Icon(Icons.close, color: blackColor),
         )
       ],
       body: Container(
