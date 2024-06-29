@@ -1,6 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart'
-    show AppBarTheme, BorderRadius, BorderSide, BottomSheetThemeData, CheckboxThemeData, ColorScheme, Colors, EdgeInsets, IconThemeData, InputDecorationTheme, OutlineInputBorder, TabAlignment, TabBarIndicatorSize, TabBarTheme, TextStyle, TextTheme, ThemeData;
+    show
+        AppBarTheme,
+        BorderRadius,
+        BorderSide,
+        BottomSheetThemeData,
+        CardTheme,
+        CheckboxThemeData,
+        ColorScheme,
+        Colors,
+        EdgeInsets,
+        IconThemeData,
+        InputDecorationTheme,
+        OutlineInputBorder,
+        ProgressIndicatorThemeData,
+        TabAlignment,
+        TabBarIndicatorSize,
+        TabBarTheme,
+        TextStyle,
+        TextTheme,
+        ThemeData;
 import 'package:flutter/services.dart' show FontWeight, SystemUiOverlayStyle;
 import 'package:flutter_bloc/flutter_bloc.dart' show Cubit;
 
@@ -17,19 +36,19 @@ class ThemeCubit extends Cubit<ThemeData> {
     scaffoldBackgroundColor: const Color.fromRGBO(233, 238, 234, 1),
     primaryColor: primaryColor,
     fontFamily: fontPrimary,
-bottomSheetTheme: const BottomSheetThemeData(
-  backgroundColor: Colors.transparent,
-  surfaceTintColor: Colors.transparent,
-),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+    ),
     appBarTheme: AppBarTheme(
         elevation: 3,
         shadowColor: Colors.black38,
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
         systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Colors.white,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarBrightness: Brightness.light,
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
         ),
         centerTitle: false,
         iconTheme: IconThemeData(color: primaryColor, size: 18),
@@ -123,7 +142,6 @@ bottomSheetTheme: const BottomSheetThemeData(
       fillColor: const WidgetStatePropertyAll(Colors.white),
       checkColor: WidgetStatePropertyAll(primaryColor),
     ),
-
     tabBarTheme: TabBarTheme(
       tabAlignment: TabAlignment.start,
       labelPadding: const EdgeInsets.symmetric(horizontal: 1.5),
@@ -132,6 +150,19 @@ bottomSheetTheme: const BottomSheetThemeData(
       indicatorColor: blackColor,
       labelColor: blackColor,
       unselectedLabelColor: greyColor.shade200,
-    )
+    ),
+    cardTheme: const CardTheme(
+      elevation: 2,
+      shadowColor: Colors.black38,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(8),
+        ),
+      ),
+    ),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      circularTrackColor: primaryColor,
+      linearTrackColor: greyColor.shade100,
+    ),
   );
 }

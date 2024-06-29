@@ -55,7 +55,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width / 4,
               child: Helpers.getSvg(widget.data.icon,
                   height: 25, color: widget.color),
@@ -98,7 +98,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       child: Text(
                         widget.data.detail,
-                        style: context.labelSmall!.copyWith(fontSize: 12),
+                        style: context.labelSmall.copyWith(fontSize: 12),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -139,7 +139,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: time
-              ? context.labelSmall!.copyWith(fontSize: 12)
+              ? context.labelSmall.copyWith(fontSize: 12)
               : styleBuildChild),
     );
   }

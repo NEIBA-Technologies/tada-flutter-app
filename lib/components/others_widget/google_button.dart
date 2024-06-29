@@ -39,7 +39,7 @@ class GoogleButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Helpers.getSvg('assets/svg/Google.svg'),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(
               'Continuer avec Google',
               style: TextStyle(

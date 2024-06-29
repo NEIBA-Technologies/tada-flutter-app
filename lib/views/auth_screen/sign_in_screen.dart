@@ -91,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           overlayColor:
                               const WidgetStatePropertyAll(Colors.transparent),
                           textStyle: WidgetStatePropertyAll(
-                            context.labelSmall!.copyWith(
+                            context.labelSmall.copyWith(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
                             ),
@@ -108,7 +108,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Text('Mot de passe oublié ?',
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: context.labelSmall!.copyWith(
+                              style: context.labelSmall.copyWith(
                                 color: primaryColor,
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
@@ -143,7 +143,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             TextSpan(
                               text: 'Inscription',
-                              style: context.titleSmall!
+                              style: context.titleSmall
                                   .copyWith(color: primaryColor),
                             ),
                           ])),

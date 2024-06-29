@@ -88,7 +88,7 @@ class _EnquetTerrain1State extends State<EnquetTerrain1> {
               ],
             ),
             const SizedBox(height: 20),
-            Center(
+            const Center(
               child: Column(
                 children: [
                   /*ContinuingButton(
@@ -104,7 +104,7 @@ class _EnquetTerrain1State extends State<EnquetTerrain1> {
                       );
                     },
                   ),*/
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                 ],
               ),
             ),

@@ -251,7 +251,7 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                 hintText: 'Entrez le prix d\'achat',
               ),
               const SizedBox(height: 20),
-              Center(
+              const Center(
                 child: Column(
                   children: [
                     /*ContinuingButton(
@@ -269,7 +269,7 @@ class _EnquetTerrain3State extends State<EnquetTerrain3> {
                         }
                       },
                     ),*/
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10),
                   ],
                 ),
               ),

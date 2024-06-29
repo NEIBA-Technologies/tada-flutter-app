@@ -33,7 +33,7 @@ class AppFormField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: context.labelSmall!
+          style: context.labelSmall
               .copyWith(fontWeight: (labelBold ?? false) ? FontWeight.w700:  null),
         ),
         const SpaceHeightCustom(),

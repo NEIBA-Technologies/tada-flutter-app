@@ -258,7 +258,7 @@ class _EnquetTerrain4State extends State<EnquetTerrain4> {
                 hintText: 'Entrez le texte 4',
               ),
               const SizedBox(height: 20),
-              Center(
+              const Center(
                 child: Column(
                   children: [
                /*     ContinuingButton(
@@ -276,7 +276,7 @@ class _EnquetTerrain4State extends State<EnquetTerrain4> {
                         }
                       },
                     ),*/
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10),
                   ],
                 ),
               ),

@@ -8,7 +8,7 @@ class HeaderModal extends StatelessWidget {
   final Color? backgorundColor;
   final Widget child;
 
-  HeaderModal({super.key, this.backgorundColor, required this.child});
+  const HeaderModal({super.key, this.backgorundColor, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class HeaderModal extends StatelessWidget {
                 BorderRadius.vertical(top: Radius.circular(radius * 3)),
             color: backgorundColor ?? primaryColor,
           ),
-          child: this.child,
+          child: child,
         ),
         Positioned(
           top: 20,

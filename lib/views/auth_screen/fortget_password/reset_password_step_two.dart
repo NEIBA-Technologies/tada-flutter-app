@@ -76,7 +76,7 @@ class ResetPasswordStepTwo extends StatelessWidget {
                             ),
                             TextSpan(
                               text: 'Cliquez pour renvoyer',
-                              style: context.titleSmall!
+                              style: context.titleSmall
                                   .copyWith(color: primaryColor),
                             ),
                           ])),

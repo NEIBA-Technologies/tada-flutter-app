@@ -89,7 +89,7 @@ class _TacheInfo1State extends State<TacheInfo1> {
               ],
             ),
             const SizedBox(height: 20),
-            Center(
+            const Center(
               child: Column(
                 children: [
                   /*ContinuingButton(
@@ -105,7 +105,7 @@ class _TacheInfo1State extends State<TacheInfo1> {
                       );
                     },
                   ),*/
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                 ],
               ),
             ),

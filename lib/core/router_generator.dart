@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
-import 'package:tada/components/animated_routes/transparant_route.dart';
+import 'package:tada/components/animated_routes/blur_page_route.dart';
 import 'package:tada/components/params/RouterArguments.dart';
 import 'package:tada/core/models/assignment.dart';
 import 'package:tada/views/auth_screen/fortget_password/reset_password_step_four.dart';
@@ -10,10 +10,11 @@ import 'package:tada/views/auth_screen/fortget_password/reset_password_step_two.
 import 'package:tada/views/auth_screen/sign_in_screen.dart';
 
 import '../views/auth_screen/sign_up_screen.dart';
+import '../views/buisness/withdraw_cash_screen.dart';
 import '../views/detail_assignment_screen.dart';
 import '../views/index_screen.dart';
-import '../views/onboarding/onboarding_screen.dart';
 import '../views/invinstigation_screen.dart';
+import '../views/onboarding/onboarding_screen.dart';
 import '../views/splash_screen.dart';
 
 class RouterGenerator {
@@ -28,6 +29,7 @@ class RouterGenerator {
   static const investigationRoute = '/investigation';
   static const detailAssignmentRoute = '/detail-assignment';
   static const indexRoute = "/homeRoute";
+  static const withdrawCashRoute = "/withdraw_cash_screen";
   static String? currentRoute;
 
   static Route<dynamic> navigate(RouteSettings setting) {
@@ -77,6 +79,9 @@ class RouterGenerator {
       case resetPasswordStepFourRoute:
         page = ResetPasswordStepFour();
         break;
+      case withdrawCashRoute:
+        page = WithdrawCashScreen();
+        break;
       case indexRoute:
         page = IndexScreen(
           arguments: setting.arguments as RouterArguments?,
@@ -84,6 +89,6 @@ class RouterGenerator {
         break;
     }
 
-    return TransparantRoute(builder: (context) => page);
+    return BlurredRouter(builder: (context) => page);
   }
 }

@@ -48,19 +48,27 @@ extension DateTimeExt on DateTime {
 }
 
 extension CurrencyFormater on String {
-  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
-// locale eu or fr_FR
-  String formatCurrency({String locale = "eu", int decimalDigits = 2}) {
+  String formatCurrency(
+      {String locale = "es", int decimalDigits = 2, String symbol = "XOF"}) {
     if (isEmpty || toLowerCase() == "null") return "";
 
     return NumberFormat.currency(
-            locale: locale, decimalDigits: decimalDigits, symbol: "XOF")
+            locale: locale, decimalDigits: decimalDigits, symbol: symbol)
         .format(double.parse(this));
   }
 }
 
+extension CurrencyFormaterInt on num {
+  String formatCurrency(
+      {String locale = "es", int decimalDigits = 2, String symbol = "XOF"}) {
+    return NumberFormat.currency(
+            locale: locale, decimalDigits: decimalDigits, symbol: symbol)
+        .format(num.parse(this.toString()));
+  }
+}
+
 extension NumberFormater on num {
-  String simpleCurrency({String locale = "fr", int decimalDigits = 0}) {
+  String simpleCurrency({String locale = "es", int decimalDigits = 0}) {
     final input = NumberFormat.simpleCurrency(
             locale: locale, decimalDigits: decimalDigits, name: "")
         .format(this);

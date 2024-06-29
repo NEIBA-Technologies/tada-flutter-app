@@ -39,7 +39,7 @@ class _ButtomNavigationWidgetState extends State<ButtomNavigationWidget> {
             widget.label,
             maxLines: 1,
             overflow: TextOverflow.fade,
-            style: context.labelMedium!.copyWith(
+            style: context.labelMedium.copyWith(
                 color: widget.selected ? primaryColor : greyColor,
                 fontWeight: FontWeight.w600),
           ),

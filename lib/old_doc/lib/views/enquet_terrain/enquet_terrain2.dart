@@ -303,7 +303,7 @@ class _EnquetTerrain2State extends State<EnquetTerrain2> {
                 hintText: 'Sélectionnez les produits en vente',
               ),
               const SizedBox(height: 20),
-              Center(
+              const Center(
                 child: Column(
                   children: [
                     /*ContinuingButton(
@@ -319,7 +319,7 @@ class _EnquetTerrain2State extends State<EnquetTerrain2> {
                   );
                 },
               ),*/
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10),
                   ],
                 ),
               ),

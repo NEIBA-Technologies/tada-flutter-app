@@ -107,7 +107,7 @@ List<BoxShadow> boxShadowSM = [
 final List<Assignment> assignmentContinues = [
   Assignment.fromMap({
     "title": "Mapping spontané",
-    "icon": AppAssetLink.camera,
+    "icon": AppAssetLink.cameraSvg,
     "picture": AppAssetLink.mapping,
     "detail": "Enregistrez les points clés dans votre entourage. ",
     "gain": 20,
@@ -121,7 +121,7 @@ final List<Assignment> assignmentContinues = [
   }),
   Assignment.fromMap({
     "title": "Tâche d’information",
-    "icon": AppAssetLink.user,
+    "icon": AppAssetLink.userStrockSvg,
     "picture": AppAssetLink.tasknew,
     "duration": "30 min",
     "time": "5 jour",
@@ -136,7 +136,7 @@ final List<Assignment> assignmentContinues = [
   }),
   Assignment.fromMap({
     "title": "Guide des meilleurs partiques",
-    "icon": AppAssetLink.bookopen,
+    "icon": AppAssetLink.bookopenSvg,
     "picture": AppAssetLink.invinstigation,
     "duration": "30 min",
     "time": "3 jour",
@@ -152,7 +152,7 @@ final List<Assignment> assignmentContinues = [
 final List<Assignment> assignmentAvailable = [
   Assignment.fromMap({
     "title": "Enquête terrain",
-    "icon": AppAssetLink.alert,
+    "icon": AppAssetLink.alertSvg,
     "detail": "Se rendre dans un magasin pour collecter des données. ",
     "picture": AppAssetLink.invinstigation,
     "gain": 2000,

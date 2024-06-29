@@ -103,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           TextSpan(
                             text: 'Connexion',
-                            style: context.titleSmall!
+                            style: context.titleSmall
                                 .copyWith(color: primaryColor),
                           ),
                         ])),

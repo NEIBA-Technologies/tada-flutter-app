@@ -33,7 +33,7 @@ class _ApplicationState extends State<Application> {
       child: BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
           return AnnotatedRegion(
-            value: SystemUiOverlayStyle(
+            value: const SystemUiOverlayStyle(
               statusBarColor: Colors.white,
               statusBarIconBrightness: Brightness.dark,
               statusBarBrightness: Brightness.light,
@@ -45,7 +45,7 @@ class _ApplicationState extends State<Application> {
               title: 'Tada',
               debugShowCheckedModeBanner: false,
               theme: theme,
-              initialRoute: RouterGenerator.indexRoute,
+              initialRoute: RouterGenerator.splashScreen,
               // initialRoute: hasAlreadyOnboarding
               // ? RouterGenerator.signUpRoute
               // : RouterGenerator.onboardingRoute,

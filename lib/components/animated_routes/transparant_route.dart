@@ -11,10 +11,10 @@ class TransparantRoute extends PageRoute<void> {
   TransparantRoute(
       {required this.builder,
       this.barrierDismiss,
-      RouteSettings? settings,
+      super.settings,
       this.sigmaX,
       this.sigmaY})
-      : super(settings: settings, fullscreenDialog: false);
+      : super(fullscreenDialog: false);
 
   final WidgetBuilder builder;
 

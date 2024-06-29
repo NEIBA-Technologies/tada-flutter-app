@@ -4,15 +4,17 @@ import '../../core/app_assets_link.dart';
 import '../../core/utils/helpers.dart';
 
 class HeroLogo extends StatelessWidget {
-  const HeroLogo({super.key});
+  final double size;
+
+  const HeroLogo({super.key, this.size = 50});
 
   @override
   Widget build(BuildContext context) {
     return Hero(
       tag: "Logo",
       child: SizedBox(
-        width: 50,
-        height: 50,
+        width: size,
+        height: size,
         child: Helpers.getSvg(AppAssetLink.logoSvg),
       ),
     );

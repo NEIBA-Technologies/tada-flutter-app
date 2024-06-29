@@ -22,7 +22,6 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return ScaffoldPage(
       titlePage: '${widget.data?.title}',
       color: Colors.white,

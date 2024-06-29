@@ -44,20 +44,20 @@ class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
             ),
             _buildRowItem(
               title: "Temps estimé",
-              icon: Helpers.getSvg(AppAssetLink.clock),
-              value: widget.data?.duration,
+              icon: Helpers.getSvg(AppAssetLink.clockSvg),
+              value: widget.data.duration,
             ),
             const SpaceHeightCustom(),
             _buildRowItem(
               title: "Jours restants",
-              icon: Helpers.getSvg(AppAssetLink.calendar),
-              value: widget.data?.time,
+              icon: Helpers.getSvg(AppAssetLink.calendarSvg),
+              value: widget.data.time,
             ),
             const SpaceHeightCustom(),
             _buildRowItem(
               title: "Gain",
-              icon: Helpers.getSvg(AppAssetLink.bank),
-              value: '${widget.data?.gain}'.formatCurrency(),
+              icon: Helpers.getSvg(AppAssetLink.bankSvg),
+              value: '${widget.data.gain}'.formatCurrency(),
             ),
           ],
         ),
@@ -66,7 +66,7 @@ class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
         padding: const EdgeInsets.all(8.0),
         child: AppButtonWidget(
             onPressed: () {
-              if (widget.data?.route != null) {
+              if (widget.data.route != null) {
                 Navigator.pushNamed(context, widget.data!.route!,
                     arguments: widget.data);
               }

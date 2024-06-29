@@ -33,7 +33,7 @@ class Helpers {
   }) {
     return SvgPicture.asset(
       assetLink,
-      width: width,
+      width: width ?? height,
       height: height ?? width,
       fit: fit ?? BoxFit.contain,
       color: color,

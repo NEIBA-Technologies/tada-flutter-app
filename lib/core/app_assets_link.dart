@@ -10,21 +10,23 @@ class AppAssetLink {
   static String mailSvg = "assets/svg/mail.svg";
   static String successSvg = "assets/svg/success.svg";
   static String notifSvg = "assets/svg/notif_icon.svg";
+  static String smartPhoneIconSvg = "assets/svg/smart_phone_Icon.svg";
+  static String cameraSvg = "assets/svg/camera-02.svg";
+  static String bookopenSvg = "assets/svg/book-open-01.svg";
+  static String alertSvg = "assets/svg/crisis_alert.svg";
+  static String userStrockSvg = "assets/svg/user-02.svg";
+  static String calendarSvg = "assets/svg/calendar.svg";
+  static String clockSvg = "assets/svg/clock.svg";
+  static String bankSvg = "assets/svg/bank-note-01.svg";
+  static String redCheckSvg = "assets/svg/red_check_Icon.svg";
+  static String basketIconSvg = "assets/svg/basket_Icon.svg";
+
+  static String invinstigation = "assets/images/enquete_terrain.png";
+  static String tasknew = "assets/images/task.png";
+  static String mapping = "assets/images/invinstigation.png";
 
   static String earnMoney = "assets/images/Frame_2092.png";
   static String giveOpinion = "assets/images/Illustration_notice.png";
   static String openAccount = "assets/images/Illustration.png";
 
-  static String camera = "assets/svg/camera-02.svg";
-  static String bookopen = "assets/svg/book-open-01.svg";
-  static String alert = "assets/svg/crisis_alert.svg";
-  static String user = "assets/svg/user-02.svg";
-
-  static String calendar = "assets/svg/calendar.svg";
-  static String clock = "assets/svg/clock.svg";
-  static String bank = "assets/svg/bank-note-01.svg";
-
-  static String invinstigation = "assets/images/enquete_terrain.png";
-  static String tasknew = "assets/images/task.png";
-  static String mapping = "assets/images/invinstigation.png";
 }
