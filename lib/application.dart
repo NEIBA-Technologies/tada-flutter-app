@@ -3,11 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tada/core/navigation_service.dart';
+import 'package:tada/state_manager/blocs/form_field_assignment_bloc.dart';
 
 import 'components/animated_routes/blur_page_route.dart';
 import 'core/locator.dart';
 import 'core/router_generator.dart';
 import 'state_manager/cubits/theme_cubit.dart';
+
+final RouteObserver<ModalRoute<void>> routeObserver =
+    RouteObserver<ModalRoute<void>>();
 
 class Application extends StatefulWidget {
   const Application({super.key});
@@ -31,6 +35,7 @@ class _ApplicationState extends State<Application> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ThemeCubit()),
+        BlocProvider(create: (context) => FormFieldAssignmentBloc()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeData>(
         builder: (context, theme) {
@@ -41,7 +46,6 @@ class _ApplicationState extends State<Application> {
               statusBarBrightness: Brightness.light,
               systemNavigationBarColor: Colors.white,
               systemNavigationBarIconBrightness: Brightness.dark,
-
             ),
             child: MaterialApp(
               title: 'Tada',
@@ -49,7 +53,7 @@ class _ApplicationState extends State<Application> {
               theme: theme,
               initialRoute: RouterGenerator.splashScreen,
               navigatorKey: locator<NavigationService>().navigatorKey,
-
+              navigatorObservers: [routeObserver],
               onUnknownRoute: (settings) {
                 return BlurredRouter(
                     builder: ((context) => const Scaffold(
