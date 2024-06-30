@@ -1,97 +1,85 @@
 import 'package:flutter/material.dart';
-import 'package:tada/components/layouts/scaffold_page.dart';
-import 'package:tada/core/constants.dart';
+import 'package:tada/components/others_widget/app_form_field.dart';
+import 'package:tada/components/others_widget/space_custom.dart';
+import 'package:tada/core/extensions.dart';
 
-import '../../components/others_widget/app_buttom_widget.dart';
-import '../../components/others_widget/app_form_field.dart';
-import '../../components/others_widget/space_custom.dart';
-import '../../core/models/assignment.dart';
 
-class InvinstigationScreen extends StatefulWidget {
-  InvinstigationScreen({super.key, required this.data});
+class ComponentsBuilde extends StatelessWidget {
+  ComponentsBuilde({super.key});
 
-  Assignment? data;
-
-  @override
-  State<InvinstigationScreen> createState() => _InvinstigationScreenState();
-}
-
-class _InvinstigationScreenState extends State<InvinstigationScreen> {
-  final TextEditingController _nameStoreController = TextEditingController(),
-      _nameController = TextEditingController();
+  final TextEditingController _time1Controller = TextEditingController();
+  final TextEditingController _time2Controller = TextEditingController();
+  final TextEditingController _storeTypeController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _entryPhotoController = TextEditingController();
+  final TextEditingController _birthDateController = TextEditingController();
+  String? _selectedGender;
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldPage(
-      titlePage: '${widget.data?.title}',
-      color: Colors.white,
-      canBack: true,
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(padding),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppFormField(
-              label: 'Nom du magasin',
-              labelBold: true,
-              controller: _nameStoreController,
-              labelHint: "Nom du magasin",
+            Text(
+              'Heure de vente',
+              style: context.labelSmall.copyWith(fontWeight: FontWeight.w700),
             ),
-            const SpaceHeightCustom(),
-            AppFormField(
-              label: 'Nom du gérant',
-              labelBold: true,
-              controller: _nameController,
-              labelHint: "Nom du gérant",
+            Row(
+              children: [
+                Expanded(
+                  child: AppFormField(
+                    label: '',
+                    controller: _time1Controller,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: AppFormField(
+                    label: '',
+                    controller: _time2Controller,
+                  ),
+                ),
+              ],
             ),
-            const SpaceHeightCustom(),
-            AppFormField(
-              labelBold: true,
-              label: 'Contact du gérant',
-              controller: _nameController,
-              labelHint: "Contact du gérant",
+            const SpaceHeightCustom(breakPoint: BreakPoint.xs),
+            // Row with two radio buttons for gender selection
+            Text(
+              'Quel est votre genre?',
+              style: context.labelSmall.copyWith(fontWeight: FontWeight.w700),
             ),
-            const SpaceHeightCustom(),
-            AppFormField(
-              labelBold: true,
-              label: 'Type de magasin',
-              controller: _nameController,
-              labelHint: "Sélectionner le type de magasin",
-            ),
-            const SpaceHeightCustom(),
-            AppFormField(
-              labelBold: true,
-              label: 'Photo de l’entrée',
-              controller: _nameController,
-              labelHint: "Prendre un photo",
-            ),
-            const SpaceHeightCustom(),
-            AppFormField(
-              label: 'Méthodes de paiement disponible ',
-              controller: _nameController,
-              labelBold: true,
-              labelHint: "Sélectionner les méthodes",
-            ),
-            const SpaceHeightCustom(),
-            AppFormField(
-              labelBold: true,
-              label: 'Catégories de produits en vente ',
-              controller: _nameController,
-              labelHint: "Sélectionner les produits",
-            ),
-            const SpaceHeightCustom(),
-            AppFormField(
-              labelBold: true,
-              label: 'Catégories de produits en vente ',
-              controller: _nameController,
-              labelHint: "Sélectionner les produits",
+            Row(
+              children: [
+                Expanded(
+                  child: ListTile(
+                    title: const Text('Homme'),
+                    leading: Radio<String>(
+                      value: 'Homme',
+                      groupValue: _selectedGender,
+                      onChanged: (String? value) {
+                        _selectedGender = value;
+                      },
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ListTile(
+                    title: const Text('Femme'),
+                    leading: Radio<String>(
+                      value: 'Femme',
+                      groupValue: _selectedGender,
+                      onChanged: (String? value) {
+                        _selectedGender = value;
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-      ),
-      bottomsheet: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: AppButtonWidget(onPressed: () {}, label: "Commencer"),
       ),
     );
   }

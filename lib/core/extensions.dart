@@ -39,6 +39,14 @@ extension StringExt on String {
     return s;
   }
 
+  TypeFormFieldAssignment toEnumTypeFormField() {
+    try {
+      return TypeFormFieldAssignment.values.byName(this);
+    } catch (e) {
+      return TypeFormFieldAssignment.TEXT;
+    }
+  }
+
   String customReplaceRange(int start, int end, {dynamic replace}) {
     return replaceRange(
         start, length - end, _buildReplacement(start + end, replace));
@@ -130,15 +138,13 @@ extension ListFormFieldAssignmentExt on List<FormFieldAssignment> {
       }
     }).toList();
     if (kDebugMode) {
-      print('groupItem $groupItem $this');
+      print('groupItem $groupItem this $this');
     }
     return groupItem;
   }
 }
 
 extension FormFieldAssignmentExt on FormFieldAssignment {
-  bool isInputOf(misionType) => (this.misionType ?? "")
-      .toUpperCase()
-      .split("|")
-      .contains(misionType.toUpperCase());
+  bool isInputOf(type) =>
+      (misionType ?? "").toUpperCase().split("|").contains(type.toUpperCase());
 }
