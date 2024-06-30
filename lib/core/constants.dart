@@ -113,7 +113,8 @@ final List<Assignment> assignmentContinues = [
     "gain": 20,
     "duration": "30 min",
     "time": "5 jour",
-    'type':MissionType.Continue,
+    'type': MissionType.spontaneous,
+    "route": RouterGenerator.investigationRoute,
     "description":
         "Merci de participer à cette mission de visite de magasin. Votre contribution "
             "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."
@@ -125,7 +126,8 @@ final List<Assignment> assignmentContinues = [
     "picture": AppAssetLink.tasknew,
     "duration": "30 min",
     "time": "5 jour",
-    'type':MissionType.Continue,
+    'type': MissionType.informationTask,
+    "route": RouterGenerator.investigationRoute,
     "detail":
         "Epinglé pour avoir toujours de meilleurs informations sur vous. ",
     "description":
@@ -140,7 +142,8 @@ final List<Assignment> assignmentContinues = [
     "picture": AppAssetLink.invinstigation,
     "duration": "30 min",
     "time": "3 jour",
-    'type':MissionType.Continue,
+    'type': MissionType.spontaneous,
+    "route": RouterGenerator.investigationRoute,
     "detail": "Epinglé pour avoir toujours de meilleurs informations sur vous",
     "description":
         "Merci de participer à cette mission de visite de magasin. Votre contribution "
@@ -160,7 +163,7 @@ final List<Assignment> assignmentAvailable = [
     "time": "1 jour",
     "favoris": true,
     "route": RouterGenerator.investigationRoute,
-    'type':MissionType.Spontaneous,
+    'type': MissionType.fieldSurveys,
     "description":
         "Merci de participer à cette mission de visite de magasin. Votre contribution "
             "est essentielle pour nous aider à collecter des informations précises et à jour sur les magasins de nos clients."

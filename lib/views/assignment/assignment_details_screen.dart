@@ -4,35 +4,51 @@ import 'package:tada/components/layouts/scaffold_page.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
 
-import '../components/others_widget/app_buttom_widget.dart';
-import '../components/others_widget/space_custom.dart';
-import '../core/app_assets_link.dart';
-import '../core/models/assignment.dart';
-import '../core/utils/helpers.dart';
+import '../../components/others_widget/app_buttom_widget.dart';
+import '../../components/others_widget/space_custom.dart';
+import '../../core/app_assets_link.dart';
+import '../../core/models/assignment.dart';
+import '../../core/utils/helpers.dart';
 
-class DetailAssignmentScreen extends StatefulWidget {
-  DetailAssignmentScreen({super.key, required this.data});
+class AssignmentDetailsScreen extends StatefulWidget {
+  AssignmentDetailsScreen({super.key, required this.data});
 
   final Assignment data;
 
   @override
-  State<DetailAssignmentScreen> createState() => _DetailAssignmentScreenState();
+  State<AssignmentDetailsScreen> createState() =>
+      _AssignmentDetailsScreenState();
 }
 
-class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
+class _AssignmentDetailsScreenState extends State<AssignmentDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return ScaffoldPage(
       titlePage: widget.data.title,
       color: Colors.white,
       canBack: true,
+      bottomsheet: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: AppButtonWidget(
+            onPressed: () {
+              if (widget.data.route != null) {
+                Navigator.pushNamed(context, widget.data.route!,
+                    arguments: widget.data);
+              }
+            },
+            label: "Commencer"),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(padding),
         child: Column(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Helpers.getImage(widget.data.picture),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width / 2,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Helpers.getImage(widget.data.picture),
+              ),
             ),
             const SpaceHeightCustom(),
             Text(
@@ -62,17 +78,7 @@ class _DetailAssignmentScreenState extends State<DetailAssignmentScreen> {
           ],
         ),
       ),
-      bottomsheet: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: AppButtonWidget(
-            onPressed: () {
-              if (widget.data.route != null) {
-                Navigator.pushNamed(context, widget.data!.route!,
-                    arguments: widget.data);
-              }
-            },
-            label: "Commencer"),
-      ),
+
     );
   }
 

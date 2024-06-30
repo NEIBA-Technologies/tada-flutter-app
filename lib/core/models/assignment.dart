@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-enum MissionType { Spontaneous, Continue }
+enum MissionType { spontaneous, fieldSurveys, informationTask }
 
 class Assignment {
   final String title;
@@ -13,7 +13,6 @@ class Assignment {
   final String picture;
   final String? description;
   final String? route;
-
   final MissionType? type;
 
   Assignment({
@@ -46,7 +45,7 @@ class Assignment {
         description: json["description"],
         picture: json["picture"],
         route: json["route"],
-    type: json["type"],
+        type: json["type"],
       );
 
   Map<String, dynamic> toMap() => {

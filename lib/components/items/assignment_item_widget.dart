@@ -13,12 +13,14 @@ class AssignmentItemWidget extends StatefulWidget {
     required this.color,
     this.ispinned = false,
     this.canSetBookmark = false,
+    this.showDelay = false,
   });
 
   final Assignment data;
   final MaterialColor color;
   final bool ispinned;
   final bool canSetBookmark;
+  final bool showDelay;
 
   @override
   State<AssignmentItemWidget> createState() => _AssignmentItemWidgetState();
@@ -113,7 +115,7 @@ class _AssignmentItemWidgetState extends State<AssignmentItemWidget> {
                         if (widget.data.gain == null)
                           _buildChildText("Non payé"),
                         if (widget.data.duration != null &&
-                            widget.data.type == MissionType.Spontaneous)
+                            widget.showDelay)
                           _buildChildText(
                               "${widget.data.duration} ${widget.data.time} restants",
                               time: true),

@@ -20,9 +20,9 @@ import '../views/accounts/fragments/update_password_fragment.dart';
 import '../views/auth_screen/sign_up_screen.dart';
 import '../views/buisness/removal_withdrawal_screen.dart';
 import '../views/buisness/withdraw_cash_screen.dart';
-import '../views/detail_assignment_screen.dart';
+import '../views/assignment/assignment_details_screen.dart';
 import '../views/index_screen.dart';
-import '../views/invinstigation_screen.dart';
+import '../views/assignment/invinstigation_screen.dart';
 import '../views/onboarding/onboarding_screen.dart';
 import '../views/splash_screen.dart';
 
@@ -82,7 +82,7 @@ class RouterGenerator {
         );
         break;
       case detailAssignmentRoute:
-        page = DetailAssignmentScreen(
+        page = AssignmentDetailsScreen(
           data: setting.arguments as Assignment,
         );
         break;

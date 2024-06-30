@@ -33,7 +33,6 @@ class _IndexHomeState extends State<IndexHome> {
             });
           },
         ),
-
         IconButton(
           onPressed: () {
             navigationInHomeTo(PageViewIndex().notification);
@@ -70,9 +69,7 @@ class MissionDisplayCard extends StatelessWidget {
           const SpaceHeightCustom(),
           ...assignmentContinues.map((e) {
             return AssignmentItemWidget(
-              color: yellowAccentColor,
-              data: e,
-            );
+                color: yellowAccentColor, data: e, showDelay: false);
           }),
           const SpaceHeightCustom(),
           Text(
@@ -82,10 +79,10 @@ class MissionDisplayCard extends StatelessWidget {
           const SpaceHeightCustom(),
           ...assignmentAvailable.map((e) {
             return AssignmentItemWidget(
-              color: primaryColor,
-              data: e,
-              canSetBookmark: true,
-            );
+                color: primaryColor,
+                data: e,
+                canSetBookmark: true,
+                showDelay: true);
           }),
         ],
       ),
