@@ -1,16 +1,14 @@
-import 'form_field_assignment.dart';
-
 class DataResponse<T> {
   T? data;
   dynamic statusCode;
-  String? statusMessage;
+  dynamic statusMessage;
 
   DataResponse({this.data, this.statusMessage, this.statusCode});
 
   factory DataResponse.fromJson(Map<String, dynamic> json) {
     return DataResponse(
-        statusMessage: json["message"] ?? "",
-        statusCode: json["statusCode"] ?? "",
+        statusMessage: json["message"],
+        statusCode: json["statusCode"],
         data: json.containsKey("data") ? dataFromJson(json['data'], T) : null);
   }
 
@@ -24,9 +22,7 @@ class DataResponse<T> {
 
   static dataFromJson(json, Type t) {
     if (t.toString() == "List<FormFieldAssignment>") {
-      return List<dynamic>.from(json['data'])
-          .map((e) => FormFieldAssignment.fromMap(e))
-          .toList();
+      return List<dynamic>.from(json['data']);
     }
     return json;
   }

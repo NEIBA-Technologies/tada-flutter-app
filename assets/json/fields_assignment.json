@@ -390,7 +390,7 @@
         "Non"
       ],
       "misionType": "informationTask"
-    }
+    },
     {
       "label": "Combien d’années d’expérience professionnelle as-tu?",
       "type": "NUMERIC",
@@ -599,14 +599,3 @@
     }
   ]
 }
-
-//TEXT,
-//COVER,
-//DROPDWON,
-//MAP,
-//MAP_WITH_PREVIEW,
-//DATE_TIME,
-//RADIO,
-//PHONE, NUMERIC,
-// TEXT_AREA,
-// NUMERIC,

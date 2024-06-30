@@ -20,28 +20,29 @@ class FormFieldAssignmentBloc
   Future<FutureOr<void>> fetchFormFieldAssignment(
       FetchFormFieldAssignmentEvent event,
       Emitter<FormFieldAssignmentState> emit) async {
-    if (kDebugMode) {
-      print('event ${event.type.name}');
-    }
-    DataResponse<List<FormFieldAssignment>?> res =
-        await ApiProvider().getFieldsForm();
-
-    if (kDebugMode) {
-      print('res data ${res.data}');
-    }
-
-    if (res.data != null) {
+    try {
       if (kDebugMode) {
-        print("res firstOrNull ${res.data?.firstOrNull}");
+        print('event ${event.type.name}');
       }
-    }
+      DataResponse<List<dynamic>?> res = await ApiProvider().getFieldsForm();
+      List<FormFieldAssignment> formFields = [];
+      if (res.data != null) {
+        formFields = (res.data ?? [])
+            .map((e) => FormFieldAssignment.fromMap(e))
+            .toList();
+        emit(FormFieldAssignmentLoaded(
+            isLoading: false, formFields: formFields));
 
-    emit(
-      const FormFieldAssignmentLoaded(
-        isLoading: false,
-        titlePage: "",
-        formFields: [],
-      ),
-    );
+      } else {
+        emit(FormFieldAssignmentLoaded(isLoading: false, formFields: []));
+      }
+    } catch (e) {
+      emit(
+        FormFieldAssignmentLoaded(
+          isLoading: false,
+          formFields: [],
+        ),
+      );
+    }
   }
 }

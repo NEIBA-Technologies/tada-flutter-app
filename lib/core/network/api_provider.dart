@@ -1,13 +1,14 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 import '../app_init.dart';
 import '../constants.dart';
 import '../locator.dart';
 import '../models/data_response.dart';
-import '../models/form_field_assignment.dart';
 import '../navigation_service.dart';
 
 class ApiProvider {
@@ -74,14 +75,17 @@ class ApiProvider {
     );
   }
 
-  Future<DataResponse<List<FormFieldAssignment>>> getFieldsForm() async {
+  Future<DataResponse<List<dynamic>>> getFieldsForm() async {
     try {
-      Response response =
-          await Dio().get("/assets/json/fields_assignment.json");
-      if (response.data && response.data != null) {
-        return DataResponse<List<FormFieldAssignment>>.fromJson(response.data);
+      final response =
+          await rootBundle.loadString("assets/json/fields_assignment.json");
+
+      final jsonDecode = json.decode(response.toString());
+
+      if (jsonDecode['data'] != null) {
+        return DataResponse<List<dynamic>>.fromJson(jsonDecode);
       } else {
-        return DataResponse.withError("Error");
+        return DataResponse.withError("");
       }
     } catch (error, stacktrace) {
       log("getFieldsForm",

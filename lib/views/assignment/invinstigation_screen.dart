@@ -42,10 +42,10 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           isLoading = state.isLoading;
         });
         if (state is FormFieldAssignmentLoaded) {
-          formFields = state.formFields ?? [];
-          titlePage ??= state.titlePage;
-
           print("formFields ${formFields.length}");
+          setState(() {
+            formFields = state.formFields ?? [];
+          });
         }
       },
       child: ScaffoldPage(
