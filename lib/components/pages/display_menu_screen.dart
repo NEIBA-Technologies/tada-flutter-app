@@ -75,7 +75,6 @@ class _DisplayMenuScreenState extends State<DisplayMenuScreen> {
                         ...child.children.map(
                           (it) => GestureDetector(
                             onTap: () {
-                              print('child.children ${it.routeName}');
                               it.onClick();
                             },
                             child: Container(

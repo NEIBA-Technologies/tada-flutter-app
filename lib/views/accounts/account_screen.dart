@@ -51,7 +51,8 @@ class _AccountScreenState extends State<AccountScreen> {
     GridItem(
       icon: AppAssetLink.gridIcon6Svg,
       text: 'Rejoindre la communauté',
-      routeNamed: RouterGenerator.indexRoute,
+      routeNamed: RouterGenerator.previewItemRoute,
+      args: ArgumentAccountPages().socialNetwork,
     ),
   ];
 

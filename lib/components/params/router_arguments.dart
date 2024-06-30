@@ -64,4 +64,18 @@ class ArgumentAccountPages {
           )
         ],
       );
+
+  get socialNetwork => PageRouteSetting(
+        title: 'Rejoindre la communauté',
+        children: [
+          PageRouteSetting(
+            title: "Intégrer notre communauté Telegram",
+            routeName: RouterGenerator.displayContentRoute,
+          ),
+          PageRouteSetting(
+            title: "S’abonner à nos actualités sur Facebook",
+            routeName: RouterGenerator.displayContentRoute,
+          )
+        ],
+      );
 }

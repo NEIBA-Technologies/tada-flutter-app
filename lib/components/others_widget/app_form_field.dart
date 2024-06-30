@@ -44,7 +44,7 @@ class AppFormField extends StatelessWidget {
           obscureText: isObscure,
           controller: controller,
           onTap: onTap,
-          maxLines: maxLines,
+          maxLines: maxLines ?? 1,
           keyboardType: keyboard,
           style: TextStyle(
             fontSize: 14,

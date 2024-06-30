@@ -47,7 +47,7 @@ class _ApplicationState extends State<Application> {
               title: 'Tada',
               debugShowCheckedModeBanner: false,
               theme: theme,
-              initialRoute: RouterGenerator.indexRoute,
+              initialRoute: RouterGenerator.splashScreen,
               navigatorKey: locator<NavigationService>().navigatorKey,
 
               onUnknownRoute: (settings) {
