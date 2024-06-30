@@ -6,20 +6,19 @@ import 'package:tada/core/utils/helpers.dart';
 class GridItem extends StatelessWidget {
   final String icon;
   final String text;
-  final String routeNamed;
+  String? routeNamed;
 
-  const GridItem(
-      {super.key,
-      required this.icon,
-      required this.text,
-      required this.routeNamed});
+  GridItem(
+      {super.key, required this.icon, required this.text, this.routeNamed});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, routeNamed);
+        if (routeNamed != null) Navigator.pushNamed(context, routeNamed!);
       },
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       child: Card(
         color: Colors.white,
         child: Padding(
@@ -28,7 +27,7 @@ class GridItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Helpers.getSvg(icon, color: blackColor,height: 23),
+              Helpers.getSvg(icon, color: blackColor, height: 23),
               const SizedBox(height: 11.0),
               Expanded(
                 child: Align(
@@ -38,7 +37,6 @@ class GridItem extends StatelessWidget {
                     style: context.titleSmall,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-
                   ),
                 ),
               ),

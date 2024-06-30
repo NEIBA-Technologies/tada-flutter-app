@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:tada/components/animated_routes/blur_page_route.dart';
 import 'package:tada/components/params/RouterArguments.dart';
 import 'package:tada/core/models/assignment.dart';
+import 'package:tada/views/accounts/fragments/report_problem_fragment.dart';
+import 'package:tada/views/accounts/fragments/update_account_fragment.dart';
 import 'package:tada/views/auth_screen/fortget_password/reset_password_step_four.dart';
 import 'package:tada/views/auth_screen/fortget_password/reset_password_step_one.dart';
 import 'package:tada/views/auth_screen/fortget_password/reset_password_step_three.dart';
@@ -38,6 +40,8 @@ class RouterGenerator {
   static const removalWithdrawalRoute = "/RemovalWithdrawalScreen";
   static const removalWithdrawalSuccessRoute = "/removalWithdrawalSuccess";
   static const updatePasswordRoute = "/UpdatePasswordFragment";
+  static const reportProblemRoute = "/ReportProblemFragment";
+  static const updateAccountRoute = "/UpdateAccountFragment";
   static String? currentRoute;
 
   static Route<dynamic> navigate(RouteSettings setting) {
@@ -82,25 +86,31 @@ class RouterGenerator {
         page = ResetPasswordStepTwo();
         break;
       case resetPasswordStepThreeRoute:
-        page = ResetPasswordStepThree();
+        page = const ResetPasswordStepThree();
         break;
       case resetPasswordStepFourRoute:
-        page = ResetPasswordStepFour();
+        page = const ResetPasswordStepFour();
         break;
       case withdrawCashRoute:
-        page = WithdrawCashScreen();
+        page = const WithdrawCashScreen();
         break;
       case addAnAccountRoute:
-        page = AddAnAccountScreen();
+        page = const AddAnAccountScreen();
         break;
       case removalWithdrawalRoute:
-        page = RemovalWithdrawalScreen();
+        page = const RemovalWithdrawalScreen();
         break;
       case removalWithdrawalSuccessRoute:
-        page = RemovalWithdrawalSuccessScreen();
+        page = const RemovalWithdrawalSuccessScreen();
         break;
       case updatePasswordRoute:
-        page = UpdatePasswordFragment();
+        page = const UpdatePasswordFragment();
+        break;
+      case reportProblemRoute:
+        page = const ReportProblemFragment();
+        break;
+      case updateAccountRoute:
+        page = const UpdateAccountFragment();
         break;
       case indexRoute:
         page = IndexScreen(

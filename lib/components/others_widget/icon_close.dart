@@ -12,7 +12,7 @@ class IconClose extends StatelessWidget {
     return IconButton(
       onPressed: onPressed ??
           () {
-            Navigator.of(context);
+            Navigator.of(context).pop();
           },
       icon: Icon(Icons.close, color: blackColor),
     );

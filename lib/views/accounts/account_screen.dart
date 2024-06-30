@@ -23,12 +23,12 @@ class _AccountScreenState extends State<AccountScreen> {
     GridItem(
       icon: AppAssetLink.gridIcon1Svg,
       text: 'Contactez le service client',
-      routeNamed: RouterGenerator.indexRoute,
+      routeNamed: null,
     ),
     GridItem(
       icon: AppAssetLink.gridIcon2Svg,
       text: 'Modifier le profil',
-      routeNamed: RouterGenerator.indexRoute,
+      routeNamed: RouterGenerator.updateAccountRoute,
     ),
     GridItem(
       icon: AppAssetLink.gridIcon3Svg,
