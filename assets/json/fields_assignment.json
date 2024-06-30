@@ -1,0 +1,612 @@
+{
+  "data": [
+    {
+      "label": "Nom du magasin",
+      "type": "TEXT",
+      "hint": "Entrez le nom du magasin",
+      "key": "nameMagasin",
+      "order": 1,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys|spontaneous"
+    },
+    {
+      "label": "Nom du gérant",
+      "type": "TEXT",
+      "hint": "Entrez le nom du gérant",
+      "order": 2,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys|spontaneous"
+    },
+    {
+      "label": "Contact du gérant",
+      "type": "PHONE",
+      "hint": "Entrez le contact du gérantt",
+      "order": 3,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys|spontaneous"
+    },
+    {
+      "label": "Type de magasin",
+      "type": "DROPDWON",
+      "hint": "Sélectionner le type de magasin",
+      "order": 3,
+      "step": 1,
+      "validation": null,
+      "options": [
+        "Supermarché",
+        "Épicerie",
+        "Pharmacie"
+      ],
+      "misionType": "fieldSurveys|spontaneous"
+    },
+    {
+      "label": "Photo de l’entrée",
+      "type": "COVER",
+      "hint": "Prendre un photo",
+      "order": 4,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys|spontaneous"
+    },
+    {
+      "label": "Méthodes de paiement disponible",
+      "type": "DROPDWON",
+      "hint": "Sélectionner les méthodes",
+      "order": 5,
+      "step": 1,
+      "validation": null,
+      "options": [
+        "Carte de crédit",
+        "Espèces",
+        "Mobile Money"
+      ],
+      "misionType": "fieldSurveys|spontaneous"
+    },
+    {
+      "label": "Catégories de produits en vente",
+      "type": "DROPDWON",
+      "hint": "Sélectionner les produits",
+      "order": 6,
+      "step": 1,
+      "validation": null,
+      "options": [
+        "Produits alimentaires",
+        "Produits ménagers",
+        "Produits de beauté"
+      ],
+      "misionType": "fieldSurveys|spontaneous"
+    },
+    {
+      "label": "Équipements & Installations",
+      "type": "DROPDWON",
+      "hint": "Sélectionner les types d’équipements",
+      "order": 7,
+      "step": 2,
+      "validation": null,
+      "options": [
+        "Réfrigérateurs",
+        "Congélateurs",
+        "Climatiseurs",
+        "Scanneur",
+        "Espace clien"
+      ],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Quantité en stock",
+      "type": "NUMERIC",
+      "hint": "Entrer la quantité",
+      "order": 9,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Photo du code barre",
+      "type": "COVER",
+      "hint": "Prendre une photo",
+      "order": 10,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Photo du produit sur les étagères",
+      "type": "COVER",
+      "hint": "Prendre une photo",
+      "order": 11,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Prix de vente",
+      "type": "NUMERIC",
+      "hint": "Entrez le prix",
+      "order": 12,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Prix d’achat",
+      "type": "NUMERIC",
+      "hint": "Entrez le prix",
+      "order": 13,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Fréquence de renouvellement de stock",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 14,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Tous les 2 jours",
+        "Tous les 3 jours",
+        "1 fois par semaine",
+        "1 fois par Mois"
+      ],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Source d’approvisionnement",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 15,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Grossiste",
+        "Coursier",
+        "Revendeurs"
+      ],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Omo est-il disponible en stock ?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 16,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Grossiste",
+        "Coursier",
+        "Revendeurs"
+      ],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "En cas de manque, quel produit remplace Omo ?",
+      "type": "TEXT",
+      "hint": "Entrer le nom du produit",
+      "order": 17,
+      "step": 3,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Quel est le prix de ce produit ?",
+      "type": "NUMERIC",
+      "hint": "Entrer le prix du produit",
+      "order": 18,
+      "step": 3,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Que pensez-vous de Omo ?",
+      "type": "TEXT_AREA",
+      "hint": "Entrer l’avis du vendeur",
+      "order": 19,
+      "step": 3,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Que disent les clients de Omo ?",
+      "type": "TEXT_AREA",
+      "hint": "Entrer l’avis du vendeur",
+      "order": 20,
+      "step": 3,
+      "validation": null,
+      "options": [],
+      "misionType": "fieldSurveys"
+    },
+    {
+      "label": "Heures de vente",
+      "type": "DATE_TIME_START_END",
+      "hint": "Ouverture|Fermeture",
+      "order": 8,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "spontaneous"
+    },
+    {
+      "label": "Adresse du point de vente",
+      "type": "TAG",
+      "hint": "Sélectionner les produits",
+      "order": 9,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "spontaneous"
+    },
+    {
+      "label": "Adresse sur la carte",
+      "type": "MAP_WITH_PREVIEW",
+      "hint": "Entrer l’adresse",
+      "order": 10,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "spontaneous"
+    },
+    {
+      "label": "Équipements & Installations",
+      "type": "DROPDWON",
+      "hint": "Sélectionner les types d’équipements",
+      "order": 10,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "spontaneous"
+    },
+    {
+      "label": "Numéro de contribuable",
+      "type": "DROPDWON",
+      "hint": "Entrer le numéro",
+      "order": 10,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "spontaneous"
+    },
+    {
+      "label": "Nom complet",
+      "type": "TEXT",
+      "hint": "Entrez votre nom",
+      "order": 1,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Date de naissance",
+      "type": "DATE_TIME",
+      "hint": "Entrez votre date de naissance",
+      "order": 2,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Votre pays d’origine ",
+      "type": "DROPDWON",
+      "hint": "Sélectionner votre pays",
+      "order": 3,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Lieu d’habitation",
+      "type": "DROPDWON",
+      "hint": "Entrer un lieu",
+      "order": 4,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Quel est votre genre",
+      "type": "RADIO",
+      "hint": "",
+      "order": 5,
+      "step": 1,
+      "validation": null,
+      "options": [
+        "Homme",
+        "Femme"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Quelle est ta profession ?",
+      "type": "DROPDWON",
+      "hint": "",
+      "order": 6,
+      "step": 1,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Où as-tu fais tes études secondaires",
+      "type": "TEXT",
+      "hint": "",
+      "order": 7,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "As-tu suivi des études supérieure ?",
+      "type": "DROPDWON",
+      "hint": "",
+      "order": 8,
+      "step": 2,
+      "validation": null,
+      "options": [
+        "Oui",
+        "Non"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Si oui, dans quel domaine ?",
+      "type": "TEXT",
+      "hint": "",
+      "order": 9,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "As-tu suivi des formations ou des certificats",
+      "type": "DROPDWON",
+      "hint": "",
+      "order": 10,
+      "step": 2,
+      "validation": null,
+      "options": [
+        "Oui",
+        "Non"
+      ],
+      "misionType": "informationTask"
+    }
+    {
+      "label": "Combien d’années d’expérience professionnelle as-tu?",
+      "type": "NUMERIC",
+      "hint": "Entrez votre réponse",
+      "order": 11,
+      "step": 2,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Combien d’années d’expérience professionnelle as-t u?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 12,
+      "step": 2,
+      "validation": null,
+      "options": [
+        "Moins 1 an",
+        "1 à 3 ans",
+        "3 à 5 ans",
+        "5 à 10 ans",
+        "Plus de 10 ans"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Dans quel secteur travailles-tu ?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner votre secteur",
+      "order": 13,
+      "step": 3,
+      "validation": null,
+      "options": [
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Quel est ton poste actuel",
+      "type": "TEXT",
+      "hint": "Entrer votre poste",
+      "order": 14,
+      "step": 3,
+      "validation": null,
+      "options": [
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Quelle est ta situation matrimoniale",
+      "type": "DROPDWON",
+      "hint": "Entrer votre poste",
+      "order": 15,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Marié(e)",
+        "Célibataire",
+        "En couple"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "As-tu des enfants ? Si oui, combien ?",
+      "type": "DROPDWON",
+      "hint": "",
+      "order": 16,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Non",
+        "1 enfant",
+        "2-5 enfants",
+        "+5 enfants"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "As-tu des enfants ? Si oui, combien ?",
+      "type": "DROPDWON",
+      "hint": "",
+      "order": 17,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Non",
+        "1 enfant",
+        "2-5 enfants",
+        "+5 enfants"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Pratiques-tu un sport ou une activité physique régulière ?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 18,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Activités physique régulière",
+        "Football",
+        "Basketball",
+        "Handball",
+        "Natation",
+        "Jogging",
+        "Footing",
+        "Vélo"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "As-tu des croyances religieuses ou spirituelles ?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 18,
+      "step": 3,
+      "validation": null,
+      "options": [
+        "Oui",
+        "Non"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "As-tu voyagé dans d'autres pays ?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 19,
+      "step": 4,
+      "validation": null,
+      "options": [
+        "Oui",
+        "Non"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Si oui, lesquels ?",
+      "type": "TEXT",
+      "hint": "Entrer votre réponse",
+      "order": 20,
+      "step": 4,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Quelle culture étrangère t'inspire le plus ?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 21,
+      "step": 4,
+      "validation": null,
+      "options": [],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Es-tu actif(ve) sur les réseaux sociaux ? Si oui, lesquels ?",
+      "type": "DROPDWON",
+      "hint": "Sélectionner",
+      "order": 22,
+      "step": 4,
+      "validation": null,
+      "options": [
+        "Facebook",
+        "Instagram",
+        "Linkedin",
+        "TikTok",
+        "X (twitter)"
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "As-tu un ordinateur ? Si oui quelle marque ? ",
+      "type": "TEXT",
+      "hint": "Sélectionner",
+      "order": 23,
+      "step": 4,
+      "validation": null,
+      "options": [
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Quel est ton plat préféré ?",
+      "type": "TEXT",
+      "hint": "Sélectionner",
+      "order": 24,
+      "step": 4,
+      "validation": null,
+      "options": [
+      ],
+      "misionType": "informationTask"
+    },
+    {
+      "label": "Quel est ton plat préféré ?",
+      "type": "TEXT",
+      "hint": "Entrer votre réponse",
+      "order": 25,
+      "step": 5,
+      "validation": null,
+      "options": [
+      ],
+      "misionType": "informationTask"
+    }
+  ]
+}
+
+//TEXT,
+//COVER,
+//DROPDWON,
+//MAP,
+//MAP_WITH_PREVIEW,
+//DATE_TIME,
+//RADIO,
+//PHONE, NUMERIC,
+// TEXT_AREA,
+// NUMERIC,
