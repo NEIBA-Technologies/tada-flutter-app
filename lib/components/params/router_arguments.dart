@@ -70,11 +70,11 @@ class ArgumentAccountPages {
         children: [
           PageRouteSetting(
             title: "Intégrer notre communauté Telegram",
-            routeName: RouterGenerator.displayContentRoute,
+            isExternalLink: true,
           ),
           PageRouteSetting(
             title: "S’abonner à nos actualités sur Facebook",
-            routeName: RouterGenerator.displayContentRoute,
+            isExternalLink: true,
           )
         ],
       );
