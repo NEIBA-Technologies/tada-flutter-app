@@ -2,19 +2,16 @@ part of '../blocs/form_field_assignment_bloc.dart';
 
 @immutable
 class FormFieldAssignmentState {
-  final List<FormFieldAssignment>? formFields;
-  final bool isLoading;
-
-  const FormFieldAssignmentState({this.isLoading = false, this.formFields});
+  const FormFieldAssignmentState();
 }
+
+
+class FormFieldAssignmentInital extends FormFieldAssignmentState {}
 
 class FormFieldAssignmentLoaded extends FormFieldAssignmentState {
-  FormFieldAssignmentLoaded({
-    super.formFields,
-    super.isLoading = true,
-  });
+  final List<FormFieldAssignment> formFields;
+
+  FormFieldAssignmentLoaded({required this.formFields});
 }
 
-final class FormFieldAssignmentLoading extends FormFieldAssignmentState {
-  FormFieldAssignmentLoading({super.isLoading});
-}
+final class FormFieldAssignmentLoading extends FormFieldAssignmentState {}

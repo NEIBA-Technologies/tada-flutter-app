@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart'
     show BuildContext, ShapeBorder, TextStyle, TextTheme, Theme, ThemeData;
 import 'package:intl/intl.dart' show NumberFormat, DateFormat;
+
+import 'models/form_field_assignment.dart';
 
 extension ThemeExt on BuildContext {
   ThemeData get theme => Theme.of(this);
@@ -64,7 +67,7 @@ extension CurrencyFormaterInt on num {
       {String locale = "es", int decimalDigits = 2, String symbol = "XOF"}) {
     return NumberFormat.currency(
             locale: locale, decimalDigits: decimalDigits, symbol: symbol)
-        .format(num.parse(this.toString()));
+        .format(num.parse(toString()));
   }
 }
 
@@ -76,6 +79,7 @@ extension NumberFormater on num {
     return input;
   }
 }
+
 extension NumberFormaterString on String {
   String simpleCurrency({String locale = "es", int decimalDigits = 0}) {
     final input = NumberFormat.simpleCurrency(
@@ -101,4 +105,40 @@ extension DateFormater on DateTime {
   String hummanShortWithSplash() {
     return DateFormat('dd/MM/y à HH:mm', 'fr').format(this);
   }
+}
+
+extension ListFormFieldAssignmentExt on List<FormFieldAssignment> {
+  List<FormFieldAssignment> sortListByStep() {
+    sort((a, b) => (a.step ?? 0) - (b.step ?? 0));
+    return this;
+  }
+
+  List<FormFieldAssignment> orderList() {
+    sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+    return this;
+  }
+
+  Map<String, List<FormFieldAssignment>> groupByStep() {
+    Map<String, List<FormFieldAssignment>> groupItem = {};
+
+    map((e) {
+      if (groupItem.containsKey("${e.step}")) {
+        groupItem.update(
+            '${e.step}', (value) => [...?groupItem["${e.step}"], e]);
+      } else {
+        groupItem['${e.step}'] = [e];
+      }
+    }).toList();
+    if (kDebugMode) {
+      print('groupItem $groupItem $this');
+    }
+    return groupItem;
+  }
+}
+
+extension FormFieldAssignmentExt on FormFieldAssignment {
+  bool isInputOf(misionType) => (this.misionType ?? "")
+      .toUpperCase()
+      .split("|")
+      .contains(misionType.toUpperCase());
 }

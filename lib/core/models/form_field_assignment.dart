@@ -1,5 +1,6 @@
-import 'options_form_field_assignment.dart';
 import 'dart:convert';
+
+import 'options_form_field_assignment.dart';
 
 enum TypeFormFieldAssignment {
   TEXT,
@@ -15,7 +16,6 @@ enum TypeFormFieldAssignment {
   DATE_TIME_START_END,
   TAG
 }
-
 
 class FormFieldAssignment {
   final String? label;
@@ -78,15 +78,15 @@ class FormFieldAssignment {
         order: json["order"],
         step: json["step"],
         validation: json["validation"],
-        options: json["options"] == null ? [] :
-        List<OptionsFormFieldAssignment>.from(json["options"]!.map((x) =>
-            OptionsFormFieldAssignment(label: x, value: x))
-        ).toList(),
+        options: json["options"] == null
+            ? []
+            : List<OptionsFormFieldAssignment>.from(json["options"]!
+                    .map((x) => OptionsFormFieldAssignment(label: x, value: x)))
+                .toList(),
         misionType: json["misionType"],
       );
 
-  Map<String, dynamic> toMap() =>
-      {
+  Map<String, dynamic> toMap() => {
         "label": label,
         "type": type,
         "hint": hint,
@@ -94,9 +94,8 @@ class FormFieldAssignment {
         "order": order,
         "step": step,
         "validation": validation,
-        "options": options == null ? [] : List<dynamic>.from(
-            options!.map((x) => x)),
+        "options":
+            options == null ? [] : List<dynamic>.from(options!.map((x) => x)),
         "misionType": misionType,
       };
 }
-
