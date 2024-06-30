@@ -10,8 +10,8 @@ class NavigationService {
 
   NavigationService(this.appRepository);
 
-  Future<dynamic> navigateTo(String routeName) {
-    return navigatorKey.currentState!.pushNamed(routeName);
+  Future<dynamic> navigateTo(String routeName, {dynamic args}) {
+    return navigatorKey.currentState!.pushNamed(routeName,arguments: args);
   }
 
   Future<void> logOut() async {

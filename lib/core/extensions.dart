@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart'
-    show BuildContext, TextStyle, TextTheme, Theme, ThemeData;
+    show BuildContext, ShapeBorder, TextStyle, TextTheme, Theme, ThemeData;
 import 'package:intl/intl.dart' show NumberFormat, DateFormat;
 
 extension ThemeExt on BuildContext {
@@ -19,11 +19,12 @@ extension ThemeExt on BuildContext {
   /// 20 w600 Sora
   TextStyle get titleLarge => Theme.of(this).textTheme.titleLarge!; //
 
-  /// 16 w500 Sora
+  /// 16 w500 Gilroy
   TextStyle get titleMedium => Theme.of(this).textTheme.titleMedium!; //
 
   /// 14 w600 Sora
   TextStyle get titleSmall => Theme.of(this).textTheme.titleSmall!; //
+  ShapeBorder get shape => Theme.of(this).cardTheme.shape!; //
 }
 
 extension StringExt on String {

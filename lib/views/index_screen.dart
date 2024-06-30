@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tada/components/params/RouterArguments.dart';
+import 'package:tada/components/params/router_arguments.dart';
 import 'package:tada/core/app_assets_link.dart';
 import 'package:tada/views/accounts/account_screen.dart';
 

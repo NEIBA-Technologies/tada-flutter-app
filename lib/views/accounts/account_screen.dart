@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tada/components/items/card_action.dart';
+import 'package:tada/components/params/router_arguments.dart';
 import 'package:tada/core/app_assets_link.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
@@ -33,7 +34,8 @@ class _AccountScreenState extends State<AccountScreen> {
     GridItem(
       icon: AppAssetLink.gridIcon3Svg,
       text: 'Support & Contact',
-      routeNamed: RouterGenerator.indexRoute,
+      routeNamed: RouterGenerator.previewItemRoute,
+      args: ArgumentAccountPages().supportAndContact,
     ),
     GridItem(
       icon: AppAssetLink.gridIcon4Svg,
@@ -43,7 +45,8 @@ class _AccountScreenState extends State<AccountScreen> {
     GridItem(
       icon: AppAssetLink.gridIcon5Svg,
       text: 'À propos',
-      routeNamed: RouterGenerator.indexRoute,
+      routeNamed: RouterGenerator.previewItemRoute,
+      args: ArgumentAccountPages().about,
     ),
     GridItem(
       icon: AppAssetLink.gridIcon6Svg,

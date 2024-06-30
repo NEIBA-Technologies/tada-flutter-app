@@ -7,15 +7,22 @@ class GridItem extends StatelessWidget {
   final String icon;
   final String text;
   String? routeNamed;
+  dynamic args;
 
   GridItem(
-      {super.key, required this.icon, required this.text, this.routeNamed});
+      {super.key,
+      required this.icon,
+      required this.text,
+      this.routeNamed,
+      this.args});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (routeNamed != null) Navigator.pushNamed(context, routeNamed!);
+        if (routeNamed != null) {
+          Navigator.pushNamed(context, routeNamed!, arguments: args);
+        }
       },
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,

@@ -22,7 +22,7 @@ class _ReportProblemFragmentState extends State<ReportProblemFragment> {
   @override
   Widget build(BuildContext context) {
     return ScaffoldPage(
-      titlePage: "Modifier le mot de passe",
+      titlePage: "Signaler un problème",
       actions: [IconClose()],
       bottomsheet: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -48,6 +48,7 @@ class _ReportProblemFragmentState extends State<ReportProblemFragment> {
               AppFormField(
                 label: 'Description',
                 controller: _descriptionController,
+                maxLines: 4
               ),
             ],
           ),

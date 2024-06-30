@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:tada/components/animated_routes/blur_page_route.dart';
-import 'package:tada/components/params/RouterArguments.dart';
+import 'package:tada/components/pages/display_content_screen.dart';
+import 'package:tada/components/pages/display_menu_screen.dart';
+import 'package:tada/core/models/page_route_setting.dart';
+import 'package:tada/components/params/router_arguments.dart';
 import 'package:tada/core/models/assignment.dart';
 import 'package:tada/views/accounts/fragments/report_problem_fragment.dart';
 import 'package:tada/views/accounts/fragments/update_account_fragment.dart';
@@ -42,6 +45,8 @@ class RouterGenerator {
   static const updatePasswordRoute = "/UpdatePasswordFragment";
   static const reportProblemRoute = "/ReportProblemFragment";
   static const updateAccountRoute = "/UpdateAccountFragment";
+  static const previewItemRoute = "/previewItem";
+  static const displayContentRoute = "/displayContentScreen";
   static String? currentRoute;
 
   static Route<dynamic> navigate(RouteSettings setting) {
@@ -111,6 +116,12 @@ class RouterGenerator {
         break;
       case updateAccountRoute:
         page = const UpdateAccountFragment();
+        break;
+      case previewItemRoute:
+        page = DisplayMenuScreen(params: setting.arguments as PageRouteSetting);
+        break;
+        case displayContentRoute:
+        page = DisplayContentScreen(params: setting.arguments as PageRouteSetting);
         break;
       case indexRoute:
         page = IndexScreen(

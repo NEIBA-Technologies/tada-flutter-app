@@ -4,7 +4,7 @@ import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/router_generator.dart';
 
-import '../../components/params/RouterArguments.dart';
+import '../../components/params/router_arguments.dart';
 
 class RemovalWithdrawalSuccessScreen extends StatefulWidget {
   const RemovalWithdrawalSuccessScreen({super.key});

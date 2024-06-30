@@ -142,12 +142,9 @@ class _BusinessScreenState extends State<BusinessScreen> {
                         height: MediaQuery.of(context).size.height / 1.5,
                         width: MediaQuery.of(context).size.width,
                         margin: EdgeInsets.only(top: padding * 4.3),
-                        decoration: const ShapeDecoration(
+                        decoration: ShapeDecoration(
                           color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                                bottom: Radius.circular(8)),
-                          ),
+                          shape: context.shape,
                         ),
                         padding: EdgeInsets.symmetric(horizontal: padding)
                             .copyWith(top: padding * 1.2, bottom: padding),

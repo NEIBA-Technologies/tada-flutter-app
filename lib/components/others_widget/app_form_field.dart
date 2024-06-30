@@ -15,9 +15,11 @@ class AppFormField extends StatelessWidget {
     this.controller,
     this.onTap,
     this.isObscure = false,
-    this.labelBold = false,
+    this.labelBold = false,  
+    this.maxLines,
   });
 
+  int? maxLines;
   String label;
   bool? labelBold;
   String? labelHint;
@@ -42,6 +44,7 @@ class AppFormField extends StatelessWidget {
           obscureText: isObscure,
           controller: controller,
           onTap: onTap,
+          maxLines: maxLines,
           keyboardType: keyboard,
           style: TextStyle(
             fontSize: 14,
