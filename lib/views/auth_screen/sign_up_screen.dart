@@ -19,6 +19,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
@@ -59,6 +60,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 AppFormField(
                   label: 'Nom',
                   controller: _firstNameController,
+                ),
+                const SpaceHeightCustom(breakPoint: BreakPoint.sm),
+                 AppFormField(
+                  label: 'Prénom',
+                  controller: _lastNameController,
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(

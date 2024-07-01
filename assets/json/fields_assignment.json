@@ -24,7 +24,7 @@
     {
       "label": "Contact du gérant",
       "type": "PHONE",
-      "hint": "Entrez le contact du gérantt",
+      "hint": "Entrez le contact du gérant",
       "order": 3,
       "step": 1,
       "validation": null,
@@ -34,7 +34,7 @@
     {
       "label": "Type de magasin",
       "type": "DROPDWON",
-      "hint": "Sélectionner le type de magasin",
+      "hint": "Sélectionnez le type de magasin",
       "order": 4,
       "step": 1,
       "validation": null,
@@ -58,7 +58,7 @@
     {
       "label": "Méthodes de paiement disponible",
       "type": "DROPDWON",
-      "hint": "Sélectionner les méthodes",
+      "hint": "Sélectionnez les méthodes",
       "order": 6,
       "step": 1,
       "validation": null,
@@ -72,7 +72,7 @@
     {
       "label": "Catégories de produits en vente",
       "type": "DROPDWON",
-      "hint": "Sélectionner les produits",
+      "hint": "Sélectionnez les produits",
       "order": 7,
       "step": 1,
       "validation": null,
@@ -87,7 +87,7 @@
     {
       "label": "Équipements & Installations",
       "type": "DROPDWON",
-      "hint": "Sélectionner les types d’équipements",
+      "hint": "Sélectionnez les types d’équipements",
       "order": 1,
       "step": 2,
       "validation": null,
@@ -103,7 +103,7 @@
     {
       "label": "Omo est-il vendu au point ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner les types d’équipements",
+      "hint": "Sélectionnez les types d’équipements",
       "order": 2,
       "step": 2,
       "validation": null,
@@ -116,7 +116,7 @@
     {
       "label": "Quantité en stock",
       "type": "NUMERIC",
-      "hint": "Entrer la quantité",
+      "hint": "Entrez la quantité",
       "order": 3,
       "step": 2,
       "validation": null,
@@ -166,7 +166,7 @@
     {
       "label": "Fréquence de renouvellement de stock",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 1,
       "step": 3,
       "validation": null,
@@ -181,7 +181,7 @@
     {
       "label": "Source d’approvisionnement",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 2,
       "step": 3,
       "validation": null,
@@ -195,7 +195,7 @@
     {
       "label": "Omo est-il disponible en stock ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 3,
       "step": 3,
       "validation": null,
@@ -209,7 +209,7 @@
     {
       "label": "En cas de manque, quel produit remplace Omo ?",
       "type": "TEXT",
-      "hint": "Entrer le nom du produit",
+      "hint": "Entrez le nom du produit",
       "order": 4,
       "step": 3,
       "validation": null,
@@ -219,7 +219,7 @@
     {
       "label": "Quel est le prix de ce produit ?",
       "type": "NUMERIC",
-      "hint": "Entrer le prix du produit",
+      "hint": "Entrez le prix du produit",
       "order": 5,
       "step": 3,
       "validation": null,
@@ -229,7 +229,7 @@
     {
       "label": "Que pensez-vous de Omo ?",
       "type": "TEXT_AREA",
-      "hint": "Entrer l’avis du vendeur",
+      "hint": "Entrez l’avis du vendeur",
       "order": 6,
       "step": 3,
       "validation": null,
@@ -239,7 +239,7 @@
     {
       "label": "Que disent les clients de Omo ?",
       "type": "TEXT_AREA",
-      "hint": "Entrer l’avis du vendeur",
+      "hint": "Entrez l’avis du vendeur",
       "order": 7,
       "step": 3,
       "validation": null,
@@ -259,7 +259,7 @@
     {
       "label": "Adresse du point de vente",
       "type": "TAG",
-      "hint": "Sélectionner les produits",
+      "hint": "Sélectionnez les produits",
       "order": 2,
       "step": 2,
       "validation": null,
@@ -269,7 +269,7 @@
     {
       "label": "Adresse sur la carte",
       "type": "MAP_WITH_PREVIEW",
-      "hint": "Entrer l’adresse",
+      "hint": "Entrez l’adresse",
       "order": 3,
       "step": 2,
       "validation": null,
@@ -279,17 +279,17 @@
     {
       "label": "Équipements & Installations",
       "type": "DROPDWON",
-      "hint": "Sélectionner les types d’équipements",
+      "hint": "Sélectionnez les types d’équipements",
       "order": 4,
       "step": 2,
       "validation": null,
-      "options": [],
+      "options": ["Équipements 1", "Équipements 2"],
       "misionType": "spontaneous"
     },
     {
       "label": "Numéro de contribuable",
-      "type": "DROPDWON",
-      "hint": "Entrer le numéro",
+      "type": "TEXT",
+      "hint": "Entrez le numéro",
       "order": 5,
       "step": 2,
       "validation": null,
@@ -319,21 +319,21 @@
     {
       "label": "Votre pays d’origine ",
       "type": "DROPDWON",
-      "hint": "Sélectionner votre pays",
+      "hint": "Sélectionnez votre pays",
       "order": 3,
       "step": 1,
       "validation": null,
-      "options": [],
+      "options": ["Côte d'Ivoire","France","Togo"],
       "misionType": "informationTask"
     },
     {
       "label": "Lieu d’habitation",
       "type": "DROPDWON",
-      "hint": "Entrer un lieu",
+      "hint": "Entrez un lieu",
       "order": 4,
       "step": 1,
       "validation": null,
-      "options": [],
+      "options": ["Abidjan", "Yamoussoukro", "Paris"],
       "misionType": "informationTask"
     },
     {
@@ -352,17 +352,17 @@
     {
       "label": "Quelle est ta profession ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner votre profession",
+      "hint": "Sélectionnez votre profession",
       "order": 6,
       "step": 1,
       "validation": null,
-      "options": [],
+      "options": ["Profession 1", "Profession 2"],
       "misionType": "informationTask"
     },
     {
       "label": "Où as-tu fais tes études secondaires",
       "type": "TEXT",
-      "hint": "",
+      "hint": "Sélectionnez votre reponse",
       "order": 1,
       "step": 2,
       "validation": null,
@@ -372,7 +372,7 @@
     {
       "label": "As-tu suivi des études supérieure ?",
       "type": "DROPDWON",
-      "hint": "",
+      "hint": "Sélectionnez",
       "order": 2,
       "step": 2,
       "validation": null,
@@ -385,7 +385,7 @@
     {
       "label": "Si oui, dans quel domaine ?",
       "type": "TEXT",
-      "hint": "",
+      "hint": "Entrez votre reponse",
       "order": 3,
       "step": 2,
       "validation": null,
@@ -395,7 +395,7 @@
     {
       "label": "As-tu suivi des formations ou des certificats",
       "type": "DROPDWON",
-      "hint": "",
+      "hint": "Sélectionnez",
       "order": 4,
       "step": 2,
       "validation": null,
@@ -407,19 +407,9 @@
     },
     {
       "label": "Combien d’années d’expérience professionnelle as-tu?",
-      "type": "NUMERIC",
-      "hint": "Entrez votre réponse",
-      "order": 5,
-      "step": 2,
-      "validation": null,
-      "options": [],
-      "misionType": "informationTask"
-    },
-    {
-      "label": "Combien d’années d’expérience professionnelle as-t u?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
-      "order": 6,
+      "hint": "Sélectionnez",
+      "order": 5,
       "step": 2,
       "validation": null,
       "options": [
@@ -434,18 +424,19 @@
     {
       "label": "Dans quel secteur travailles-tu ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner votre secteur",
+      "hint": "Sélectionnez votre secteur",
       "order": 1,
       "step": 3,
       "validation": null,
       "options": [
+        "Secteur 1", "Secteur 2"
       ],
       "misionType": "informationTask"
     },
     {
       "label": "Quel est ton poste actuel",
       "type": "TEXT",
-      "hint": "Entrer votre poste",
+      "hint": "Entrez votre poste",
       "order": 2,
       "step": 3,
       "validation": null,
@@ -456,7 +447,7 @@
     {
       "label": "Quelle est ta situation matrimoniale",
       "type": "DROPDWON",
-      "hint": "Entrer votre poste",
+      "hint": "Sélectionnez votre reponse",
       "order": 3,
       "step": 3,
       "validation": null,
@@ -470,7 +461,7 @@
     {
       "label": "As-tu des enfants ? Si oui, combien ?",
       "type": "DROPDWON",
-      "hint": "",
+      "hint": "Sélectionnez",
       "order": 4,
       "step": 3,
       "validation": null,
@@ -485,7 +476,7 @@
     {
       "label": "As-tu des enfants ? Si oui, combien ?",
       "type": "DROPDWON",
-      "hint": "",
+      "hint": "Sélectionnez",
       "order": 5,
       "step": 3,
       "validation": null,
@@ -500,7 +491,7 @@
     {
       "label": "Pratiques-tu un sport ou une activité physique régulière ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 6,
       "step": 3,
       "validation": null,
@@ -519,7 +510,7 @@
     {
       "label": "As-tu des croyances religieuses ou spirituelles ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 7,
       "step": 3,
       "validation": null,
@@ -532,7 +523,7 @@
     {
       "label": "As-tu voyagé dans d'autres pays ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 1,
       "step": 4,
       "validation": null,
@@ -545,7 +536,7 @@
     {
       "label": "Si oui, lesquels ?",
       "type": "TEXT",
-      "hint": "Entrer votre réponse",
+      "hint": "Entrez votre réponse",
       "order": 2,
       "step": 4,
       "validation": null,
@@ -555,17 +546,17 @@
     {
       "label": "Quelle culture étrangère t'inspire le plus ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 3,
       "step": 4,
       "validation": null,
-      "options": [],
+      "options": ["Africaine"],
       "misionType": "informationTask"
     },
     {
       "label": "Es-tu actif(ve) sur les réseaux sociaux ? Si oui, lesquels ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 4,
       "step": 4,
       "validation": null,
@@ -581,7 +572,7 @@
     {
       "label": "As-tu un ordinateur ? Si oui quelle marque ? ",
       "type": "TEXT",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 5,
       "step": 4,
       "validation": null,
@@ -592,7 +583,7 @@
     {
       "label": "Quel est ton plat préféré ?",
       "type": "TEXT",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 6,
       "step": 4,
       "validation": null,
@@ -603,7 +594,7 @@
     {
       "label": "Quelle est ta boisson préférée ?",
       "type": "TEXT",
-      "hint": "Entrer votre réponse",
+      "hint": "Entrez votre réponse",
       "order": 1,
       "step": 5,
       "validation": null,
@@ -613,7 +604,7 @@
     {
       "label": "As-tu un compte bancaire ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 2,
       "step": 5,
       "validation": null,
@@ -626,7 +617,7 @@
     {
       "label": "Dans quelles banques as-tu un compte",
       "type": "TEXT",
-      "hint": "Entrer votre réponse",
+      "hint": "Entrez votre réponse",
       "order": 3,
       "step": 5,
       "validation": null,
@@ -636,7 +627,7 @@
     {
       "label": "Quel type de compte disposes-tu ?",
       "type": "TEXT",
-      "hint": "Entrer votre réponse",
+      "hint": "Entrez votre réponse",
       "order": 4,
       "step": 5,
       "validation": null,
@@ -646,7 +637,7 @@
     {
       "label": "As-tu souscris a une assurance ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 5,
       "step": 5,
       "validation": null,
@@ -659,7 +650,7 @@
     {
       "label": "Quel type d’assurance ?",
       "type": "TEXT",
-      "hint": "Entrer votre réponse",
+      "hint": "Entrez votre réponse",
       "order": 6,
       "step": 5,
       "validation": null,
@@ -672,7 +663,7 @@
     {
       "label": "Avec quelle société d’assurance es-tu ?",
       "type": "TEXT",
-      "hint": "Entrer votre réponse",
+      "hint": "Entrez votre réponse",
       "order": 7,
       "step": 5,
       "validation": null,
@@ -685,7 +676,7 @@
     {
       "label": "Quel est le revenu mensuel de ton foyer ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 1,
       "step": 6,
       "validation": null,
@@ -701,7 +692,7 @@
     {
       "label": "Quelle est ta principale source de revenus ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 2,
       "step": 6,
       "validation": null,
@@ -717,7 +708,7 @@
     {
       "label": "Combien de sources de revenus différentes as-tu ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 3,
       "step": 6,
       "validation": null,
@@ -732,7 +723,7 @@
     {
       "label": "Quelle est la part de ton revenu mensuel consacré aux courses alimentaires ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 4,
       "step": 6,
       "validation": null,
@@ -748,7 +739,7 @@
     {
       "label": "À quelle fréquence fais-tu des achats en ligne ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 5,
       "step": 6,
       "validation": null,
@@ -764,7 +755,7 @@
     {
       "label": "Quel type de magasin fréquentes-tu le plus pour tes achats quotidiens ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 1,
       "step": 7,
       "validation": null,
@@ -780,7 +771,7 @@
     {
       "label": "Quelle marque de produits alimentaires achètes-tu le plus souvent ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 2,
       "step": 7,
       "validation": null,
@@ -796,7 +787,7 @@
     {
       "label": "Quels types de produits achètes-tu le plus souvent ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 3,
       "step": 7,
       "validation": null,
@@ -812,7 +803,7 @@
     {
       "label": "Quel est ton principal critère de choix lors de l'achat d'un produit alimentaire ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 4,
       "step": 7,
       "validation": null,
@@ -828,7 +819,7 @@
     {
       "label": "Combien dépenses-tu en moyenne par mois en divertissement (cinéma, concerts, abonnements de streaming, etc.) ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 5,
       "step": 7,
       "validation": null,
@@ -844,7 +835,7 @@
     {
       "label": "Quels types de produits technologiques achètes-tu le plus souvent ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 1,
       "step": 8,
       "validation": null,
@@ -860,7 +851,7 @@
     {
       "label": "À quelle fréquence achètes-tu des vêtements ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 2,
       "step": 8,
       "validation": null,
@@ -876,7 +867,7 @@
     {
       "label": "Quels sont tes critères principaux pour l'achat de vêtements ?",
       "type": "DROPDWON",
-      "hint": "Sélectionner",
+      "hint": "Sélectionnez",
       "order": 3,
       "step": 8,
       "validation": null,

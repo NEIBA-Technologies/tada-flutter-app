@@ -76,7 +76,7 @@ class _MapWithPreviewState extends State<MapWithPreview> {
                   bottom: 0,
                   left: 0,
                   child: Container(
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 7),
                     decoration: const ShapeDecoration(
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
