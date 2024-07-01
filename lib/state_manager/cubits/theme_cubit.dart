@@ -7,14 +7,17 @@ import 'package:flutter/material.dart'
         BottomSheetThemeData,
         CardTheme,
         CheckboxThemeData,
+        ChipThemeData,
         ColorScheme,
         Colors,
+        DropdownMenuThemeData,
         EdgeInsets,
         ExpansionTileThemeData,
         IconThemeData,
         InputDecorationTheme,
         OutlineInputBorder,
         ProgressIndicatorThemeData,
+        RadioThemeData,
         TabAlignment,
         TabBarIndicatorSize,
         TabBarTheme,
@@ -169,17 +172,65 @@ class ThemeCubit extends Cubit<ThemeData> {
       expansionTileTheme: ExpansionTileThemeData(
         iconColor: blackColor,
         collapsedBackgroundColor: Colors.white,
-
-        collapsedShape:  RoundedRectangleBorder(
+        collapsedShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(8),
           ),
         ),
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(8),
           ),
         ),
       ),
-  );
+      radioTheme: RadioThemeData(
+        fillColor: WidgetStatePropertyAll(primaryColor),
+        splashRadius: 8,
+      ),
+      dropdownMenuTheme: DropdownMenuThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          filled: false,
+          iconColor: blackColor,
+          fillColor: Colors.transparent,
+          contentPadding: const EdgeInsets.all(8.0),
+          hintStyle: TextStyle(
+            color: greyColor,
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: greyColor.shade100, width: 1),
+          ),
+          errorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: greyColor.shade100, width: 1),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(color: Colors.black12, width: 1),
+          ),
+          focusedErrorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red, width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: primaryColor.shade700, width: 1),
+          ),
+        ),
+      ),
+      chipTheme: ChipThemeData(
+          selectedColor: primaryColor,
+          backgroundColor: greyColor.shade50,
+          side: BorderSide(
+            color: Colors.transparent,
+            width: 1,
+          ),
+          shape: const RoundedRectangleBorder(
+            side: BorderSide.none,
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+          )));
 }

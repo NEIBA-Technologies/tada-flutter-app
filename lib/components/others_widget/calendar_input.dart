@@ -1,0 +1,62 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:tada/core/constants.dart';
+import 'package:tada/core/models/form_field_assignment.dart';
+
+import '../../core/shared/modals.dart';
+import 'app_form_field.dart';
+
+class CalendarInput extends StatefulWidget {
+  final FormFieldAssignment data;
+  Function(DateTime value) onChanged;
+
+  TextEditingController controller;
+
+  CalendarInput({
+    super.key,
+    required this.onChanged,
+    required this.data,
+    required this.controller,
+  });
+
+  @override
+  State<CalendarInput> createState() => _CalendarInputState();
+}
+
+class _CalendarInputState extends State<CalendarInput> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        var res = await Modals.showBottomModalSelectDate(
+          context,
+          selectedDate: DateTime.now(),
+          mode: CupertinoDatePickerMode.dateAndTime,
+          minimumDateSelected: DateTime.now(),
+          onDateTimeChanged: (p0) {
+            // print('PRINT .. ${p0}');
+          },
+        );
+        if (res != null) {
+          widget.onChanged(res);
+          setState(() {});
+        }
+      },
+      child: AbsorbPointer(
+        absorbing: true,
+        child: AppFormField(
+          label: widget.data.label!,
+          labelHint: widget.data.hint,
+          labelBold: true,
+          maxLines: 1,
+          controller: widget.controller,
+          keyboard: TextInputType.none,
+          surfixIcon: Icon(
+            Icons.calendar_today_outlined,
+            color: greyColor,
+          ),
+        ),
+      ),
+    );
+  }
+}

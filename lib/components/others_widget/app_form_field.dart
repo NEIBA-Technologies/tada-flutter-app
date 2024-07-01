@@ -15,13 +15,19 @@ class AppFormField extends StatelessWidget {
     this.controller,
     this.onTap,
     this.isObscure = false,
-    this.labelBold = false,  
+    this.labelBold = false,
+    this.showLabel = true,
     this.maxLines,
+    this.surfixIcon,
+    this.prefixIcon,
   });
 
+  Widget? surfixIcon;
+  Widget? prefixIcon;
   int? maxLines;
   String label;
   bool? labelBold;
+  bool? showLabel;
   String? labelHint;
   TextInputType? keyboard;
   TextEditingController? controller;
@@ -33,14 +39,21 @@ class AppFormField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: context.labelSmall
-              .copyWith(fontWeight: (labelBold ?? false) ? FontWeight.w700:  null),
-        ),
-        const SpaceHeightCustom(),
+        if(showLabel ?? false)...[
+          Text(
+            label,
+            style: context.labelSmall.copyWith(
+                fontWeight: (labelBold ?? false) ? FontWeight.w700 : null),
+          ),
+          const SpaceHeightCustom(),
+        ],
+
         TextFormField(
-          decoration: InputDecoration(hintText: labelHint),
+          decoration: InputDecoration(
+            hintText: labelHint,
+            suffixIcon: surfixIcon,
+            prefixIcon: prefixIcon,
+          ),
           obscureText: isObscure,
           controller: controller,
           onTap: onTap,

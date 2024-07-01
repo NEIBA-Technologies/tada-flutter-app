@@ -10,6 +10,13 @@ import 'package:tada/core/shared/modals.dart';
 import 'package:tada/state_manager/blocs/form_field_assignment_bloc.dart';
 
 import '../../components/others_widget/app_buttom_widget.dart';
+import '../../components/others_widget/calendar_input.dart';
+import '../../components/others_widget/datetime_start_end_input.dart';
+import '../../components/others_widget/dropdwon_input.dart';
+import '../../components/others_widget/map_with_preview.dart';
+import '../../components/others_widget/radio_widget.dart';
+import '../../components/others_widget/tag_input.dart';
+import '../../components/others_widget/upload_input.dart';
 import '../../core/constants.dart';
 import '../../core/models/assignment.dart';
 
@@ -175,17 +182,37 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           maxLines: 1,
         );
       case TypeFormFieldAssignment.COVER:
-      // TODO: Handle this case.
+        return UploadInput(
+          onChanged: (value) {},
+          data: data,
+        );
       case TypeFormFieldAssignment.DROPDWON:
-      // TODO: Handle this case.
+        return DropdwonInput(
+          data: data,
+          controller: controller ?? TextEditingController(),
+        );
       case TypeFormFieldAssignment.MAP:
-      // TODO: Handle this case.
       case TypeFormFieldAssignment.MAP_WITH_PREVIEW:
-      // TODO: Handle this case.
+        return MapWithPreview(
+          data: data,
+          controller: TextEditingController(),
+        );
       case TypeFormFieldAssignment.DATE_TIME:
-      // TODO: Handle this case.
+        return CalendarInput(
+          data: data,
+          controller: controller ?? TextEditingController(),
+          onChanged: (value) {
+            // controller?.text = value.hummanShort();
+          },
+        );
       case TypeFormFieldAssignment.RADIO:
-      // TODO: Handle this case.
+        return RadioInput(
+          data: data,
+          selected: "Homme",
+          onChanged: (String? value) {
+            // controller?.text = value ?? '';
+          },
+        );
       case TypeFormFieldAssignment.PHONE:
         return AppFormField(
           label: data.label!,
@@ -203,6 +230,10 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           controller: controller,
           maxLines: 1,
           keyboard: TextInputType.number,
+          prefixIcon: Icon(
+            Icons.phone,
+            color: greyColor,
+          ),
         );
       case TypeFormFieldAssignment.TEXT_AREA:
         return AppFormField(
@@ -213,10 +244,16 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           maxLines: 4,
         );
       case TypeFormFieldAssignment.DATE_TIME_START_END:
-      // TODO: Handle this case.
+        return DatetimeStartEndInput(
+          data: data,
+          onChanged: (DateTime value) {},
+          controller: controller ?? TextEditingController(),
+        );
       case TypeFormFieldAssignment.TAG:
-      // TODO: Handle this case.
-
+        return TagInput(
+          data: data,
+          controller: TextEditingController(),
+        );
       default:
         return AppFormField(
           label: data.label!,

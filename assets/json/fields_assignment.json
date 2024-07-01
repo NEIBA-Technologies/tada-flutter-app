@@ -263,7 +263,7 @@
       "order": 2,
       "step": 2,
       "validation": null,
-      "options": [],
+      "options": ["Produit 1", "Produit 2", "Produit 3"],
       "misionType": "spontaneous"
     },
     {
