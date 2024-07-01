@@ -12,11 +12,14 @@ class CalendarInput extends StatefulWidget {
 
   TextEditingController controller;
 
+  CupertinoDatePickerMode? mode;
+
   CalendarInput({
     super.key,
     required this.onChanged,
     required this.data,
     required this.controller,
+    this.mode,
   });
 
   @override
@@ -31,7 +34,7 @@ class _CalendarInputState extends State<CalendarInput> {
         var res = await Modals.showBottomModalSelectDate(
           context,
           selectedDate: DateTime.now(),
-          mode: CupertinoDatePickerMode.dateAndTime,
+          mode: widget.mode ?? CupertinoDatePickerMode.date,
           minimumDateSelected: DateTime.now(),
           onDateTimeChanged: (p0) {
             // print('PRINT .. ${p0}');

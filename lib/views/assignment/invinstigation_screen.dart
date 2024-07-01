@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -198,8 +199,10 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           controller: TextEditingController(),
         );
       case TypeFormFieldAssignment.DATE_TIME:
+      case TypeFormFieldAssignment.DATE:
         return CalendarInput(
           data: data,
+          mode: data.type?.toEnumTypeFormField() == TypeFormFieldAssignment.DATE_TIME ? CupertinoDatePickerMode.dateAndTime :  CupertinoDatePickerMode.date,
           controller: controller ?? TextEditingController(),
           onChanged: (value) {
             // controller?.text = value.hummanShort();

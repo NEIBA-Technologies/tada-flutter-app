@@ -14,7 +14,7 @@ enum TypeFormFieldAssignment {
   NUMERIC,
   TEXT_AREA,
   DATE_TIME_START_END,
-  TAG
+  TAG, DATE
 }
 
 class FormFieldAssignment {

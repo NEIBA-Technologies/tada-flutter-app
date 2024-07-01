@@ -53,7 +53,7 @@ class _DatetimeStartEndInputState extends State<DatetimeStartEndInput> {
                     var res = await Modals.showBottomModalSelectDate(
                       context,
                       selectedDate: DateTime.now(),
-                      mode: CupertinoDatePickerMode.dateAndTime,
+                      mode: CupertinoDatePickerMode.time,
                       minimumDateSelected: DateTime.now(),
                       onDateTimeChanged: (p0) {
                         // print('PRINT .. ${p0}');

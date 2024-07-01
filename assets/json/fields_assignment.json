@@ -308,7 +308,7 @@
     },
     {
       "label": "Date de naissance",
-      "type": "DATE_TIME",
+      "type": "DATE",
       "hint": "Entrez votre date de naissance",
       "order": 2,
       "step": 1,
