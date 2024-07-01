@@ -230,10 +230,7 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           controller: controller,
           maxLines: 1,
           keyboard: TextInputType.number,
-          prefixIcon: Icon(
-            Icons.phone,
-            color: greyColor,
-          ),
+
         );
       case TypeFormFieldAssignment.TEXT_AREA:
         return AppFormField(
