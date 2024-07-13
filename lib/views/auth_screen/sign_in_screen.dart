@@ -29,6 +29,13 @@ class _SignInScreenState extends State<SignInScreen> {
     super.dispose();
   }
 
+  String? _validateField(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Ce champ est requis';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,12 +74,14 @@ class _SignInScreenState extends State<SignInScreen> {
                     label: 'Adresse mail',
                     controller: _emailController,
                     keyboard: TextInputType.emailAddress,
+                    validator: _validateField,
                   ),
                   const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                   AppFormField(
                     label: 'Mot de passe ',
                     controller: _passwordController,
                     isObscure: true,
+                    validator: _validateField,
                   ),
                   const SpaceHeightCustom(),
                   Row(
@@ -120,8 +129,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SpaceHeightCustom(breakPoint: BreakPoint.md),
                   AppButtonWidget(
                       onPressed: () {
-                        Navigator.pushNamed(
-                            context, RouterGenerator.indexRoute);
+                        if (_formKey.currentState?.validate() ?? false) {
+                          Navigator.pushNamed(
+                              context, RouterGenerator.indexRoute);
+                        }
                       },
                       label: "Commencer"),
                   const SpaceHeightCustom(),
