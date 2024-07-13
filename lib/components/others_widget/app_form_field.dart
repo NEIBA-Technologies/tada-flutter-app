@@ -3,8 +3,6 @@ import 'package:tada/components/others_widget/space_custom.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
 
-//import 'package:tada/core/constants.dart';
-
 // ignore: must_be_immutable
 class AppFormField extends StatelessWidget {
   AppFormField({
@@ -20,6 +18,7 @@ class AppFormField extends StatelessWidget {
     this.maxLines,
     this.surfixIcon,
     this.prefixIcon,
+    this.validator,
   });
 
   Widget? surfixIcon;
@@ -33,13 +32,14 @@ class AppFormField extends StatelessWidget {
   TextEditingController? controller;
   bool isObscure;
   final Function()? onTap;
+  final String? Function(String?)? validator; // ajout de la fonction validator
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if(showLabel ?? false)...[
+        if (showLabel ?? false) ...[
           Text(
             label,
             style: context.labelSmall.copyWith(
@@ -47,7 +47,6 @@ class AppFormField extends StatelessWidget {
           ),
           const SpaceHeightCustom(),
         ],
-
         TextFormField(
           decoration: InputDecoration(
             hintText: labelHint,
@@ -59,6 +58,7 @@ class AppFormField extends StatelessWidget {
           onTap: onTap,
           maxLines: maxLines ?? 1,
           keyboardType: keyboard,
+          validator: validator,
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,

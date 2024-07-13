@@ -36,11 +36,11 @@ class FormFieldAssignmentBloc
         dataFormat = dataFormat.sortListByStep();
         emit(FormFieldAssignmentLoaded(formFields: dataFormat));
       } else {
-        emit(FormFieldAssignmentLoaded(formFields: []));
+        emit(FormFieldAssignmentLoaded(formFields: const []));
       }
     } catch (e) {
       emit(
-        FormFieldAssignmentLoaded(formFields: []),
+        FormFieldAssignmentLoaded(formFields: const []),
       );
     }
   }

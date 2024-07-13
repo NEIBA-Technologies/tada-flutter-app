@@ -22,8 +22,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+
+  String? _validateField(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Ce champ est requis';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,41 +60,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                 ),
-                const SpaceHeightCustom(
-                  breakPoint: BreakPoint.md,
-                ),
+                const SpaceHeightCustom(breakPoint: BreakPoint.md),
                 AppFormField(
                   label: 'Nom',
                   controller: _firstNameController,
+                  validator: _validateField,
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
-                 AppFormField(
+                AppFormField(
                   label: 'Prénom',
                   controller: _lastNameController,
+                  validator: _validateField,
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Adresse mail',
                   controller: _emailController,
                   keyboard: TextInputType.emailAddress,
+                  validator: _validateField,
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Mot de passe ',
                   controller: _passwordController,
                   isObscure: true,
+                  validator: _validateField,
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Confirmez le mot de passe',
                   controller: _confirmPasswordController,
                   isObscure: true,
+                  validator: _validateField,
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.md),
                 AppButtonWidget(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, RouterGenerator.signInRoute);
+                      if (_formKey.currentState?.validate() ?? false) {
+                        Navigator.pushReplacementNamed(
+                            context, RouterGenerator.signInRoute);
+                      }
                     },
                     label: "Commencer"),
                 const SpaceHeightCustom(),

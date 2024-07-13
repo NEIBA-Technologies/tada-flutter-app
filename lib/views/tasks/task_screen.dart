@@ -58,11 +58,11 @@ class _TaskScreenState extends State<TaskScreen>
         body: TabBarView(
             controller: tabController,
             physics: const BouncingScrollPhysics(),
-            children: [
-              const FavorisFragment(),
-              const PendingFragment(),
-              const ApprovedFragment(),
-              const RejectedFragment(),
+            children: const [
+              FavorisFragment(),
+              PendingFragment(),
+              ApprovedFragment(),
+              RejectedFragment(),
             ]),
       ),
     );
