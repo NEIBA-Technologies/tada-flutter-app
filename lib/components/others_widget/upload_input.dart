@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/models/form_field_assignment.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import 'app_form_field.dart';
 
@@ -28,6 +29,7 @@ class _UploadInputState extends State<UploadInput> {
         labelHint: widget.data.hint,
         labelBold: true,
         maxLines: 1,
+        validator: (value) => validateRequiredField(value, widget.data.label!),
         keyboard: TextInputType.none,
         surfixIcon: Icon(
           Icons.camera_alt_outlined,

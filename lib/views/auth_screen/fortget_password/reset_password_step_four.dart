@@ -9,7 +9,8 @@ import '../../../core/constants.dart';
 import '../../../core/utils/helpers.dart'; // Assurez-vous d'importer flutter_svg
 
 class ResetPasswordStepFour extends StatelessWidget {
-  const ResetPasswordStepFour({super.key});
+  ResetPasswordStepFour({super.key});
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +52,15 @@ class ResetPasswordStepFour extends StatelessWidget {
                 const SpaceHeightCustom(breakPoint: BreakPoint.md),
                 AppButtonWidget(
                     onPressed: () {
+                      if (_formKey.currentState!.validate()) { 
                       Navigator.pushNamedAndRemoveUntil(
                         context,
                         RouterGenerator.signInRoute,
                         (route) => false,
                       );
-                    },
-                    label: "Commencer"),
+                    }
+                  },
+                  label: "Commencer"),
                 const SpaceHeightCustom(breakPoint: BreakPoint.md),
                 Container(
                   alignment: Alignment.center,

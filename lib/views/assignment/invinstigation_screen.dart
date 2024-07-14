@@ -8,6 +8,7 @@ import 'package:tada/components/others_widget/space_custom.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/models/form_field_assignment.dart';
 import 'package:tada/core/shared/modals.dart';
+import 'package:tada/core/validator/validate.dart';
 import 'package:tada/state_manager/blocs/form_field_assignment_bloc.dart';
 
 import '../../components/others_widget/app_buttom_widget.dart';
@@ -181,6 +182,7 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           labelBold: true,
           controller: controller,
           maxLines: 1,
+          validator: (value) => validateRequiredField(value, data.label!),
         );
       case TypeFormFieldAssignment.COVER:
         return UploadInput(
@@ -224,6 +226,7 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           controller: controller,
           maxLines: 1,
           keyboard: TextInputType.phone,
+          validator: (value) => validateRequiredField(value, data.label!),
         );
       case TypeFormFieldAssignment.NUMERIC:
         return AppFormField(
@@ -233,7 +236,7 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           controller: controller,
           maxLines: 1,
           keyboard: TextInputType.number,
-
+          validator: (value) => validateRequiredField(value, data.label!),
         );
       case TypeFormFieldAssignment.TEXT_AREA:
         return AppFormField(
@@ -242,6 +245,7 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           labelBold: true,
           controller: controller,
           maxLines: 4,
+          validator: (value) => validateRequiredField(value, data.label!),
         );
       case TypeFormFieldAssignment.DATE_TIME_START_END:
         return DatetimeStartEndInput(
@@ -261,6 +265,7 @@ class _InvinstigationScreenState extends State<InvinstigationScreen> {
           labelBold: true,
           controller: controller,
           maxLines: 1,
+          validator: (value) => validateRequiredField(value, data.label!),
         );
     }
   }

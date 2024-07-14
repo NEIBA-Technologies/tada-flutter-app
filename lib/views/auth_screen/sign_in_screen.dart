@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tada/core/extensions.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../components/others_widget/app_buttom_widget.dart';
 import '../../components/others_widget/app_form_field.dart';
@@ -27,13 +28,6 @@ class _SignInScreenState extends State<SignInScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
-  }
-
-  String? _validateField(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Ce champ est requis';
-    }
-    return null;
   }
 
   @override
@@ -74,14 +68,14 @@ class _SignInScreenState extends State<SignInScreen> {
                     label: 'Adresse mail',
                     controller: _emailController,
                     keyboard: TextInputType.emailAddress,
-                    validator: _validateField,
+                    validator: (value) => validateRequiredField(value, 'Adresse mail'),
                   ),
                   const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                   AppFormField(
                     label: 'Mot de passe ',
                     controller: _passwordController,
                     isObscure: true,
-                    validator: _validateField,
+                    validator: (value) => validateRequiredField(value, 'Mot de passe'),
                   ),
                   const SpaceHeightCustom(),
                   Row(
@@ -129,9 +123,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SpaceHeightCustom(breakPoint: BreakPoint.md),
                   AppButtonWidget(
                       onPressed: () {
-                        if (_formKey.currentState?.validate() ?? false) {
-                          Navigator.pushNamed(
-                              context, RouterGenerator.indexRoute);
+                        if (_formKey.currentState!.validate()) {
+                        Navigator.pushNamed(
+                            context, RouterGenerator.indexRoute);
                         }
                       },
                       label: "Commencer"),

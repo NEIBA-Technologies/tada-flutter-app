@@ -56,8 +56,10 @@ class ResetPasswordStepTwo extends StatelessWidget {
                   const SpaceHeightCustom(breakPoint: BreakPoint.md),
                   AppButtonWidget(
                       onPressed: () {
+                        if (_formKey.currentState!.validate()) {
                         Navigator.pushNamed(
                             context, RouterGenerator.resetPasswordStepThreeRoute);
+                        }
                       },
                       label: "Commencer"),
                   const SpaceHeightCustom(breakPoint: BreakPoint.sm),

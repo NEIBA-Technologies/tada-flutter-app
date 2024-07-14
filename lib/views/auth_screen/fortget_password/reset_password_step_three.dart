@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tada/core/extensions.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../../components/others_widget/app_buttom_widget.dart';
 import '../../../components/others_widget/app_form_field.dart';
@@ -73,6 +74,7 @@ class _ResetPasswordStepThreeState extends State<ResetPasswordStepThree> {
                     controller: _passwordController,
                     keyboard: TextInputType.visiblePassword,
                     isObscure: true,
+                    validator: (value) => validateRequiredField(value, 'Mot de passe'),
                   ),
                   Text('Doit contenir au moins 8 caractères.',style: context.labelSmall,),
                   const SpaceHeightCustom(breakPoint: BreakPoint.sm),
@@ -80,12 +82,15 @@ class _ResetPasswordStepThreeState extends State<ResetPasswordStepThree> {
                     label: 'Mot de passe ',
                     controller: _passwordController,
                     isObscure: true,
+                    validator: (value) => validateRequiredField(value, 'Mot de passe'),
                   ),
                   const SpaceHeightCustom(breakPoint: BreakPoint.md),
                   AppButtonWidget(
                       onPressed: () {
+                        if (_formKey.currentState!.validate()) {
                         Navigator.pushNamed(
                             context, RouterGenerator.resetPasswordStepFourRoute);
+                        }
                       },
                       label: "Commencer"),
                   const SpaceHeightCustom(breakPoint: BreakPoint.sm),

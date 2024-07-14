@@ -17,7 +17,7 @@ class Modals {
         actions: [
           CupertinoActionSheetAction(
             onPressed: () => Navigator.of(context).pop(false),
-            child:   Text(
+            child:   const Text(
               'Continuer',
               style: TextStyle(
                 color: Colors.green

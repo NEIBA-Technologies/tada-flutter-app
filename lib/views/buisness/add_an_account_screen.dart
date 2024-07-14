@@ -6,6 +6,7 @@ import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/router_generator.dart';
 import 'package:tada/core/utils/helpers.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../components/layouts/scaffold_page.dart';
 import '../../components/others_widget/app_buttom_widget.dart';
@@ -21,6 +22,7 @@ class AddAnAccountScreen extends StatefulWidget {
 class _AddAnAccountScreenState extends State<AddAnAccountScreen> {
   TextEditingController _fullNameContoller = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +33,10 @@ class _AddAnAccountScreenState extends State<AddAnAccountScreen> {
         padding: const EdgeInsets.all(8.0),
         child: AppButtonWidget(
             onPressed: () {
+              if (_formKey.currentState!.validate()) {
               Navigator.pushNamed(
                   context, RouterGenerator.removalWithdrawalRoute);
+                  }
             },
             label: "Commencer"),
       ),
@@ -44,7 +48,7 @@ class _AddAnAccountScreenState extends State<AddAnAccountScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width / 8,
                   child: Helpers.getSvg(AppAssetLink.smartPhoneIconSvg,
                       color: primaryColor, height: 30),
@@ -68,12 +72,14 @@ class _AddAnAccountScreenState extends State<AddAnAccountScreen> {
                   label: 'Nom du compte',
                   controller: _fullNameContoller,
                   keyboard: TextInputType.text,
+                  validator: (value) => validateRequiredField(value, 'Nom du compte'),
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Numéro de téléphone',
                   controller: _phoneController,
                   keyboard: TextInputType.phone,
+                  validator: (value) => validateRequiredField(value, 'Numéro de téléphone'),
                 ),
               ],
             ),

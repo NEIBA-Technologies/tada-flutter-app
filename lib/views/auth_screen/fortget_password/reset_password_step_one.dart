@@ -3,6 +3,7 @@ import 'package:tada/core/app_assets_link.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/utils/helpers.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../../components/others_widget/app_buttom_widget.dart';
 import '../../../components/others_widget/app_form_field.dart';
@@ -70,12 +71,15 @@ class _ResetPasswordStepOneState extends State<ResetPasswordStepOne> {
                     label: 'Adresse mail',
                     controller: _emailController,
                     keyboard: TextInputType.emailAddress,
+                    validator: (value) => validateRequiredField(value, 'Adresse mail'),
                   ),
                   const SpaceHeightCustom(breakPoint: BreakPoint.md),
                   AppButtonWidget(
                       onPressed: () {
+                        if (_formKey.currentState!.validate()) {
                         Navigator.pushNamed(
                             context, RouterGenerator.resetPasswordStepTwoRoute);
+                        }
                       },
                       label: "Commencer"),
                   const SpaceHeightCustom(breakPoint: BreakPoint.sm),

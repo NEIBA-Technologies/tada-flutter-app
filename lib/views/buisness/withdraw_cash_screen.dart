@@ -24,6 +24,7 @@ class _WithdrawCashScreenState extends State<WithdrawCashScreen> {
     AccountTransaction(title: 'Orange money', phone: "0702030456"),
   ];
 
+
   AccountTransaction? selectedItem;
 
   @override
@@ -35,7 +36,8 @@ class _WithdrawCashScreenState extends State<WithdrawCashScreen> {
         padding: const EdgeInsets.all(8.0),
         child: AppButtonWidget(onPressed: () {
           Navigator.pushNamed(context, RouterGenerator.addAnAccountRoute);
-        }, label: "Commencer"),
+        },
+        label: "Commencer"),
       ),
       body: SingleChildScrollView(
         padding:   EdgeInsets.all(padding),

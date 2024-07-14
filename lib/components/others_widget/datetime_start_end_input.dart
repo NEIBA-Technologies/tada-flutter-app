@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:tada/components/others_widget/space_custom.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/models/form_field_assignment.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../core/shared/modals.dart';
 import 'app_form_field.dart';
@@ -72,6 +73,7 @@ class _DatetimeStartEndInputState extends State<DatetimeStartEndInput> {
                       labelHint: index == 0 ? hints.first : hints[index - 1],
                       labelBold: true,
                       maxLines: 1,
+                      validator: (value) => validateRequiredField(value, ""),
                       keyboard: TextInputType.none,
                     ),
                   ),

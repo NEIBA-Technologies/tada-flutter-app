@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/models/form_field_assignment.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../core/shared/modals.dart';
 import 'app_form_field.dart';
@@ -52,6 +53,7 @@ class _CalendarInputState extends State<CalendarInput> {
           labelHint: widget.data.hint,
           labelBold: true,
           maxLines: 1,
+          validator: (value) => validateRequiredField(value, widget.data.label!),
           controller: widget.controller,
           keyboard: TextInputType.none,
           surfixIcon: Icon(

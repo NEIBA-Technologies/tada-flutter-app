@@ -94,7 +94,7 @@ class RouterGenerator {
         page = const ResetPasswordStepThree();
         break;
       case resetPasswordStepFourRoute:
-        page = const ResetPasswordStepFour();
+        page =  ResetPasswordStepFour();
         break;
       case withdrawCashRoute:
         page = const WithdrawCashScreen();

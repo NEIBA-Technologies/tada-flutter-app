@@ -19,6 +19,7 @@ class RemovalWithdrawalScreen extends StatefulWidget {
 class _RemovalWithdrawalScreenState extends State<RemovalWithdrawalScreen> {
   TextEditingController _amountController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldPage(

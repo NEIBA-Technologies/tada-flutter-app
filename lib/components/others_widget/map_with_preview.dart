@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tada/components/others_widget/space_custom.dart';
 import 'package:tada/core/extensions.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../core/constants.dart';
 import '../../core/models/form_field_assignment.dart';
@@ -37,6 +38,7 @@ class _MapWithPreviewState extends State<MapWithPreview> {
             showLabel: false,
             labelBold: true,
             maxLines: 1,
+            validator: (value) => validateRequiredField(value, widget.data.label!),
             keyboard: TextInputType.none,
             surfixIcon: Icon(
               Icons.my_location_outlined,
@@ -50,7 +52,7 @@ class _MapWithPreviewState extends State<MapWithPreview> {
           height: 130,
 
           padding: EdgeInsets.all(padding),
-          margin: EdgeInsets.only(bottom: 5),
+          margin: const EdgeInsets.only(bottom: 5),
           decoration: ShapeDecoration(
             color: greyColor.shade50,
             shape: RoundedRectangleBorder(

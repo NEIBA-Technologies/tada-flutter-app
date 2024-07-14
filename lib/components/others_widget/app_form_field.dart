@@ -18,7 +18,7 @@ class AppFormField extends StatelessWidget {
     this.maxLines,
     this.surfixIcon,
     this.prefixIcon,
-    this.validator,
+    required this.validator, // Le validateur est maintenant obligatoire
   });
 
   Widget? surfixIcon;
@@ -32,7 +32,7 @@ class AppFormField extends StatelessWidget {
   TextEditingController? controller;
   bool isObscure;
   final Function()? onTap;
-  final String? Function(String?)? validator; // ajout de la fonction validator
+  final String? Function(String?) validator; // Validator est obligatoire et non-nullable
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class AppFormField extends StatelessWidget {
           onTap: onTap,
           maxLines: maxLines ?? 1,
           keyboardType: keyboard,
-          validator: validator,
+          validator: (value) => validator(value), 
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,

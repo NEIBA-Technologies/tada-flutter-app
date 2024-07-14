@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../components/others_widget/app_buttom_widget.dart';
 import '../../components/others_widget/app_form_field.dart';
@@ -22,14 +23,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
-
-  String? _validateField(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Ce champ est requis';
-    }
-    return null;
-  }
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,43 +55,45 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                 ),
-                const SpaceHeightCustom(breakPoint: BreakPoint.md),
+                const SpaceHeightCustom(
+                  breakPoint: BreakPoint.md,
+                ),
                 AppFormField(
                   label: 'Nom',
                   controller: _firstNameController,
-                  validator: _validateField,
+                  validator: (value) => validateRequiredField(value, 'mot de passe'),
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Prénom',
                   controller: _lastNameController,
-                  validator: _validateField,
+                  validator: (value) => validateRequiredField(value, 'Prénom'),
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Adresse mail',
                   controller: _emailController,
                   keyboard: TextInputType.emailAddress,
-                  validator: _validateField,
+                  validator: (value) => validateRequiredField(value, 'Adresse mail'),
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Mot de passe ',
                   controller: _passwordController,
                   isObscure: true,
-                  validator: _validateField,
+                  validator: (value) => validateRequiredField(value, 'Mot de passe'),
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.sm),
                 AppFormField(
                   label: 'Confirmez le mot de passe',
                   controller: _confirmPasswordController,
                   isObscure: true,
-                  validator: _validateField,
+                  validator: (value) => validateRequiredField(value, 'Confirmez le mot de passe'),
                 ),
                 const SpaceHeightCustom(breakPoint: BreakPoint.md),
                 AppButtonWidget(
                     onPressed: () {
-                      if (_formKey.currentState?.validate() ?? false) {
+                      if (_formKey.currentState!.validate()) {
                         Navigator.pushReplacementNamed(
                             context, RouterGenerator.signInRoute);
                       }

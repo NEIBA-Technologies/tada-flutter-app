@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
-
-String? validateField(TextEditingController? controller, String? label, {bool isDropdown = false}) {
-  if (controller?.text.isEmpty ?? true) {
-    if (isDropdown) {
-      return 'Please select something for ${label ?? ""}';
-    } else {
-      return 'Please enter something for ${label ?? ""}';
-    }
+// validators.dart
+String? validateRequiredField(String? value, String label) {
+  if (value == null || value.isEmpty) {
+    return 'Veuillez entrer $label';
   }
   return null;
 }

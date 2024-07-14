@@ -21,6 +21,7 @@ class BusinessScreen extends StatefulWidget {
 }
 
 class _BusinessScreenState extends State<BusinessScreen> {
+
   final List<Transaction> transactions = [
     Transaction(
       title: 'Enquête cliblées',

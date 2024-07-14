@@ -6,6 +6,7 @@ import 'package:tada/core/app_assets_link.dart';
 import 'package:tada/core/constants.dart';
 import 'package:tada/core/extensions.dart';
 import 'package:tada/core/utils/helpers.dart';
+import 'package:tada/core/validator/validate.dart';
 
 import '../../../components/others_widget/app_buttom_widget.dart';
 import '../../../components/others_widget/app_form_field.dart';
@@ -20,6 +21,7 @@ class UpdateAccountFragment extends StatefulWidget {
 class _UpdateAccountFragmentState extends State<UpdateAccountFragment> {
   TextEditingController _fullNameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,9 @@ class _UpdateAccountFragmentState extends State<UpdateAccountFragment> {
         padding: const EdgeInsets.all(8.0),
         child: AppButtonWidget(
             onPressed: () {
+              if (_formKey.currentState!.validate()) {
               Navigator.pop(context);
+              }
             },
             label: "Soumettre"),
       ),
@@ -70,11 +74,13 @@ class _UpdateAccountFragmentState extends State<UpdateAccountFragment> {
             AppFormField(
               label: 'Nom complet',
               controller: _fullNameController,
+              validator: (value) => validateRequiredField(value, 'Nom complet'),
             ),
             const SpaceHeightCustom(),
             AppFormField(
               label: 'Adresse email',
               controller: _emailController,
+              validator: (value) => validateRequiredField(value, 'Adresse email'),
             ),
             const SpaceHeightCustom(breakPoint: BreakPoint.lg),
             Container(
