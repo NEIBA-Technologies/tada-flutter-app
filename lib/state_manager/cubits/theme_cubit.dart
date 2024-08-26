@@ -26,6 +26,7 @@ import 'package:flutter/material.dart'
         ThemeData;
 import 'package:flutter/services.dart' show FontWeight, SystemUiOverlayStyle;
 import 'package:flutter_bloc/flutter_bloc.dart' show Cubit;
+import 'package:tada/components/layouts/scaffold_page.dart';
 
 import '../../core/constants.dart';
 
@@ -45,6 +46,7 @@ class ThemeCubit extends Cubit<ThemeData> {
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
       ),
+
       appBarTheme: AppBarTheme(
           elevation: 3,
           shadowColor: Colors.black38,

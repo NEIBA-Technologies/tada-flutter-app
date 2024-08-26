@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tada/components/others_widget/app_bar_widget.dart';
 
 class ScaffoldPage extends StatelessWidget {
@@ -30,7 +33,9 @@ class ScaffoldPage extends StatelessWidget {
       bottomNavigationBar: bottomsheet != null
           ? BottomSheet(
               onClosing: () {},
-              builder: (context) => bottomsheet!,
+              builder: (context) => Container(
+                  margin: EdgeInsets.only(bottom: Platform.isIOS ? 20 : 0),
+                  child: bottomsheet!),
             )
           : null,
       body: body,

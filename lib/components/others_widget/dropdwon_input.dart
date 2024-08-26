@@ -38,6 +38,7 @@ class _DropdwonInputState extends State<DropdwonInput> {
           child: DropdownMenu(
             width: double.infinity,
             expandedInsets: EdgeInsets.zero,
+
             textStyle: const TextStyle(fontSize: 13),
             menuStyle: MenuStyle(
               backgroundColor: const WidgetStatePropertyAll(Colors.white),
@@ -52,6 +53,10 @@ class _DropdwonInputState extends State<DropdwonInput> {
                   (e) => DropdownMenuEntry(
                     value: '${e.value}',
                     label: "${e.label}",
+                    style: ButtonStyle(
+                      textStyle: WidgetStatePropertyAll(TextStyle(overflow: TextOverflow.ellipsis,))
+                    )
+
                   ),
                 )
                 .toList(),

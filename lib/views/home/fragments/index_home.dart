@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tada/core/extensions.dart';
 
 import '../../../components/items/assignment_item_widget.dart';
 import '../../../components/layouts/scaffold_page.dart';
+import '../../../components/others_widget/app_buttom_widget.dart';
 import '../../../components/others_widget/chip_widget.dart';
 import '../../../components/others_widget/space_custom.dart';
 import '../../../core/app_assets_link.dart';
@@ -24,9 +26,10 @@ class _IndexHomeState extends State<IndexHome> {
   Widget build(BuildContext context) {
     return ScaffoldPage(
       titlePage: 'Missions',
+      color: Colors.white,
       actions: [
         Chipwidget(
-          label: displayCard ? "Liste" : "Carte",
+          label: displayCard ? "Carte" : "Liste",
           onPressed: () {
             setState(() {
               displayCard = !displayCard;

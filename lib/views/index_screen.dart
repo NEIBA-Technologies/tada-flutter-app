@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tada/components/params/router_arguments.dart';
@@ -34,14 +37,14 @@ class _IndexScreen extends State<IndexScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: SystemUiOverlay.values);
-
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,overlays: SystemUiOverlay.values);
     return WillPopScope(
       onWillPop: () async => await Modals.showAlertClose(context) ?? false,
       child: Scaffold(
+        backgroundColor: Colors.white,
         bottomNavigationBar: Container(
           padding: const EdgeInsets.all(10),
+          margin: EdgeInsets.only(bottom: Platform.isIOS ? 20:0),
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: boxShadowSM,
